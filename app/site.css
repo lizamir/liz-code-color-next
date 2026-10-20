@@ -466,7 +466,7 @@ html[data-theme="sun"] .contact { background: radial-gradient(ellipse at 5% 100%
 .hero .display em { background: var(--accent); color: var(--on-accent); padding: 0 0.14em 0.04em; border-radius: 0.12em; display: inline-block; transform: rotate(-1.6deg); box-decoration-break: clone; }
 
 /* business card */
-.bc { position: relative; display: grid; justify-items: center; align-content: start; min-height: min(560px, 70svh); padding-top: 0; --cw: min(400px, 82vw); }
+.bc { position: relative; display: grid; justify-items: center; align-content: start; min-height: min(560px, 70svh); padding-top: 0; --cw: min(470px, 84vw); }
 .bc-rig { transform-origin: 50% 0; display: grid; justify-items: center; will-change: transform; touch-action: pan-y; }
 .bc-cord { width: 2px; height: clamp(80px, 14svh, 150px); background: linear-gradient(var(--on-deep-2), var(--accent-light)); border-radius: 2px; }
 .bc-ring { width: 26px; height: 26px; border-radius: 50%; border: 4px solid #cfd2dc; box-shadow: inset 0 0 0 2px #7d8190, 0 3px 6px rgba(0, 0, 0, 0.4); margin-top: -4px; position: relative; z-index: 2; }
@@ -575,3 +575,11 @@ html[data-theme="sun"] .contact { background: radial-gradient(ellipse at 5% 100%
 @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
 
 .case-cover.case-devices { background: none; border: 0; box-shadow: none; overflow: visible; margin-top: -90px; padding-inline: 4%; }
+
+/* the card now carries her portrait on the left, text on the right */
+.bc-photo { position: absolute; inset-block: 0; inset-inline-end: 0; width: 41%; height: 100%; object-fit: cover; object-position: 50% 14%; -webkit-mask-image: linear-gradient(to left, #000 72%, transparent); mask-image: linear-gradient(to left, #000 72%, transparent); pointer-events: none; }
+.bc-front .bc-tag { inset-inline-start: auto; inset-inline-end: auto; right: 7%; left: auto; }
+.bc-front .bc-id, .bc-front .bc-foot { width: 54%; margin-inline-end: auto; }
+.bc-spark { inset-inline-start: auto; inset-inline-end: 44%; }
+.bc-front .bc-foot { flex-direction: column; gap: 4px; align-items: flex-start; }
+.bc-front .bc-foot { margin-left: auto; margin-right: 0; align-items: flex-end; } .bc-id { text-align: right; }

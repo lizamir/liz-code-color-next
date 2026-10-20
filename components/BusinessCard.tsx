@@ -120,9 +120,8 @@ export default function BusinessCard() {
               <p className="bc-tag" dir="ltr">
                 CODE &amp; COLOR
               </p>
-              <p className="bc-mono" dir="ltr" aria-hidden="true">
-                LH
-              </p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="bc-photo" src="/liz.webp" alt="ליז חאג׳ג׳" width={720} height={960} draggable={false} />
               <div className="bc-id">
                 <h2>{SITE.person}</h2>
                 <p>{SITE.role}</p>
