@@ -1,12 +1,11 @@
-import WaveBackground from "./WaveBackground";
+import GridGlow from "./GridGlow";
 import BusinessCard from "./BusinessCard";
 import { PROOF, SITE } from "@/lib/content";
 
 export default function Hero() {
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
-      <WaveBackground />
-      <div className="hero-shade" aria-hidden="true" />
+      <GridGlow />
 
       <div className="container hero-grid">
         <div className="hero-copy" data-in>
@@ -31,7 +30,7 @@ export default function Hero() {
               <span style={{ ["--i" as string]: 2, ["--base" as string]: "120ms" }}>שאי אפשר לפספס.</span>
             </span>
           </h1>
-          <p className="lead reveal" style={{ ["--d" as string]: 4 }}>
+          <p className="lead sel reveal" style={{ ["--d" as string]: 4 }}>
             אתרים עם אופי, פיתוח מותאם אישית ויישום AI, לעסקים עצמאיים, מותגים וצוותים שרוצים לקחת את הדיגיטל שלהם קדימה.
           </p>
           <div className="hero-actions reveal" style={{ ["--d" as string]: 5 }}>

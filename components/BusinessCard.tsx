@@ -107,6 +107,14 @@ export default function BusinessCard() {
 
   return (
     <div className="bc" aria-label="כרטיס הביקור שלי">
+      <span className="fc fc-a" aria-hidden="true">
+        <svg viewBox="0 0 20 22" width="18" height="20"><path d="M2 1l15 8-6.5 1.8L8 18z" fill="currentColor" stroke="#fff" strokeWidth="1.4" strokeLinejoin="round" /></svg>
+        <b>React</b>
+      </span>
+      <span className="fc fc-b" aria-hidden="true">
+        <svg viewBox="0 0 20 22" width="18" height="20"><path d="M2 1l15 8-6.5 1.8L8 18z" fill="currentColor" stroke="#fff" strokeWidth="1.4" strokeLinejoin="round" /></svg>
+        <b>AI</b>
+      </span>
       <div className="bc-rig" ref={rig}>
         <span className="bc-cord" aria-hidden="true" />
         <span className="bc-ring" aria-hidden="true" />

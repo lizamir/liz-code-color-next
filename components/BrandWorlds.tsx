@@ -4,7 +4,7 @@ import { BRAND_WORLDS } from "@/lib/content";
 /** Five brands, five phones: a staggered row of live sites (native scroll, so it works with touch and keyboard). */
 export default function BrandWorlds() {
   return (
-    <section className="section worlds on-deep" id="brand-worlds" aria-labelledby="worlds-title">
+    <section className="section worlds" id="brand-worlds" aria-labelledby="worlds-title">
       <div className="container">
         <div className="section-head reveal">
           <div>

@@ -2,29 +2,29 @@
    The brand is a color system, so the accent is a variable: the visitor can switch it (data-theme).
    Every text pair was checked against WCAG AA. Bright colors are fills; text uses the -ink variants. */
 :root {
-  --paper: #f4f1ea;
-  --paper-2: #ebe6db;
-  --ink: #101010;
-  --ink-2: #2a2a2a;
-  --muted: #565656;
-  --line: rgba(16, 16, 16, 0.16);
-  --deep: #160d34;
-  --deep-2: #221552;
-  --on-deep: #ece8f8;
-  --on-deep-2: #c9c0e6;
+  --paper: #faf9fc;
+  --paper-2: #f1edf8;
+  --ink: #1f1a2e;
+  --ink-2: #36304a;
+  --muted: #5b5470;
+  --line: rgba(31, 26, 46, 0.14);
+  --deep: #251c3a;
+  --deep-2: #2f2448;
+  --on-deep: #f3effb;
+  --on-deep-2: #cdc4e2;
 
-  --lime: #c0ff55;
-  --violet: #803dff;
-  --pink: #ff398f;
-  --teal: #00d1b8;
-  --sun: #ff7a2f;
+  --lime: #e4d6ff;
+  --violet: #7f5bd6;
+  --pink: #f0a6c3;
+  --teal: #8fcfbf;
+  --sun: #f5b48a;
 
   /* active theme (default: violet) */
-  --accent: #803dff;
-  --accent-ink: #6a2ae0; /* accent used as text on paper */
-  --accent-light: #b99aff; /* accent used as text on deep backgrounds */
+  --accent: #7f5bd6;
+  --accent-ink: #6a46c2; /* accent used as text on paper */
+  --accent-light: #cbb9f5; /* accent used as text on deep backgrounds */
   --on-accent: #ffffff; /* text on an accent fill */
-  --accent-soft: #e6dcff; /* tint of the accent on paper */
+  --accent-soft: #ece6fa; /* tint of the accent on paper */
 
   --font-display: var(--font-rubik), "Arial Hebrew", sans-serif;
   --font-body: var(--font-assistant), "Arial Hebrew", sans-serif;
@@ -35,9 +35,9 @@
   --container: 1280px;
   --header-h: 88px;
 }
-html[data-theme="pink"] { --accent: #ff398f; --accent-ink: #b81262; --accent-light: #ff7db4; --on-accent: #101010; --accent-soft: #ffdcec; }
-html[data-theme="teal"] { --accent: #00d1b8; --accent-ink: #006b60; --accent-light: #00d1b8; --on-accent: #101010; --accent-soft: #c9f5ef; }
-html[data-theme="sun"] { --accent: #ff7a2f; --accent-ink: #a64100; --accent-light: #ff9a5c; --on-accent: #101010; --accent-soft: #ffe0cc; }
+html[data-theme="pink"] { --accent: #f0a6c3; --accent-ink: #b0366a; --accent-light: #f6c3d8; --on-accent: #1f1a2e; --accent-soft: #fce8ef; }
+html[data-theme="teal"] { --accent: #8fcfbf; --accent-ink: #2b7566; --accent-light: #b9e6da; --on-accent: #1f1a2e; --accent-soft: #e2f4ee; }
+html[data-theme="sun"] { --accent: #f5b48a; --accent-ink: #a14d24; --accent-light: #f9cfb3; --on-accent: #1f1a2e; --accent-soft: #fdebdf; }
 
 /* ───────────── Base ───────────── */
 * { box-sizing: border-box; }
@@ -154,4 +154,4 @@ html.a11y-contrast :focus-visible { outline: 4px solid #000; box-shadow: 0 0 0 8
 
 /* Scroll progress bar */
 .progress { position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 120; background: transparent; pointer-events: none; }
-.progress i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--accent), var(--lime)); transform-origin: 100% 50%; transform: scaleX(var(--progress, 0)); }
+.progress i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 100% 50%; transform: scaleX(var(--progress, 0)); }

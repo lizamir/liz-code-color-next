@@ -46,7 +46,7 @@ function Showcase({ p, i }: { p: Project; i: number }) {
 /** Selected work as a stack of full-width cards: each project sits on a monitor with a phone in front. */
 export default function Work() {
   return (
-    <section className="section work on-deep" id="work" aria-labelledby="work-title">
+    <section className="section work" id="work" aria-labelledby="work-title">
       <div className="container">
         <div className="section-head reveal">
           <div>
