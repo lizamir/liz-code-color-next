@@ -46,6 +46,7 @@ export const CATEGORIES: { id: "all" | Category; label: string }[] = [
 
 export type Project = {
   slug: string;
+  mock: string; // base name of /public/mock/<mock>-d.webp and -m.webp (desktop and phone screenshots)
   no: string;
   title: string;
   kicker: string;
@@ -68,6 +69,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     slug: "ganli",
+    mock: "ganli",
     no: "01",
     title: "גנלי",
     kicker: "מיתוג, אתר ומערכת ניהול לגן",
@@ -107,6 +109,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "community-os",
+    mock: "community",
     no: "02",
     title: "COMMUNITY OS",
     kicker: "לוח בקרה לפעילות קהילתית",
@@ -134,6 +137,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "glow-studio",
+    mock: "glow",
     no: "03",
     title: "GLOW STUDIO",
     kicker: "אתר לסטודיו ביוטי",
@@ -163,6 +167,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "signature-engine",
+    mock: "signature",
     no: "04",
     title: "SIGNATURE ENGINE",
     kicker: "מערכת לחתימות מייל",
@@ -192,6 +197,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "content-design",
+    mock: "creative",
     no: "05",
     title: "CONTENT & DESIGN",
     kicker: "קריאייטיב, רשתות ושפה גרפית",

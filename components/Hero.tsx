@@ -1,5 +1,5 @@
 import WaveBackground from "./WaveBackground";
-import HeroArt from "./HeroArt";
+import BusinessCard from "./BusinessCard";
 import { PROOF, SITE } from "@/lib/content";
 
 export default function Hero() {
@@ -54,7 +54,7 @@ export default function Hero() {
             ))}
           </ul>
         </div>
-        <HeroArt />
+        <BusinessCard />
       </div>
 
       <a className="scroll-cue" href="#work" aria-label="לגלול לעבודות">

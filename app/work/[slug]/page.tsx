@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Devices from "@/components/Devices";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -80,8 +81,8 @@ export default async function CaseStudy({ params }: Props) {
         </section>
 
         <div className="container case-body">
-          <figure className="case-cover reveal">
-            <Image src={p.cover} alt={p.coverAlt} width={1600} height={1000} sizes="(max-width: 1300px) 100vw, 1240px" priority />
+          <figure className="case-cover case-devices reveal">
+            <Devices mock={p.mock} alt={p.coverAlt} priority className="dv-large" />
           </figure>
 
           <section className="case-block reveal" aria-labelledby="c-challenge">
