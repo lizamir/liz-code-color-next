@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Devices from "@/components/Devices";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description: p.summary,
     alternates: { canonical: `/work/${p.slug}/` },
-    openGraph: { title, description: p.summary, url: `/work/${p.slug}/`, images: [{ url: `/work/${p.shot}-d.webp`, width: 1440, height: 900, alt: p.alt }] },
+    openGraph: { title, description: p.summary, url: `/work/${p.slug}/`, images: [{ url: p.cover, width: 1600, height: 1000, alt: p.coverAlt }] },
   };
 }
 
@@ -33,24 +34,25 @@ export default async function CaseStudy({ params }: Props) {
   if (i < 0) notFound();
   const p = PROJECTS[i];
   const next = PROJECTS[(i + 1) % PROJECTS.length];
-  const site = p.links[1];
 
   return (
     <>
       <ScrollProgress />
       <Header home={false} />
       <main id="main" className="case">
-        <section className="case-hero" style={{ ["--surface" as string]: p.surface, ["--on-surface" as string]: p.onSurface }}>
+        <section className="case-hero" data-tone={p.tone}>
           <div className="container">
             <Link className="case-back" href="/#work">
               ← כל העבודות
             </Link>
-            <p className="eyebrow" style={{ color: "inherit" }}>
+            <p className="eyebrow">
               CASE STUDY · {p.no} / {String(PROJECTS.length).padStart(2, "0")}
             </p>
-            <h1>{p.title}</h1>
+            <h1 className="display" dir="ltr">
+              {p.title}
+            </h1>
             <p className="lead">
-              {p.kicker}. {p.line}
+              {p.kicker}. {p.summary}
             </p>
             <dl className="meta">
               <div>
@@ -67,46 +69,46 @@ export default async function CaseStudy({ params }: Props) {
               </div>
             </dl>
             <div className="case-actions">
-              <a className="btn btn-primary" href={site.href}>
-                {site.label} <span className="arrow" aria-hidden="true">↗</span>
-              </a>
-            </div>
-            <div className="case-shots">
-              <figure className="d">
-                <Image src={`/work/${p.shot}-d.webp`} alt={p.alt} width={1440} height={900} sizes="(max-width: 900px) 70vw, 900px" priority />
-              </figure>
-              <figure className="m">
-                <Image src={`/work/${p.shot}-m.webp`} alt={`${p.title} בטלפון`} width={560} height={1213} sizes="(max-width: 900px) 28vw, 260px" />
-              </figure>
+              {p.links.map((l, k) => (
+                <a key={l.href} className={`btn ${k === 0 ? "btn-ink" : "btn-ghost"}`} href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+                  <span>
+                    {l.label} {l.external ? "↗" : "↙"}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </section>
 
         <div className="container case-body">
-          <section className="case-block reveal" aria-labelledby="c-who">
-            <h2 id="c-who">
-              <span>01</span> למי זה מיועד
+          <figure className="case-cover case-devices reveal">
+            <Devices mock={p.mock} alt={p.coverAlt} priority className="dv-large" />
+          </figure>
+
+          <section className="case-block reveal" aria-labelledby="c-challenge">
+            <h2 id="c-challenge">
+              <span>01</span> האתגר
             </h2>
-            <p className="case-lead">{p.audience}</p>
+            <p className="case-lead">{p.challenge}</p>
           </section>
 
-          <section className="case-block reveal" aria-labelledby="c-built">
-            <h2 id="c-built">
-              <span>02</span> מה בניתי
+          <section className="case-block reveal" aria-labelledby="c-approach">
+            <h2 id="c-approach">
+              <span>02</span> הגישה
             </h2>
             <ol className="approach">
-              {p.built.map((a) => (
+              {p.approach.map((a) => (
                 <li key={a}>{a}</li>
               ))}
             </ol>
           </section>
 
-          <section className="case-block reveal" aria-labelledby="c-dec">
-            <h2 id="c-dec">
-              <span>03</span> החלטות UX
+          <section className="case-block reveal" aria-labelledby="c-built">
+            <h2 id="c-built">
+              <span>03</span> מה נבנה
             </h2>
             <div className="hl-grid">
-              {p.decisions.map((h) => (
+              {p.highlights.map((h) => (
                 <article key={h.title} className="hl">
                   <h3>{h.title}</h3>
                   <p>{h.text}</p>
@@ -122,7 +124,7 @@ export default async function CaseStudy({ params }: Props) {
               </h2>
               <div className="gallery">
                 {p.gallery.map((g) => (
-                  <figure key={g.src}>
+                  <figure key={g.src} className={g.w < g.h ? "tall" : undefined}>
                     <Image src={g.src} alt={g.alt} width={g.w} height={g.h} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
                   </figure>
                 ))}
@@ -130,26 +132,28 @@ export default async function CaseStudy({ params }: Props) {
             </section>
           )}
 
-          <nav className="case-next" aria-label="הפרויקט הבא">
-            <span>NEXT PROJECT</span>
-            <Link href={`/work/${next.slug}/`}>
+          <nav className="case-next reveal" aria-label="הפרויקט הבא">
+            <span>הפרויקט הבא</span>
+            <Link href={`/work/${next.slug}/`} data-cursor="לפרויקט">
               <b dir="ltr">{next.title}</b>
               <small>{next.kicker} ←</small>
             </Link>
           </nav>
         </div>
 
-        <section className="case-cta on-deep" style={{ background: "var(--deep)" }}>
+        <section className="case-cta on-deep">
           <div className="container">
-            <p className="eyebrow">NEXT</p>
             <h2 className="title">
-              רוצים משהו <em>כזה?</em>
+              יש לכם פרויקט <em>דומה?</em>
             </h2>
-            <p className="lead">ספרו לי על העסק או על הרעיון, ונבין יחד מה שווה לבנות קודם.</p>
+            <p className="lead">ספרו לי בכמה שורות מה צריך, ואחזור עם כיוון ראשוני.</p>
             <div className="case-actions">
               <a className="btn btn-lime" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-                בואו נדבר בוואטסאפ <span className="arrow" aria-hidden="true">↗</span>
+                בואו נדבר בוואטסאפ ↗
               </a>
+              <Link className="btn btn-ghost" href="/#contact">
+                <span>לטופס הקצר</span>
+              </Link>
             </div>
           </div>
         </section>
