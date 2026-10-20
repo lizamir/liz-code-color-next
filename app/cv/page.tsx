@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PrintButton from "@/components/PrintButton";
-import { CREDENTIALS, PROJECTS, SITE, STACK } from "@/lib/content";
+import { CV_EDU, CV_JOBS, PROJECTS, SITE, STACK } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "קורות חיים",
@@ -46,20 +46,37 @@ export default function CV() {
         <section>
           <h2>בקצרה</h2>
           <p>
-            מפתחת Full‑Stack, מומחית ומיישמת AI, עם לב של מעצבת. מחברת קוד, עיצוב ובינה מלאכותית כדי להפוך רעיונות לאתרים, כלים ותהליכים שמשרתים אנשים ועסקים. עובדת עם בעלי עסקים ויזמים בפרויקטי פרילנס, ומשתלבת גם בצוותי פיתוח.
+            מפתחת Full‑Stack עם מעל 4 שנות ניסיון בפיתוח, מומחית ומיישמת AI, עם לב של מעצבת. מחברת קוד, עיצוב ובינה מלאכותית כדי להפוך רעיונות לאתרים, כלים ותהליכים שמשרתים אנשים ועסקים. עובדת עם בעלי עסקים ויזמים בפרויקטי פרילנס, ומשתלבת גם בצוותי פיתוח.
           </p>
         </section>
 
         <section>
-          <h2>ניסיון והכשרה</h2>
+          <h2>ניסיון תעסוקתי</h2>
           <ul className="cv-list">
-            {[...CREDENTIALS].reverse().map((c) => (
-              <li key={c.title}>
+            {CV_JOBS.map((j) => (
+              <li key={j.title + j.where}>
                 <div>
-                  <b>{c.title}</b>
-                  <span>{c.sub}</span>
+                  <b>
+                    {j.title} · {j.where}
+                  </b>
+                  <span>{j.when}</span>
                 </div>
-                <p>{c.text}</p>
+                <p>{j.text}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>השכלה, הסמכות והכשרה</h2>
+          <ul className="cv-list">
+            {CV_EDU.map((e) => (
+              <li key={e.title}>
+                <div>
+                  <b>{e.title}</b>
+                  <span>{e.where}</span>
+                </div>
+                <p>{e.text}</p>
               </li>
             ))}
           </ul>

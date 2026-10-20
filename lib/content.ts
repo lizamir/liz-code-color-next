@@ -29,7 +29,7 @@ export const NAV = [
 
 /** What a visitor should know in the first five seconds. */
 export const PROOF = [
-  { value: "3", unit: "שנים", label: "פיתוח ואינטגרציות ב‑Deloitte" },
+  { value: "4+", unit: "שנים", label: "ניסיון בפיתוח" },
   { value: "2", unit: "הסמכות", label: "Workato ו‑MuleSoft" },
   { value: "B.Sc.", unit: "", label: "הנדסת חשמל ואלקטרוניקה" },
 ];
@@ -195,7 +195,7 @@ export const PROJECTS: Project[] = [
     no: "05",
     title: "CONTENT & DESIGN",
     kicker: "קריאייטיב, רשתות ושפה גרפית",
-    summary: "קריאייטיב לרשתות, דפי נחיתה, באנרים ושפה גרפית שממשיכה את המותג בכל נקודת מפגש.",
+    summary: "סטודיו קונספט שנותן לעסק קטן קול של מותג גדול: טיפוגרפיה חיה, שלושה פוסטרים עם רעיון, ומעבדת מסרים שבונה כותרות ותוצאת גוגל.",
     categories: ["brand"],
     year: "2026",
     role: ["כיוון אמנותי", "עיצוב גרפי", "דפי נחיתה"],
@@ -203,25 +203,27 @@ export const PROJECTS: Project[] = [
     cover: "/work/content-design.webp",
     coverAlt: "Bold Studio: דף נחיתה לסטודיו קריאייטיב בצבעים בולטים",
     tone: "teal",
-    links: [{ href: "/demos/creative.html", label: "לאתר הקריאייטיב" }],
-    challenge: "מותג צריך להישמע אותו דבר בפוסט, בבאנר ובדף נחיתה. בלי שפה אחת, כל חלק נראה כמו מותג אחר.",
+    links: [{ href: "/demos/creative.html", label: "לאתר הסטודיו" }, { href: "/demos/creative.html#lab", label: "למעבדת המסרים" }],
+    challenge: "רוב אתרי הסטודיו נראים אותו דבר: כותרת גדולה, שלושה כרטיסים וכפתור. רציתי אתר שמראה את העבודה במקום להבטיח אותה, וגם שיימצא בגוגל.",
     approach: [
-      "קמפיין למותג לייף סטייל, שפה גרפית לתוכן דיגיטלי וכיוון להשקת מוצר, כולם סביב רעיון אחד בביטויים רבים.",
-      "צבע, נוכחות וטיפוגרפיה גדולה כדי לעצור את הגלילה.",
+      "הרעיון הוא “תפסו מקום”. האותיות בכותרת מתעבות ככל שהמצביע מתקרב, והגלילה הופכת רעש של מסרים גנריים למשפט אחד.",
+      "שלושה קונספטים (מותג לייף‑סטייל, רשתות והשקה), כל אחד עם רעיון וביטוי אנימטיבי משלו.",
+      "מעבדת מסרים: שם, תחום ועיר הופכים לכותרות באתר ולתצוגה של תוצאת חיפוש עם מדידת אורך. כך נראית עבודת תוכן ו‑SEO.",
     ],
     highlights: [
-      { title: "רעיון אחד, הרבה ביטויים", text: "מערכת שמחזיקה גם כשמוסיפים פורמטים." },
-      { title: "דף נחיתה ממיר", text: "מסר אחד, קריאה אחת לפעולה." },
+      { title: "טיפוגרפיה שמגיבה", text: "פונט משתנה (Heebo) שמשקלו משתנה לפי המרחק מהמצביע, בלי לשנות את הפריסה." },
+      { title: "גלילה שמספרת", text: "משפט שמתאסף מהרעש בזמן הגלילה, וסטריפ שמסתובב לפי מהירות הגלילה." },
+      { title: "תוכן ו‑SEO בפעולה", text: "כותרות, כותרת ותיאור לגוגל ומדידת אורך, בחיבור לכוונת החיפוש." },
     ],
   },
 ];
 
 export const BRAND_WORLDS = [
-  { id: "glow", title: "GLOW / SKIN STUDIO", desc: "ביוטי · נקי, אישי ואלגנטי" },
-  { id: "jewelry", title: "AURA / FINE JEWELRY", desc: "תכשיטים · דרמטי ומדויק" },
-  { id: "icecream", title: "SCOOP / HAPPY GELATO", desc: "גלידות · צבעוני ושובב" },
-  { id: "burger", title: "STACK / BURGER CLUB", desc: "המבורגרים · נועז ומעורר תיאבון" },
-  { id: "school", title: "PLAYDAY / SCHOOL FEST", desc: "יום כיף · שמח ומלא דמיון" },
+  { id: "glow", title: "GLOW / SKIN STUDIO", desc: "ביוטי · נשימה מודרכת ואור שעוקב אחרי המצביע" },
+  { id: "jewelry", title: "AURA / FINE JEWELRY", desc: "תכשיטים · פנס אור שמגלה את הברק" },
+  { id: "icecream", title: "SCOOP / HAPPY GELATO", desc: "גלידות · בונים גביע וכדורים נוחתים" },
+  { id: "burger", title: "STACK / BURGER CLUB", desc: "המבורגרים · המבורגר שמתפרק בגלילה" },
+  { id: "school", title: "PLAYDAY / SCHOOL FEST", desc: "יום כיף · גוררים מדבקות לתכנון היום" },
 ];
 
 export const SERVICES = [
@@ -262,10 +264,31 @@ export const PROCESS = [
 /** In the order a story is told: study, work, certification, training, today. */
 export const CREDENTIALS = [
   { title: "הנדסת חשמל ואלקטרוניקה", sub: "תואר ראשון", text: "חשיבה מערכתית: איך חלקים קטנים מתחברים למערכת שעובדת." },
-  { title: "פיתוח ב‑Deloitte", sub: "כשלוש שנים", text: "פיתוח מערכות ואינטגרציות בסביבה ארגונית, בעבודת צוות." },
+  { title: "מעל 4 שנות פיתוח", sub: "מערכות, אינטגרציות ואתרים", text: "בסביבות ארגוניות ובפרויקטים עצמאיים. איפה ומה בדיוק, אפשר לראות בקורות החיים." },
   { title: "הסמכות Workato ו‑MuleSoft", sub: "פלטפורמות אינטגרציה", text: "חיבור בין מערכות, ממשקי API ותהליכים אוטומטיים בקנה מידה ארגוני." },
   { title: "BotCamp של Focus AI", sub: "בוגרת", text: "סוכנים ב‑n8n, מערכות RAG, חיבורי MCP ואפיון פתרונות AI עסקיים." },
   { title: "היום: פרילנס ושילוב בצוותים", sub: "React · WordPress · AI", text: "מאתר תדמית ועד ממשק מותאם או תהליך אוטומטי, עם קשר ישיר וליווי." },
+];
+
+/** Shown only on the CV page: this is where the details of who and what are written. */
+export const CV_JOBS = [
+  {
+    title: "פרילנס ושילוב בצוותי פיתוח",
+    where: "עצמאית",
+    when: "היום",
+    text: "אתרים וממשקים ב‑React ו‑Next.js, WordPress, מערכות עם Supabase, אוטומציות וסוכני AI ב‑n8n. עבודה ישירה עם בעלי עסקים ויזמים, וגם השתלבות בצוותים.",
+  },
+  {
+    title: "פיתוח מערכות ואינטגרציות",
+    where: "Deloitte",
+    when: "כשלוש שנים",
+    text: "פיתוח מערכות ואינטגרציות בסביבה ארגונית, בעבודת צוות. הסמכות Workato ו‑MuleSoft.",
+  },
+];
+export const CV_EDU = [
+  { title: "תואר ראשון בהנדסת חשמל ואלקטרוניקה", where: "B.Sc.", text: "חשיבה מערכתית: איך חלקים קטנים מתחברים למערכת שעובדת." },
+  { title: "BotCamp של Focus AI", where: "בוגרת", text: "סוכנים ב‑n8n, מערכות RAG, חיבורי MCP ואפיון פתרונות AI עסקיים." },
+  { title: "הסמכות Workato ו‑MuleSoft", where: "פלטפורמות אינטגרציה", text: "חיבור בין מערכות, ממשקי API ותהליכים אוטומטיים בקנה מידה ארגוני." },
 ];
 
 export const STACK = [
