@@ -217,6 +217,9 @@ export default function Projects() {
           </a>{" "}
           <a className="case-btn" href="/demos/ganli/login/">
             לאזור האישי (דמו) ↙
+          </a>{" "}
+          <a className="case-btn" href="https://github.com/lizamir/ganli" target="_blank" rel="noreferrer">
+            לצפייה בקוד <span>↗</span>
           </a>
         </div>
         <div className="mockup stage-ganli">
