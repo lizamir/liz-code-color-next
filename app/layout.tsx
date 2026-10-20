@@ -4,6 +4,7 @@ import "./styles/enhancements.css";
 import "./styles/studio.css";
 import "./styles/premium.css";
 import "./styles/vivid.css";
+import "./styles/ganli.css";
 
 export const metadata: Metadata = {
   title: "Liz Code & Color | עיצוב ופיתוח אתרים",

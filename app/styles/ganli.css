@@ -1,0 +1,14 @@
+/* Project 05: Ganli daycare card, in the daycare's own brand colors. */
+.project-ganli{background:radial-gradient(ellipse at 10% 0,#f6c77a,transparent 70%),#fbefdc}
+.stage-ganli{perspective:1200px}
+.ganli-mini{display:block;width:100%;max-width:640px;justify-self:stretch;background:#fbf4e8;border:1px solid #5b4a4033;border-radius:16px;overflow:hidden;box-shadow:0 28px 55px #5b4a4033,0 6px 0 #5b4a401f;transform:rotate(-3deg);color:#3e322b;direction:rtl;transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.ganli-mini:hover{transform:rotate(-1deg) translateY(-6px)}
+.ganli-mini .browser-bar{border-color:#5b4a401f;background:#fffdf8}
+.ganli-mini-body{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px;padding:44px 34px 50px;background:radial-gradient(circle at 20% 35%,#fbe9c8 0,transparent 45%),#fbf4e8}
+.ganli-mini-copy span{display:block;font:600 13px Rubik;color:#2e9ea0;margin-bottom:12px}
+.ganli-mini-copy b{display:block;font:800 31px/1.1 Rubik;color:#3e322b}
+.ganli-mini-copy em{font-style:normal;color:#2e9ea0}
+.ganli-mini-copy i{display:inline-block;margin-top:20px;background:#eb5a3b;color:#fff;font:600 14px/1 Rubik;font-style:normal;padding:12px 18px;border-radius:40px;box-shadow:0 4px 0 #b8432a}
+.ganli-mini svg{width:100%;filter:drop-shadow(0 14px 18px #5b4a4033)}
+@media(max-width:560px){.ganli-mini{transform:none}.ganli-mini-body{grid-template-columns:1fr;padding:28px 22px}.ganli-mini svg{width:70%;margin:auto;order:-1}.ganli-mini-copy b{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.ganli-mini{transition:none}}
