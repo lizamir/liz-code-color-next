@@ -1,17 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Assistant, Gveret_Levin, Rubik } from "next/font/google";
+import { Assistant, Rubik } from "next/font/google";
 import "./globals.css";
 import "./site.css";
 import { SITE } from "@/lib/content";
 import AccessibilityToolbar from "@/components/AccessibilityToolbar";
-import SmoothScroll from "@/components/SmoothScroll";
-import Cursor from "@/components/Cursor";
 
-// Rubik carries the brand (headlines, labels), Assistant is the reading face, Gveret Levin is the
-// handwritten margin note. next/font self-hosts them, so there is no render-blocking Google CSS.
+// Two fonts only: Rubik carries the brand (headlines, labels), Assistant is the reading face. next/font self-hosts them.
 const rubik = Rubik({ variable: "--font-rubik", subsets: ["hebrew", "latin"], weight: ["400", "500", "700", "800", "900"], display: "swap" });
 const assistant = Assistant({ variable: "--font-assistant", subsets: ["hebrew", "latin"], weight: ["400", "600", "700", "800"], display: "swap" });
-const hand = Gveret_Levin({ variable: "--font-hand", subsets: ["hebrew", "latin"], weight: "400", display: "swap" });
 
 const TITLE = "Liz Code & Color | ליז חאג׳ג׳, מפתחת Full‑Stack, AI ואוטומציות";
 const DESCRIPTION =
@@ -31,7 +27,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: TITLE,
     description: DESCRIPTION,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Liz Code & Color: אני הופכת רעיונות לאתרים שאי אפשר לפספס" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Liz Code & Color: עיצוב עם אופי. קוד עם עומק." }],
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og.png"] },
   robots: { index: true, follow: true },
@@ -41,14 +37,14 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf9fc" },
-    { media: "(prefers-color-scheme: dark)", color: "#251c3a" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f5f1" },
+    { media: "(prefers-color-scheme: dark)", color: "#21172f" },
   ],
 };
 
 // Runs before first paint: marks JS as on (so reveal animations may start hidden) and restores the
-// visitor's color theme and accessibility choices, so nothing flashes.
-const BOOT = `(function(){var d=document.documentElement;try{d.classList.add('js');var t=localStorage.getItem('liz-theme');if(t)d.dataset.theme=t;var s=JSON.parse(localStorage.getItem('liz-a11y')||'{}');if(s.size)d.dataset.size=s.size;if(s.contrast)d.classList.add('a11y-contrast');if(s.motion)d.classList.add('a11y-nomotion');if(s.links)d.classList.add('a11y-links');if(s.spacing)d.classList.add('a11y-spacing')}catch(e){d.classList.add('js')}})();`;
+// visitor's accessibility choices, so nothing flashes.
+const BOOT = `(function(){var d=document.documentElement;try{d.classList.add('js');var s=JSON.parse(localStorage.getItem('liz-a11y')||'{}');if(s.size)d.dataset.size=s.size;if(s.contrast)d.classList.add('a11y-contrast');if(s.motion)d.classList.add('a11y-nomotion');if(s.links)d.classList.add('a11y-links');if(s.spacing)d.classList.add('a11y-spacing')}catch(e){d.classList.add('js')}})();`;
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -73,7 +69,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${rubik.variable} ${assistant.variable} ${hand.variable}`} suppressHydrationWarning>
+    <html lang="he" dir="rtl" className={`${rubik.variable} ${assistant.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: BOOT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
@@ -84,8 +80,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             דילוג לתוכן הראשי
           </a>
         </nav>
-        <SmoothScroll />
-        <Cursor />
         {children}
         <AccessibilityToolbar />
       </body>

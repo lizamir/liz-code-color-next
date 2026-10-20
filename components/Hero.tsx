@@ -1,65 +1,45 @@
-import GridGlow from "./GridGlow";
-import BusinessCard from "./BusinessCard";
-import { PROOF, SITE } from "@/lib/content";
+import Image from "next/image";
+import { SITE } from "@/lib/content";
 
+/** Short and clear: the promise, one main action, and two real desktop views of the work. */
 export default function Hero() {
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
-      <GridGlow />
-
       <div className="container hero-grid">
-        <div className="hero-copy" data-in>
-          {SITE.available && (
-            <p className="avail reveal">
-              <span className="live-dot" aria-hidden="true" /> {SITE.availableText}
-            </p>
-          )}
-          <p className="eyebrow reveal" style={{ ["--d" as string]: 1 }}>
-            WEB DESIGN · DEVELOPMENT · AI
-          </p>
-          <h1 id="hero-title" className="display">
-            <span className="mask">
-              <span style={{ ["--i" as string]: 0, ["--base" as string]: "120ms" }}>אני הופכת</span>
+        <div className="hero-copy">
+          <h1 id="hero-title">
+            <span>
+              עיצוב עם <em>אופי.</em>
             </span>
-            <span className="mask">
-              <span style={{ ["--i" as string]: 1, ["--base" as string]: "120ms" }}>
-                <em>רעיונות</em> לאתרים
-              </span>
-            </span>
-            <span className="mask">
-              <span style={{ ["--i" as string]: 2, ["--base" as string]: "120ms" }}>שאי אפשר לפספס.</span>
-            </span>
+            <span>קוד עם עומק.</span>
           </h1>
-          <p className="lead sel reveal" style={{ ["--d" as string]: 4 }}>
-            אתרים עם אופי, פיתוח מותאם אישית ויישום AI, לעסקים עצמאיים, מותגים וצוותים שרוצים לקחת את הדיגיטל שלהם קדימה.
-          </p>
-          <div className="hero-actions reveal" style={{ ["--d" as string]: 5 }}>
-            <a className="btn btn-lime" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-              בואו נדבר בוואטסאפ ↗
+          <p className="hero-sub">אתרים, מערכות וסוכני AI לעסקים.</p>
+          <p className="hero-text">אני מחברת עיצוב, פיתוח ואוטומציה כדי לבנות חוויות דיגיטליות ותהליכים שמתאימים לעסק שלכם.</p>
+          <div className="hero-actions">
+            <a className="btn btn-primary" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+              בואו נדבר <span className="arrow" aria-hidden="true">←</span>
             </a>
             <a className="btn btn-ghost" href="#work">
-              <span>לצפייה בעבודות ↓</span>
+              העבודות שלי
             </a>
           </div>
-          <ul className="proof reveal" style={{ ["--d" as string]: 6 }} aria-label="בקצרה עליי">
-            {PROOF.map((p) => (
-              <li key={p.label}>
-                <b>
-                  {p.value}
-                  {p.unit && <small> {p.unit}</small>}
-                </b>
-                <span>{p.label}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="hero-line" aria-hidden="true">
+            DESIGN <i /> CODE <i /> AI <b />
+          </p>
         </div>
-        <BusinessCard />
-      </div>
 
-      <a className="scroll-cue" href="#work" aria-label="לגלול לעבודות">
-        <span>SCROLL</span>
-        <i aria-hidden="true" />
-      </a>
+        <div className="hero-shots">
+          <figure className="shot shot-a">
+            <Image src="/work/scoop-gelato-d.webp" alt="אתר SCOOP: המילה SCOOP באדום ענק על רקע צהוב ושלושה כדורי גלידה" width={1440} height={900} sizes="(max-width: 900px) 0px, 44vw" priority />
+          </figure>
+          <figure className="shot shot-b">
+            <Image src="/work/glow-studio-d.webp" alt="אתר GLOW: צילום פנים באור יום וכותרת ״העור שלך. הקצב שלך.״" width={1440} height={900} sizes="(max-width: 900px) 100vw, 40vw" priority />
+          </figure>
+          <svg className="hero-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M24 54 C 24 30, 30 22, 40 22 L 46 22" />
+          </svg>
+        </div>
+      </div>
     </section>
   );
 }

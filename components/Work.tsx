@@ -1,67 +1,55 @@
+import Image from "next/image";
 import Link from "next/link";
-import Devices from "./Devices";
 import { PROJECTS, type Project } from "@/lib/content";
 
-function Showcase({ p, i }: { p: Project; i: number }) {
+function Item({ p, i }: { p: Project; i: number }) {
+  const [caseLink, siteLink] = p.links;
   return (
-    <article className="pw" data-tone={p.tone} style={{ ["--i" as string]: i }}>
-      <div className="pw-media">
-        <span className="pw-no" aria-hidden="true">
+    <article className="proj reveal" style={{ ["--surface" as string]: p.surface, ["--on-surface" as string]: p.onSurface }}>
+      <div className="plate">
+        <span className="plate-no" aria-hidden="true">
           {p.no}
         </span>
-        <Devices mock={p.mock} alt={p.coverAlt} priority={i === 0} />
+        <div className="plate-img">
+          <Image src={`/work/${p.shot}-d.webp`} alt={p.alt} width={1440} height={900} sizes="(max-width: 820px) 92vw, (max-width: 1320px) 54vw, 700px" loading={i < 2 ? "eager" : "lazy"} />
+        </div>
       </div>
-      <div className="pw-body">
-        <p className="pw-kicker">
+      <div className="proj-body">
+        <p className="proj-kicker">
           {p.kicker} · {p.year}
         </p>
-        <h3 dir="ltr">
-          <Link href={`/work/${p.slug}/`} className="pw-link" data-cursor="לפרטים">
-            {p.title}
+        <h3>{p.title}</h3>
+        <p className="proj-line">{p.line}</p>
+        <div className="proj-links">
+          <Link href={caseLink.href} aria-label={`${p.title}: מקרה בוחן`}>
+            {caseLink.label} <span className="arrow" aria-hidden="true">←</span>
           </Link>
-        </h3>
-        <p className="pw-summary">{p.summary}</p>
-        <ul className="tags" aria-label="טכנולוגיות">
-          {p.stack.map((s) => (
-            <li key={s}>{s}</li>
-          ))}
-        </ul>
-        <div className="pw-actions">
-          <Link className="btn btn-lime" href={`/work/${p.slug}/`}>
-            <span>למקרה הבוחן ←</span>
-          </Link>
-          {p.links.slice(0, 1).map((l) => (
-            <a key={l.href} className="btn btn-ghost" href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
-              <span>
-                {l.label} {l.external ? "↗" : "↙"}
-              </span>
-            </a>
-          ))}
+          <a href={siteLink.href} aria-label={`${p.title}: ${siteLink.label}`}>
+            {siteLink.label} <span className="arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </article>
   );
 }
 
-/** Selected work as a stack of full-width cards: each project sits on a monitor with a phone in front. */
+/** One gallery: every project as a real screenshot of the page that was built, on the brand's own surface. */
 export default function Work() {
   return (
     <section className="section work" id="work" aria-labelledby="work-title">
       <div className="container">
         <div className="section-head reveal">
-          <div>
-            <p className="eyebrow">
-              <b>01</b> SELECTED WORK
-            </p>
-            <h2 id="work-title" className="title">
-              פרויקטים <em>נבחרים</em>
-            </h2>
-          </div>
-          <p className="lead">כל אתר נבנה סביב המותג שלו, ונבדק על מסך גדול ועל טלפון. לכל פרויקט יש עמוד שמסביר את האתגר, את ההחלטות ומה נבנה בפועל.</p>
+          <p className="eyebrow">
+            <b>01</b> SELECTED WORK
+          </p>
+          <h2 id="work-title" className="title">
+            עבודות <em>נבחרות</em>
+          </h2>
+          <p className="lead">כל אתר נבנה סביב המותג שלו. לכל פרויקט יש מקרה בוחן עם ההחלטות, ואפשר לפתוח גם את האתר עצמו.</p>
         </div>
-        <div className="pw-stack">
+        <div className="work-grid">
           {PROJECTS.map((p, i) => (
-            <Showcase key={p.slug} p={p} i={i} />
+            <Item key={p.slug} p={p} i={i} />
           ))}
         </div>
       </div>
