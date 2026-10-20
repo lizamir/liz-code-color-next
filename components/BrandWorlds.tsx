@@ -1,39 +1,36 @@
 import Image from "next/image";
+import { BRAND_WORLDS } from "@/lib/content";
 
-const WORLDS = [
-  { id: "glow", title: "GLOW / SKIN STUDIO", desc: "ביוטי · נקי, אישי ואלגנטי" },
-  { id: "jewelry", title: "AURA / FINE JEWELRY", desc: "תכשיטים · דרמטי ומדויק" },
-  { id: "icecream", title: "SCOOP / HAPPY GELATO", desc: "גלידות · צבעוני ושובב" },
-  { id: "burger", title: "STACK / BURGER CLUB", desc: "המבורגרים · נועז ומעורר תיאבון" },
-  { id: "school", title: "PLAYDAY / SCHOOL FEST", desc: "יום כיף · שמח ומלא דמיון" },
-];
-
+/** Five brands, five different worlds: a swipeable row (native scroll, so it works with touch and keyboard). */
 export default function BrandWorlds() {
   return (
-    <section className="brand-worlds" id="brand-worlds">
-      <p className="eyebrow">FIVE BRANDS. FIVE DIFFERENT WORLDS.</p>
-      <h2>
-        כל מותג.
-        <br />
-        <em>עולם משלו.</em>
-      </h2>
-      <p>אתרי מותג, חוויות אינטראקטיביות וקמפיינים. מהרעיון הראשון ועד לפרט הקטן.</p>
-      <div className="world-grid">
-        {WORLDS.map((w) => (
-          <a key={w.id} className={`world-card world-${w.id}`} href={`/demos/${w.id}.html`}>
-            <Image
-              src={`/assets/${w.id}.webp`}
-              alt={w.desc}
-              width={800}
-              height={800}
-              sizes="(max-width: 900px) 100vw, 33vw"
-            />
-            <div>
-              <h3 dir="ltr">{w.title}</h3>
-              <p>{w.desc}</p>
-              <span>לפתיחת דף הנחיתה והפוסטר ↗</span>
+    <section className="section worlds on-deep" id="brand-worlds" aria-labelledby="worlds-title">
+      <div className="container">
+        <div className="section-head reveal">
+          <div>
+            <p className="eyebrow">
+              <b>02</b> FIVE BRANDS. FIVE WORLDS.
+            </p>
+            <h2 id="worlds-title" className="title">
+              כל מותג. <em>עולם משלו.</em>
+            </h2>
+          </div>
+          <p className="lead">אתרי מותג, חוויות אינטראקטיביות וקמפיינים. מהרעיון הראשון ועד לפרט הקטן.</p>
+        </div>
+      </div>
+      <div className="worlds-row" tabIndex={0} role="region" aria-label="חמישה עולמות מותג, אפשר להחליק הצידה">
+        {BRAND_WORLDS.map((w) => (
+          <article className="world" key={w.id}>
+            <a href={`/demos/${w.id}.html`} className="world-media" tabIndex={-1} aria-hidden="true">
+              <Image src={`/assets/${w.id}.webp`} alt="" width={800} height={800} sizes="(max-width: 900px) 70vw, 24vw" loading="lazy" />
+            </a>
+            <h3 dir="ltr">{w.title}</h3>
+            <p>{w.desc}</p>
+            <div className="world-links">
+              <a href={`/demos/${w.id}.html`}>לאתר ↙</a>
+              <a href={`/demos/${w.id}-poster.html`}>לפוסטר ↙</a>
             </div>
-          </a>
+          </article>
         ))}
       </div>
     </section>

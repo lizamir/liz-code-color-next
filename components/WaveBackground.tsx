@@ -3,7 +3,8 @@
 /* GradientWaves shader adapted from React Bits, Copyright (c) 2026 David Haz. License: /licenses/react-bits.txt. Native WebGL lifecycle by Liz Code & Color. */
 
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "@/lib/useReducedMotion";
+import { useMotionOff } from "@/lib/a11y";
+import { THEMES, useTheme } from "@/lib/theme";
 
 const VERTEX = `#version 300 es
 in vec2 position;
@@ -141,7 +142,9 @@ export default function WaveBackground() {
   const hostRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const syncRef = useRef<() => void>(() => {});
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useMotionOff();
+  const theme = useTheme();
+  const colorsRef = useRef<(id: string) => void>(() => {});
   // null until the visitor presses the toggle; until then follow the OS preference.
   const [userPaused, setUserPaused] = useState<boolean | null>(null);
   const paused = userPaused ?? reducedMotion;
@@ -153,6 +156,10 @@ export default function WaveBackground() {
     document.dispatchEvent(new CustomEvent("portfolio-motion", { detail: { paused } }));
     syncRef.current();
   }, [paused]);
+
+  useEffect(() => {
+    colorsRef.current(theme);
+  }, [theme]);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -200,9 +207,17 @@ export default function WaveBackground() {
     const loc = (n: string) => gl.getUniformLocation(program, n);
     for (const [n, v] of Object.entries(UNIFORMS)) gl.uniform1f(loc(n), v);
     gl.uniform1i(loc("uEnableMouse"), 1);
-    gl.uniform3fv(loc("uHorizonColor"), [0.19, 0.02, 0.62]);
-    gl.uniform3fv(loc("uWaveColor"), [1, 0.04, 0.55]);
-    gl.uniform3fv(loc("uCrestColor"), [0.08, 0.97, 0.9]);
+    const applyColors = (id: string) => {
+      const [h, w, c] = (THEMES.find((t) => t.id === id) ?? THEMES[0]).wave;
+      gl.uniform3fv(loc("uHorizonColor"), h);
+      gl.uniform3fv(loc("uWaveColor"), w);
+      gl.uniform3fv(loc("uCrestColor"), c);
+    };
+    colorsRef.current = (id) => {
+      applyColors(id);
+      draw();
+    };
+    applyColors(document.documentElement.dataset.theme ?? "violet");
     host.append(canvas);
 
     const mouse = [0.5, 0.5];

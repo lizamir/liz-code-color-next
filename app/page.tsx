@@ -1,30 +1,43 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import Projects from "@/components/Projects";
+import Ribbon from "@/components/Ribbon";
+import Work from "@/components/Work";
 import BrandWorlds from "@/components/BrandWorlds";
 import Services from "@/components/Services";
 import Automation from "@/components/Automation";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import PageEffects from "@/components/PageEffects";
+import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
+import ScrollProgress from "@/components/ScrollProgress";
+import { SITE } from "@/lib/content";
 
 export default function Home() {
   return (
     <>
-      <div className="cursor-glow" aria-hidden="true"></div>
+      <div className="grain" aria-hidden="true" />
+      <ScrollProgress />
       <Header />
-      <main id="top">
+      <main id="main">
         <Hero />
-        <Marquee />
-        <Projects />
+        <Ribbon />
+        <Work />
         <BrandWorlds />
         <Services />
         <Automation />
         <About />
         <Contact />
       </main>
-      <PageEffects />
+      <Footer />
+      <div className="mobile-bar">
+        <a className="btn btn-ghost btn-sm" href={`tel:+972${SITE.phone.slice(1)}`}>
+          <span>התקשרו</span>
+        </a>
+        <a className="btn btn-lime btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+          וואטסאפ ↗
+        </a>
+      </div>
+      <Reveal />
     </>
   );
 }
