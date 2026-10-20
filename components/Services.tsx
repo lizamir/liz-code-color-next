@@ -1,4 +1,5 @@
 import { PROCESS, SERVICES, SITE } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Services() {
   return (
@@ -61,8 +62,8 @@ export default function Services() {
             </ol>
           </div>
           <div className="process-cta reveal">
-            <a className="btn btn-ink" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-              בואו נבין מה מתאים לכם ↗
+            <a className="btn btn-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+              <WhatsAppIcon /> בואו נבין מה מתאים לכם
             </a>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { useMotionOff } from "@/lib/a11y";
 
 /**
@@ -129,7 +130,7 @@ export default function BusinessCard() {
                 CODE &amp; COLOR
               </p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="bc-photo" src="/liz.webp" alt="ליז חאג׳ג׳" width={720} height={960} draggable={false} />
+              <img className="bc-photo" src="/liz.webp" alt="ליז חג׳ג׳" width={720} height={960} draggable={false} />
               <div className="bc-id">
                 <h2>{SITE.person}</h2>
                 <p>{SITE.role}</p>

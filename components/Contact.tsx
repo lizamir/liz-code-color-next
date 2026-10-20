@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BRIEF, SITE } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 /** A project brief that builds a ready message (WhatsApp, email or copy). Nothing is sent to a server. */
 export default function Contact() {
@@ -50,7 +51,7 @@ export default function Contact() {
           <ul className="channels">
             <li>
               <a href={SITE.whatsapp} target="_blank" rel="noreferrer">
-                <span>וואטסאפ</span> <bdi>{SITE.phone}</bdi>
+                <span className="wa-chip"><WhatsAppIcon size={14} /> וואטסאפ</span> <bdi>{SITE.phone}</bdi>
               </a>
             </li>
             <li>
@@ -120,8 +121,8 @@ export default function Contact() {
           </div>
 
           <div className="brief-actions">
-            <a className="btn btn-lime" href={wa} target="_blank" rel="noreferrer">
-              שליחה בוואטסאפ ↗
+            <a className="btn btn-wa" href={wa} target="_blank" rel="noreferrer">
+              <WhatsAppIcon /> שליחה בוואטסאפ
             </a>
             <a className="btn btn-ghost btn-sm" href={mail}>
               <span>שליחה במייל</span>

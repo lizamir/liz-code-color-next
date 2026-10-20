@@ -12,6 +12,7 @@ import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import Motion from "@/components/Motion";
 import { SITE } from "@/lib/content";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 export default function Home() {
   return (
@@ -34,8 +35,8 @@ export default function Home() {
         <a className="btn btn-ghost btn-sm" href={`tel:+972${SITE.phone.slice(1)}`}>
           <span>התקשרו</span>
         </a>
-        <a className="btn btn-lime btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-          וואטסאפ ↗
+        <a className="btn btn-wa btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+          <WhatsAppIcon size={18} /> וואטסאפ
         </a>
       </div>
       <Reveal />

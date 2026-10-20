@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import { PROJECTS, SITE } from "@/lib/content";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -148,8 +149,8 @@ export default async function CaseStudy({ params }: Props) {
             </h2>
             <p className="lead">ספרו לי בכמה שורות מה צריך, ואחזור עם כיוון ראשוני.</p>
             <div className="case-actions">
-              <a className="btn btn-lime" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-                בואו נדבר בוואטסאפ ↗
+              <a className="btn btn-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+                <WhatsAppIcon /> בואו נדבר בוואטסאפ
               </a>
               <Link className="btn btn-ghost" href="/#contact">
                 <span>לטופס הקצר</span>

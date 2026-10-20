@@ -5,7 +5,7 @@ import { CV_EDU, CV_JOBS, PROJECTS, SITE, STACK } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "קורות חיים",
-  description: "קורות החיים של ליז חאג׳ג׳: מפתחת Full‑Stack, יישום AI ואוטומציות.",
+  description: "קורות החיים של ליז חג׳ג׳: מפתחת Full‑Stack, יישום AI ואוטומציות.",
   alternates: { canonical: "/resume/" },
 };
 

@@ -4,7 +4,7 @@
 
 export const SITE = {
   name: "Liz Code & Color",
-  person: "ליז חאג׳ג׳",
+  person: "ליז חג׳ג׳",
   personEn: "Liz Hajage",
   role: "מפתחת Full‑Stack, יישום AI ואוטומציות",
   url: "https://lizamir.github.io",

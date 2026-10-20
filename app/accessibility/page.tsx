@@ -4,7 +4,7 @@ import { SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "הצהרת נגישות",
-  description: "הצהרת הנגישות של האתר של ליז חאג׳ג׳: מה נעשה, מגבלות ידועות ואיך פונים.",
+  description: "הצהרת הנגישות של האתר של ליז חג׳ג׳: מה נעשה, מגבלות ידועות ואיך פונים.",
   alternates: { canonical: "/accessibility/" },
 };
 

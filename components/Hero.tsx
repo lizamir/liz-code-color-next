@@ -1,6 +1,7 @@
 import GridGlow from "./GridGlow";
 import BusinessCard from "./BusinessCard";
 import { PROOF, SITE } from "@/lib/content";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 export default function Hero() {
   return (
@@ -34,8 +35,8 @@ export default function Hero() {
             אתרים עם אופי, פיתוח מותאם אישית ויישום AI, לעסקים עצמאיים, מותגים וצוותים שרוצים לקחת את הדיגיטל שלהם קדימה.
           </p>
           <div className="hero-actions reveal" style={{ ["--d" as string]: 5 }}>
-            <a className="btn btn-lime" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-              בואו נדבר בוואטסאפ ↗
+            <a className="btn btn-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+              <WhatsAppIcon /> בואו נדבר בוואטסאפ
             </a>
             <a className="btn btn-ghost" href="#work">
               <span>לצפייה בעבודות ↓</span>

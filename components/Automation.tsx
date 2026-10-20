@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import WhatsAppIcon from "./WhatsAppIcon";
 import { AUTOMATION_CARDS, AUTOMATION_FLOWS, SITE } from "@/lib/content";
 import { useMotionOff } from "@/lib/a11y";
 
@@ -86,8 +87,8 @@ export default function Automation() {
           <p>
             בוגרת BotCamp של Focus AI: בניית סוכנים ב־n8n, מערכות RAG, חיבורי MCP ואפיון פתרונות AI עסקיים. את ההכשרה אני מחברת לניסיון שלי בפיתוח ואינטגרציות.
           </p>
-          <a className="btn btn-lime" href={WA} target="_blank" rel="noreferrer">
-            איזה תהליך נוכל לקצר אצלכם? ↗
+          <a className="btn btn-wa" href={WA} target="_blank" rel="noreferrer">
+            <WhatsAppIcon /> איזה תהליך נוכל לקצר אצלכם?
           </a>
         </div>
       </div>

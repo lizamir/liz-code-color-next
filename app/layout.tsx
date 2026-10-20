@@ -13,7 +13,7 @@ const rubik = Rubik({ variable: "--font-rubik", subsets: ["hebrew", "latin"], we
 const assistant = Assistant({ variable: "--font-assistant", subsets: ["hebrew", "latin"], weight: ["400", "600", "700", "800"], display: "swap" });
 const hand = Gveret_Levin({ variable: "--font-hand", subsets: ["hebrew", "latin"], weight: "400", display: "swap" });
 
-const TITLE = "Liz Code & Color | ליז חאג׳ג׳, מפתחת Full‑Stack, AI ואוטומציות";
+const TITLE = "Liz Code & Color | ליז חג׳ג׳, מפתחת Full‑Stack, AI ואוטומציות";
 const DESCRIPTION =
   "מפתחת Full‑Stack ומיישמת AI עם לב של מעצבת: אתרים, מערכות, סוכני AI ואוטומציות לעסקים ולצוותים. React, Next.js, Supabase, n8n. ירושלים.";
 

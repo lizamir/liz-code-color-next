@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { NAV, SITE } from "@/lib/content";
 import ThemePicker from "./ThemePicker";
+import Logo from "./Logo";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 function goTo(hash: string) {
   const lenis = window.__lenis;
@@ -75,9 +77,7 @@ export default function Header({ home = true }: { home?: boolean }) {
     <header className={`header${hidden && !open ? " is-hidden" : ""}${open ? " is-open" : ""}`}>
       <div className="header-inner">
         <Link className="brand" href="/" aria-label="Liz Code and Color, לדף הבית">
-          <span>LIZ</span>
-          <i />
-          CODE&amp;COLOR
+          <Logo />
         </Link>
         <nav className="nav-desktop" aria-label="ניווט ראשי">
           {NAV.map((n) => (
@@ -88,8 +88,8 @@ export default function Header({ home = true }: { home?: boolean }) {
         </nav>
         <div className="header-actions">
           <ThemePicker />
-          <a className="btn btn-lime btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-            יש לכם רעיון?
+          <a className="btn btn-wa btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+            <WhatsAppIcon size={18} /> דברו איתי בוואטסאפ
           </a>
         </div>
         <button ref={burger} type="button" className="burger" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "סגירת התפריט" : "פתיחת התפריט"} onClick={() => setOpen((o) => !o)}>
@@ -114,8 +114,8 @@ export default function Header({ home = true }: { home?: boolean }) {
         </nav>
         <div className="mobile-menu-cta">
           <ThemePicker inline />
-          <a className="btn btn-lime" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-            בואו נדבר בוואטסאפ
+          <a className="btn btn-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+            <WhatsAppIcon /> בואו נדבר בוואטסאפ
           </a>
           <Link className="btn btn-ghost" href="/resume/">
             קורות חיים

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/content";
 import ThemePicker from "./ThemePicker";
+import Logo from "./Logo";
 
 export default function Footer({ home = true }: { home?: boolean }) {
   const href = (h: string) => (home ? h : `/${h}`);
@@ -8,10 +9,8 @@ export default function Footer({ home = true }: { home?: boolean }) {
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
-          <Link className="brand" href="/">
-            <span>LIZ</span>
-            <i />
-            CODE&amp;COLOR
+          <Link className="brand" href="/" aria-label="Liz Code and Color, לדף הבית">
+            <Logo onDark />
           </Link>
           <nav aria-label="קישורים בתחתית העמוד">
             <ul>

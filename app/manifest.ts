@@ -6,13 +6,13 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Liz Code & Color",
     short_name: "Liz C&C",
-    description: "ליז חאג׳ג׳: מפתחת Full‑Stack, AI ואוטומציות",
+    description: "ליז חג׳ג׳: מפתחת Full‑Stack, AI ואוטומציות",
     start_url: "/",
     display: "standalone",
     lang: "he",
     dir: "rtl",
-    background_color: "#f4f1ea",
-    theme_color: "#160d34",
+    background_color: "#faf9fc",
+    theme_color: "#251c3a",
     icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }],
   };
 }

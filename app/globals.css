@@ -1,6 +1,8 @@
 /* ───────────── Liz Code & Color: design tokens ─────────────
    The brand is a color system, so the accent is a variable: the visitor can switch it (data-theme).
    Every text pair was checked against WCAG AA. Bright colors are fills; text uses the -ink variants. */
+/* The accent is a whole palette, not one color: each theme sets its own paper tint, ink, dark section color,
+   accent shades and one secondary color that pairs with it. */
 :root {
   --paper: #faf9fc;
   --paper-2: #f1edf8;
@@ -13,18 +15,20 @@
   --on-deep: #f3effb;
   --on-deep-2: #cdc4e2;
 
-  --lime: #e4d6ff;
-  --violet: #7f5bd6;
-  --pink: #f0a6c3;
-  --teal: #8fcfbf;
-  --sun: #f5b48a;
-
-  /* active theme (default: violet) */
+  /* active theme (default: violet + pink) */
   --accent: #7f5bd6;
+  --accent-rgb: 127, 91, 214;
   --accent-ink: #6a46c2; /* accent used as text on paper */
   --accent-light: #cbb9f5; /* accent used as text on deep backgrounds */
   --on-accent: #ffffff; /* text on an accent fill */
   --accent-soft: #ece6fa; /* tint of the accent on paper */
+  --accent-2: #f0a6c3; /* the paired color */
+  --accent-2-rgb: 240, 166, 195;
+  --lime: var(--accent-light);
+  --violet: #7f5bd6;
+  --pink: #f0a6c3;
+  --teal: #8fcfbf;
+  --sun: #f5b48a;
 
   --font-display: var(--font-rubik), "Arial Hebrew", sans-serif;
   --font-body: var(--font-assistant), "Arial Hebrew", sans-serif;
@@ -35,9 +39,9 @@
   --container: 1280px;
   --header-h: 88px;
 }
-html[data-theme="pink"] { --accent: #f0a6c3; --accent-ink: #b0366a; --accent-light: #f6c3d8; --on-accent: #1f1a2e; --accent-soft: #fce8ef; }
-html[data-theme="teal"] { --accent: #8fcfbf; --accent-ink: #2b7566; --accent-light: #b9e6da; --on-accent: #1f1a2e; --accent-soft: #e2f4ee; }
-html[data-theme="sun"] { --accent: #f5b48a; --accent-ink: #a14d24; --accent-light: #f9cfb3; --on-accent: #1f1a2e; --accent-soft: #fdebdf; }
+html[data-theme="pink"] { --paper: #fdf9fa; --paper-2: #f8ecf1; --ink: #2a1822; --ink-2: #4a3040; --muted: #6a5160; --line: rgba(42, 24, 34, 0.14); --deep: #3a1c2e; --deep-2: #4a2640; --on-deep-2: #ddc7d3; --accent: #f0a6c3; --accent-rgb: 240, 166, 195; --accent-ink: #b0366a; --accent-light: #f6c3d8; --on-accent: #2a1822; --accent-soft: #fce8ef; --accent-2: #9ad1c4; --accent-2-rgb: 154, 209, 196; }
+html[data-theme="teal"] { --paper: #f8fbfa; --paper-2: #e9f2ef; --ink: #14302c; --ink-2: #2b4a45; --muted: #4a6460; --line: rgba(20, 48, 44, 0.14); --deep: #10302d; --deep-2: #17403c; --on-deep-2: #bfd9d3; --accent: #8fcfbf; --accent-rgb: 143, 207, 191; --accent-ink: #25695c; --accent-light: #b9e6da; --on-accent: #14302c; --accent-soft: #e2f4ee; --accent-2: #f5b48a; --accent-2-rgb: 245, 180, 138; }
+html[data-theme="sun"] { --paper: #fdfaf7; --paper-2: #f6ece3; --ink: #2c1d12; --ink-2: #4a3727; --muted: #6a5646; --line: rgba(44, 29, 18, 0.14); --deep: #3a2418; --deep-2: #4a301f; --on-deep-2: #e3d0c2; --accent: #f5b48a; --accent-rgb: 245, 180, 138; --accent-ink: #9a4a22; --accent-light: #f9cfb3; --on-accent: #2c1d12; --accent-soft: #fdebdf; --accent-2: #8fcfbf; --accent-2-rgb: 143, 207, 191; }
 
 /* ───────────── Base ───────────── */
 * { box-sizing: border-box; }

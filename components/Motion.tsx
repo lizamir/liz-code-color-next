@@ -79,7 +79,8 @@ export default function Motion() {
       if (off()) return;
       const t = (e.target as HTMLElement).closest(".btn, .chip-link, .filters button");
       if (!t) return;
-      const cols = ["#b99aff", "#ffb4d6", "#d9c8ff", "#8e63ff"];
+      const cs = getComputedStyle(document.documentElement);
+      const cols = [cs.getPropertyValue("--accent"), cs.getPropertyValue("--accent-2"), cs.getPropertyValue("--accent-light"), cs.getPropertyValue("--accent-ink")];
       for (let i = 0; i < 10; i++) {
         const s = document.createElement("i");
         const a = (Math.PI * 2 * i) / 10 + Math.random() * 0.4;
@@ -134,6 +135,77 @@ export default function Motion() {
       });
       cleanups.push(() => io.disconnect());
     }
+
+    /* ── Pill nav: a soft highlight glides to the hovered, focused or current link ── */
+    const nav = document.querySelector<HTMLElement>(".nav-desktop");
+    if (nav) {
+      const pill = document.createElement("span");
+      pill.className = "nav-pill";
+      pill.setAttribute("aria-hidden", "true");
+      nav.appendChild(pill);
+      const links = [...nav.querySelectorAll<HTMLElement>("a")];
+      const to = (el: HTMLElement | null) => {
+        if (!el) {
+          pill.style.opacity = "0";
+          return;
+        }
+        const nr = nav.getBoundingClientRect();
+        const r = el.getBoundingClientRect();
+        pill.style.width = `${r.width}px`;
+        pill.style.height = `${r.height}px`;
+        pill.style.transform = `translate(${r.left - nr.left}px, ${r.top - nr.top}px)`;
+        pill.style.opacity = "1";
+      };
+      const current = () => links.find((l) => l.getAttribute("aria-current") === "true") ?? null;
+      const handlers = links.map((l) => {
+        const enter = () => to(l);
+        const leave = () => to(current());
+        l.addEventListener("pointerenter", enter);
+        l.addEventListener("focus", enter);
+        l.addEventListener("pointerleave", leave);
+        l.addEventListener("blur", leave);
+        return () => {
+          l.removeEventListener("pointerenter", enter);
+          l.removeEventListener("focus", enter);
+          l.removeEventListener("pointerleave", leave);
+          l.removeEventListener("blur", leave);
+        };
+      });
+      const mo = new MutationObserver(() => to(current()));
+      mo.observe(nav, { attributes: true, subtree: true, attributeFilter: ["aria-current"] });
+      to(current());
+      cleanups.push(() => {
+        handlers.forEach((h) => h());
+        mo.disconnect();
+        pill.remove();
+      });
+    }
+
+    /* ── Count up: the years of experience tick up once, in view ── */
+    document.querySelectorAll<HTMLElement>(".proof b").forEach((el) => {
+      const m = (el.firstChild?.textContent || "").match(/^(\d+)(\+?)/);
+      if (!m || off()) return;
+      const target = Number(m[1]);
+      const node = el.firstChild as Text;
+      const suffix = m[2];
+      node.textContent = "0" + suffix;
+      const io = new IntersectionObserver(
+        ([e]) => {
+          if (!e.isIntersecting) return;
+          io.disconnect();
+          const t0 = performance.now();
+          const step = (t: number) => {
+            const k = Math.min(1, (t - t0) / 900);
+            node.textContent = Math.round(target * (1 - Math.pow(1 - k, 3))) + suffix;
+            if (k < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        },
+        { threshold: 0.6 }
+      );
+      io.observe(el);
+      cleanups.push(() => io.disconnect());
+    });
 
     return () => cleanups.forEach((c) => c());
   }, []);
