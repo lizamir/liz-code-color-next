@@ -69,7 +69,7 @@ export default function Contact() {
               </a>
             </li>
             <li>
-              <Link href="/cv/">
+              <Link href="/resume/">
                 <span>קורות חיים</span> לצפייה ולהדפסה ←
               </Link>
             </li>

@@ -117,7 +117,7 @@ export default function Header({ home = true }: { home?: boolean }) {
           <a className="btn btn-lime" href={SITE.whatsapp} target="_blank" rel="noreferrer">
             בואו נדבר בוואטסאפ
           </a>
-          <Link className="btn btn-ghost" href="/cv/">
+          <Link className="btn btn-ghost" href="/resume/">
             קורות חיים
           </Link>
         </div>

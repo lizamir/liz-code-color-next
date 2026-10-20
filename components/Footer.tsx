@@ -21,7 +21,7 @@ export default function Footer({ home = true }: { home?: boolean }) {
                 </li>
               ))}
               <li>
-                <Link href="/cv/">קורות חיים</Link>
+                <Link href="/resume/">קורות חיים</Link>
               </li>
               <li>
                 <Link href="/accessibility/">הצהרת נגישות</Link>

@@ -15,7 +15,7 @@ npm run build    # static export to out/
 
 - **Home** (`/`): hero with a WebGL wave background, selected work with filters, five brand worlds, services and how I work, an automation studio demo, about with a credentials timeline and tool stack, and a contact section.
 - **Case studies** (`/work/<slug>/`): challenge, approach, what was built, screens and next project, for each of the five projects.
-- **CV** (`/cv/`): one printable page (Print or Cmd/Ctrl+P saves a PDF).
+- **CV** (`/resume/`): one printable page (Print or Cmd/Ctrl+P saves a PDF).
 - **Accessibility statement** (`/accessibility/`), **404**, sitemap, robots, manifest, favicon, social image (`public/og.png`), JSON-LD (Person, WebSite).
 
 Details that matter to visitors:

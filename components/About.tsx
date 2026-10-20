@@ -25,7 +25,7 @@ export default function About() {
               אני עובדת עם בעלי עסקים ויזמים בפרויקטי פרילנס, ומשתלבת גם בצוותי פיתוח. מאתר תדמית ודף נחיתה ועד ממשק מותאם או תהליך אוטומטי, עם קשר ישיר, חשיבה משותפת וליווי לאורך הדרך.
             </p>
             <div className="about-links">
-              <Link className="btn btn-ink" href="/cv/">
+              <Link className="btn btn-ink" href="/resume/">
                 קורות חיים
               </Link>
               <a className="text-link" href="#contact">
