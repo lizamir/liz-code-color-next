@@ -27,3 +27,13 @@ Open http://localhost:3000.
 - `public/assets/`: images
 
 The WaveBackground and CurvedWhatsApp code is adapted from React Bits (see `public/licenses/react-bits.txt`).
+
+## Publish
+
+The site is a static export, hosted on GitHub Pages at https://lizamir.github.io (repo `lizamir/lizamir.github.io` holds the built files; this repo holds the source).
+
+```bash
+npm run publish:site
+```
+
+builds, copies `out/` into `../lizamir.github.io`, commits and pushes. The Ganli demo inside it is built from the `ganli` repo with `npm run build:portfolio` (demo mode, no Supabase keys).

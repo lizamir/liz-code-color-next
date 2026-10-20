@@ -1,18 +1,12 @@
 import type { NextConfig } from "next";
 
+// The site is exported as plain static files (npm run build -> out/), so it can be hosted
+// anywhere (GitHub Pages, Vercel, any static host). The Ganli demo lives in public/demos/ganli
+// (built from ../ganli with `npm run build:portfolio`) and is served as folders with an index.html.
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
-  // The Ganli site is a static export copied into public/demos/ganli
-  // (run `npm run build:portfolio` in ../ganli). Serve its index for the folder URL.
-  async rewrites() {
-    // Files (JS, CSS, RSC payloads) are served first; only folder URLs reach these.
-    return [
-      { source: "/demos/ganli", destination: "/demos/ganli/index.html" },
-      { source: "/demos/ganli/:path*", destination: "/demos/ganli/:path*/index.html" },
-    ];
-  },
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
