@@ -223,6 +223,34 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+/** Real messages clients sent Liz (with their permission to quote). Spelling lightly fixed, wording kept. */
+export const TESTIMONIALS = [
+  {
+    name: "רעיה",
+    role: "DJ",
+    initial: "ר",
+    color: "#f0a6c3",
+    project: "דף נחיתה",
+    text: "ואי, עפתי על הדף נחיתה! זה הביא לי ימבה של לקוחות, ואיזה כיף שליז ליוותה אותי בכל התהליך. היה מושלם!!",
+  },
+  {
+    name: "נתן",
+    role: "DJ",
+    initial: "נ",
+    color: "#8fcfbf",
+    project: "אתר",
+    text: "ואי ליז, איזה אליפות זה יצא! אני עכשיו כבר שולח את זה לכל הלקוחות שלי.",
+  },
+  {
+    name: "חוט השני",
+    role: "עיצוב בלונים",
+    initial: "ח",
+    color: "#f5b48a",
+    project: "אתר",
+    text: "ואי ליז, איזה מהמם! אהבתי מאוד, ובכלל כל התהליך איתך היה כל כך כיף. רואים שיש לך את זה. תודה רבה!!",
+  },
+];
+
 export const BRAND_WORLDS = [
   { id: "glow", title: "GLOW / SKIN STUDIO", desc: "ביוטי · תחומי טיפול שמחליפים את ההסבר במקום" },
   { id: "jewelry", title: "AURA / FINE JEWELRY", desc: "תכשיטים · תקריב נשלט לכל פריט" },

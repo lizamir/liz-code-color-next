@@ -22,7 +22,7 @@ export default function Automation() {
         <div className="section-head reveal">
           <div>
             <p className="eyebrow">
-              <b>04</b> CONNECTED SYSTEMS. HUMAN THINKING.
+              <b>05</b> CONNECTED SYSTEMS. HUMAN THINKING.
             </p>
             <h2 id="automation-title" className="title">
               העסק עובד.

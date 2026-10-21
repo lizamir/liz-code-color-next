@@ -8,7 +8,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <p className="eyebrow">
-              <b>05</b> ABOUT ME
+              <b>06</b> ABOUT ME
             </p>
             <h2 id="about-title" className="title">
               נעים מאוד,

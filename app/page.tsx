@@ -4,6 +4,7 @@ import Ribbon from "@/components/Ribbon";
 import Work from "@/components/Work";
 import BrandWorlds from "@/components/BrandWorlds";
 import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
 import Automation from "@/components/Automation";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -25,6 +26,7 @@ export default function Home() {
         <Ribbon />
         <Work />
         <BrandWorlds />
+        <Testimonials />
         <Services />
         <Automation />
         <About />

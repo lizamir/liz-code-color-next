@@ -40,7 +40,7 @@ export default function Contact() {
       <div className="container contact-grid">
         <div className="contact-copy reveal">
           <p className="eyebrow">
-            <b>06</b> HAVE A PROJECT IN MIND?
+            <b>07</b> HAVE A PROJECT IN MIND?
           </p>
           <h2 id="contact-title" className="title">
             יש לכם רעיון?
