@@ -24,11 +24,11 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Ribbon />
+        <Automation />
         <Work />
         <BrandWorlds />
         <Testimonials />
         <Services />
-        <Automation />
         <About />
         <Contact />
       </main>

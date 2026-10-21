@@ -8,7 +8,7 @@ export default function Services() {
         <div className="section-head reveal">
           <div>
             <p className="eyebrow">
-              <b>04</b> WEB · AI · AUTOMATION
+              <b>05</b> WEB · AI · AUTOMATION
             </p>
             <h2 id="services-title" className="title">
               מה נבנה <em>יחד?</em>

@@ -744,3 +744,67 @@ html.a11y-nomotion .nav-pill { transition: none; }
 @keyframes typing-out { to { visibility: hidden; opacity: 0; } }
 @keyframes bubble-in { to { opacity: 1; transform: none; } }
 @media (max-width: 900px) { .chats { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } .chat-card:nth-child(2) { margin-top: 0; } }
+
+/* ───────────── AI & automation (moved up) ───────────── */
+.automation { --robot-1: var(--accent-light); --robot-2: var(--accent); --robot-eye: #9ff3ff; }
+.auto-hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 64px); align-items: center; margin-bottom: clamp(48px, 7vw, 96px); }
+.auto-hero-copy { display: grid; gap: 22px; justify-items: start; }
+.auto-hero .title { font-size: clamp(2.4rem, 5vw, 4.4rem); }
+.auto-hero .lead { max-width: 36rem; }
+.auto-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.automation .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, 0.55); }
+.automation .btn-ghost:hover { background: #fff; }
+.automation .btn-ghost:hover > span { color: var(--deep); }
+.integrations { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; direction: ltr; justify-content: flex-end; max-width: 36rem; }
+.integrations li { padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.24); background: rgba(255, 255, 255, 0.06); font: 700 0.82rem var(--font-display); color: var(--on-deep); }
+@media (max-width: 900px) { .auto-hero { grid-template-columns: 1fr; } .integrations { justify-content: flex-start; } }
+
+/* robot */
+.robot { --lx: 0; --ly: 0; position: relative; width: min(360px, 78vw); justify-self: center; }
+.robot-svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.35)); }
+.robot-shadow { fill: rgba(0, 0, 0, 0.35); transform-origin: 130px 326px; animation: rb-shadow 4.5s ease-in-out infinite; }
+.robot-float { animation: rb-float 4.5s ease-in-out infinite; }
+.robot-head { transform-box: fill-box; transform-origin: 50% 90%; transform: translate(calc(var(--lx) * 6px), calc(var(--ly) * 4px)) rotate(calc(var(--lx) * 7deg)); transition: transform 0.25s ease-out; }
+.robot-eyes { transform: translate(calc(var(--lx) * 10px), calc(var(--ly) * 6px)); transition: transform 0.2s ease-out; }
+.robot-blink { transform-box: fill-box; transform-origin: center; animation: rb-blink 5s infinite; }
+.robot-antenna { animation: rb-ping 2.6s ease-in-out infinite; }
+.robot-arm { transform-box: fill-box; transform-origin: 50% 10%; }
+.robot-arm-r { animation: rb-wave 6s ease-in-out infinite; }
+.robot:hover .robot-arm-r { animation-duration: 1.2s; }
+.robot-core { transform-box: fill-box; transform-origin: center; animation: rb-core 3s ease-in-out infinite; }
+.robot-say { position: absolute; top: 4%; inset-inline-end: -4%; z-index: 2; background: #fff; color: var(--ink); font: 700 0.9rem var(--font-display); padding: 10px 14px; border-radius: 16px 16px 16px 4px; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.5); animation: rb-say 0.4s var(--ease-out); white-space: nowrap; }
+@keyframes rb-float { 50% { transform: translateY(-12px); } }
+@keyframes rb-shadow { 50% { transform: scaleX(0.82); opacity: 0.7; } }
+@keyframes rb-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+@keyframes rb-ping { 50% { filter: drop-shadow(0 0 8px var(--robot-eye)); } }
+@keyframes rb-wave { 0%, 70%, 100% { transform: rotate(0); } 76% { transform: rotate(-38deg); } 82% { transform: rotate(-18deg); } 88% { transform: rotate(-38deg); } }
+@keyframes rb-core { 50% { transform: scale(1.08); } }
+@keyframes rb-say { from { opacity: 0; transform: translateY(6px) scale(0.96); } }
+html.a11y-nomotion .robot *, html.a11y-nomotion .robot-say { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .robot *, .robot-say { animation: none !important; } }
+@media (max-width: 900px) { .robot { width: min(280px, 70vw); } .robot-say { inset-inline-end: 0; font-size: 0.8rem; } }
+
+/* what you can automate */
+.auto-sub { font-size: clamp(1.6rem, 2.8vw, 2.4rem); letter-spacing: -0.03em; margin-bottom: 24px; color: #fff; }
+.uses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: clamp(40px, 6vw, 72px); }
+.use { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 24px; padding: 24px; display: grid; gap: 10px; align-content: start; transition: transform 0.35s var(--ease-out), border-color 0.3s, background 0.3s; }
+.use:hover { transform: translateY(-6px); border-color: var(--accent-light); background: rgba(255, 255, 255, 0.09); }
+.use-icon { width: 42px; height: 42px; padding: 8px; border-radius: 12px; background: color-mix(in srgb, var(--accent) 35%, transparent); color: #fff; }
+.use h4 { font: 800 1.25rem/1.25 var(--font-display); color: #fff; }
+.use p { color: var(--on-deep-2); font-size: 1rem; }
+.use small { font: 700 0.75rem var(--font-display); letter-spacing: 0.06em; color: var(--accent-light); text-align: right; }
+@media (max-width: 1000px) { .uses { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .uses { grid-template-columns: 1fr; } }
+
+/* how an AI project starts */
+.auto-steps { margin-top: clamp(40px, 6vw, 72px); }
+.auto-steps ol { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid rgba(255, 255, 255, 0.25); counter-reset: none; }
+.auto-steps li { padding: 20px clamp(12px, 2vw, 24px) 6px; border-inline-start: 1px solid rgba(255, 255, 255, 0.14); display: grid; gap: 6px; align-content: start; }
+.auto-steps li:first-child { border-inline-start: 0; padding-inline-start: 0; }
+.auto-steps b { font: 900 1.8rem/1 var(--font-display); color: var(--accent-light); direction: ltr; text-align: right; }
+.auto-steps h4 { font: 800 1.15rem var(--font-display); color: #fff; }
+.auto-steps p { color: var(--on-deep-2); font-size: 0.98rem; }
+.auto-note { margin-top: 26px; color: var(--on-deep-2); }
+.auto-note a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 820px) { .auto-steps ol { grid-template-columns: 1fr 1fr; } .auto-steps li:nth-child(odd) { border-inline-start: 0; padding-inline-start: 0; } }
+@media (max-width: 480px) { .auto-steps ol { grid-template-columns: 1fr; } .auto-steps li { border-inline-start: 0; padding-inline-start: 0; } }

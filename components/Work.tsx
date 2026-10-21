@@ -51,7 +51,7 @@ export default function Work() {
         <div className="section-head reveal">
           <div>
             <p className="eyebrow">
-              <b>01</b> SELECTED WORK
+              <b>02</b> SELECTED WORK
             </p>
             <h2 id="work-title" className="title">
               פרויקטים <em>נבחרים</em>
