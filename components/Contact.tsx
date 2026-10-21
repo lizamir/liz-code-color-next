@@ -51,7 +51,7 @@ export default function Contact() {
           <ul className="channels">
             <li>
               <a href={SITE.whatsapp} target="_blank" rel="noreferrer">
-                <span className="wa-chip"><WhatsAppIcon size={14} /> וואטסאפ</span> <bdi>{SITE.phone}</bdi>
+                <span className="wa-chip"><WhatsAppIcon size={14} /> וואטסאפ</span> <bdi>{SITE.phone.replace(/^(\d{3})(\d{7})$/, "$1-$2")}</bdi>
               </a>
             </li>
             <li>

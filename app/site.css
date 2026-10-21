@@ -701,3 +701,15 @@ html.a11y-nomotion .logo-cursor { animation: none; }
 .nav-desktop a { position: relative; z-index: 1; }
 .nav-pill { position: absolute; top: 0; left: 0; border-radius: 999px; background: var(--accent-soft); z-index: 0; opacity: 0; pointer-events: none; transition: transform 0.35s var(--ease-out), width 0.35s var(--ease-out), height 0.35s var(--ease-out), opacity 0.2s; }
 html.a11y-nomotion .nav-pill { transition: none; }
+
+/* ───────────── QA pass ───────────── */
+/* the ghost project number was half hidden behind the screens */
+.pw-no { display: none; }
+/* five phones fit the container on desktop (no hidden fifth phone) */
+@media (min-width: 1200px) {
+  .worlds-row.phones { justify-content: center; overflow: visible; }
+  .worlds-row.phones .world { flex: 0 0 216px; }
+}
+/* touch targets: footer social links and contact channels at least 44px tall */
+.footer-social a, .channels a { display: inline-flex; align-items: center; min-height: 44px; }
+.channels a { width: 100%; }

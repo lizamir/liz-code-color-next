@@ -34,7 +34,7 @@ export const PROOF = [
   { value: "B.Sc.", unit: "", label: "הנדסת חשמל ואלקטרוניקה" },
 ];
 
-export const MARQUEE = ["AI AGENTS", "n8n", "AUTOMATIONS", "REACT", "NEXT.JS", "SUPABASE", "WORDPRESS", "CREATIVE DEVELOPMENT", "ACCESSIBILITY"];
+export const MARQUEE = ["AI AGENTS", "n8n", "AUTOMATIONS", "REACT", "NEXT.JS", "SUPABASE", "CREATIVE DEVELOPMENT", "ACCESSIBILITY"];
 
 export type Category = "web" | "ai" | "brand";
 export const CATEGORIES: { id: "all" | Category; label: string }[] = [
@@ -235,7 +235,7 @@ export const SERVICES = [
   {
     tag: "01 / WEB",
     title: "אתר שעובד בשביל העסק",
-    text: "אתרי תדמית, דפי נחיתה ו‑WordPress: מבנה ברור, עיצוב מותאם למותג וחוויית שימוש נעימה גם בנייד.",
+    text: "אתרי תדמית, דפי נחיתה ואתרים בקוד (Next.js): מבנה ברור, עיצוב מותאם למותג וחוויית שימוש נעימה גם בנייד.",
     gets: ["מבנה ותוכן שמובילים לפעולה", "מובייל ונגישות מההתחלה", "אפשרות לעדכן לבד"],
   },
   {
@@ -272,7 +272,7 @@ export const CREDENTIALS = [
   { title: "מעל 4 שנות פיתוח", sub: "מערכות, אינטגרציות ואתרים", text: "בסביבות ארגוניות ובפרויקטים עצמאיים. איפה ומה בדיוק, אפשר לראות בקורות החיים." },
   { title: "הסמכות Workato ו‑MuleSoft", sub: "פלטפורמות אינטגרציה", text: "חיבור בין מערכות, ממשקי API ותהליכים אוטומטיים בקנה מידה ארגוני." },
   { title: "BotCamp של Focus AI", sub: "בוגרת", text: "סוכנים ב‑n8n, מערכות RAG, חיבורי MCP ואפיון פתרונות AI עסקיים." },
-  { title: "היום: פרילנס ושילוב בצוותים", sub: "React · WordPress · AI", text: "מאתר תדמית ועד ממשק מותאם או תהליך אוטומטי, עם קשר ישיר וליווי." },
+  { title: "היום: פרילנס ושילוב בצוותים", sub: "Next.js · Claude Code · AI", text: "מאתר תדמית ועד ממשק מותאם או תהליך אוטומטי, עם קשר ישיר וליווי." },
 ];
 
 /** Shown only on the CV page: this is where the details of who and what are written. */
@@ -281,7 +281,7 @@ export const CV_JOBS = [
     title: "פרילנס ושילוב בצוותי פיתוח",
     where: "עצמאית",
     when: "היום",
-    text: "אתרים וממשקים ב‑React ו‑Next.js, WordPress, מערכות עם Supabase, אוטומציות וסוכני AI ב‑n8n. עבודה ישירה עם בעלי עסקים ויזמים, וגם השתלבות בצוותים.",
+    text: "אתרים וממשקים ב‑React ו‑Next.js, פיתוח בעזרת Claude Code, מערכות עם Supabase, אוטומציות וסוכני AI ב‑n8n. עבודה ישירה עם בעלי עסקים ויזמים, וגם השתלבות בצוותים.",
   },
   {
     title: "פיתוח מערכות ואינטגרציות",
@@ -299,9 +299,9 @@ export const CV_EDU = [
 export const STACK = [
   { group: "ממשקים", items: ["React", "Next.js", "TypeScript", "Three.js", "CSS & Design systems", "נגישות (WCAG)"] },
   { group: "שרת ונתונים", items: ["Node.js", "Supabase", "Postgres & RLS", "REST & Webhooks"] },
-  { group: "AI ואוטומציה", items: ["n8n", "AI Agents", "RAG", "MCP", "Claude · OpenAI", "Pinecone · LlamaParse"] },
+  { group: "AI ואוטומציה", items: ["Claude Code", "n8n", "AI Agents", "RAG", "MCP", "Claude · OpenAI", "Pinecone · LlamaParse"] },
   { group: "אינטגרציה", items: ["Workato", "MuleSoft", "APIs", "חיבור בין מערכות"] },
-  { group: "עיצוב ותוכן", items: ["Figma", "UX/UI", "WordPress", "Elementor"] },
+  { group: "עיצוב ותוכן", items: ["Figma", "UX/UI", "Design systems"] },
 ];
 
 export const AUTOMATION_FLOWS = {

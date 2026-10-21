@@ -40,7 +40,7 @@ export default function Footer({ home = true }: { home?: boolean }) {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Liz Code &amp; Color · JERUSALEM · ISRAEL</span>
-          <span>נבנה ב‑Next.js ו‑React. WebGL ו‑CurvedInput מבוססים על React Bits.</span>
+          <span>נבנה ב‑Next.js ו‑React. מיקרו‑אינטראקציות בהשראת React Bits.</span>
         </div>
       </div>
     </footer>

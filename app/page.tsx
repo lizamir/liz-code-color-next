@@ -31,14 +31,14 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <div className="mobile-bar">
+      <nav className="mobile-bar" aria-label="יצירת קשר מהירה">
         <a className="btn btn-ghost btn-sm" href={`tel:+972${SITE.phone.slice(1)}`}>
           <span>התקשרו</span>
         </a>
         <a className="btn btn-wa btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
           <WhatsAppIcon size={18} /> וואטסאפ
         </a>
-      </div>
+      </nav>
       <Reveal />
       <Motion />
     </>
