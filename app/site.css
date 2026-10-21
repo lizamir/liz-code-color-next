@@ -808,3 +808,9 @@ html.a11y-nomotion .robot *, html.a11y-nomotion .robot-say { animation: none !im
 .auto-note a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 820px) { .auto-steps ol { grid-template-columns: 1fr 1fr; } .auto-steps li:nth-child(odd) { border-inline-start: 0; padding-inline-start: 0; } }
 @media (max-width: 480px) { .auto-steps ol { grid-template-columns: 1fr; } .auto-steps li { border-inline-start: 0; padding-inline-start: 0; } }
+
+/* 3D robot */
+.robot-stage { position: relative; width: 100%; aspect-ratio: 4 / 5; }
+.robot-stage canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.robot-fallback { position: absolute; inset: 0; display: grid; place-items: center; font-size: 8rem; }
+.robot { width: min(420px, 82vw); }
