@@ -7,7 +7,7 @@ export const SITE = {
   person: "ליז חג׳ג׳",
   personEn: "Liz Hajage",
   role: "מפתחת Full‑Stack, יישום AI ואוטומציות",
-  url: "https://lizamir.github.io",
+  url: "https://lizhajage.co.il",
   email: "lizhajage@gmail.com",
   phone: "0546887442",
   whatsapp: "https://wa.me/972546887442",

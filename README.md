@@ -1,7 +1,7 @@
 # Liz Code & Color — portfolio
 
 Portfolio of **Liz Hajage**: full-stack, AI and automation. Next.js (App Router, static export), React, TypeScript.
-Live: https://lizamir.github.io
+Live: https://lizhajage.co.il
 
 ## Run
 
@@ -40,7 +40,7 @@ The WaveBackground shader and the curved CTA are adapted from React Bits (see `p
 
 ## Publish
 
-The site is a static export hosted on GitHub Pages at https://lizamir.github.io (repo `lizamir/lizamir.github.io` holds the built files; this repo holds the source).
+The site is a static export hosted on GitHub Pages at https://lizhajage.co.il (repo `lizamir/lizamir.github.io` holds the built files; this repo holds the source).
 
 ```bash
 npm run publish:site
