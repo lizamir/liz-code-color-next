@@ -814,3 +814,17 @@ html.a11y-nomotion .robot *, html.a11y-nomotion .robot-say { animation: none !im
 .robot-stage canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
 .robot-fallback { position: absolute; inset: 0; display: grid; place-items: center; font-size: 8rem; }
 .robot { width: min(420px, 82vw); }
+
+/* live Telegram bot callout */
+.bot-try { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(16px, 3vw, 36px); align-items: center; padding: clamp(18px, 2.6vw, 30px); margin: -24px 0 clamp(48px, 7vw, 88px); border-radius: 28px; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.2); }
+.bot-try img { width: 120px; height: 120px; border-radius: 16px; background: #fff; padding: 6px; display: block; }
+.bot-try h3 { font-size: clamp(1.4rem, 2.4vw, 2rem); color: #fff; margin: 4px 0 6px; }
+.bot-try p { color: var(--on-deep-2); max-width: 36rem; }
+.bot-live { display: inline-flex; align-items: center; gap: 8px; font: 800 0.8rem var(--font-display); letter-spacing: 0.12em; color: #8ff0b4 !important; }
+.bot-live i { width: 9px; height: 9px; border-radius: 50%; background: #3ad07a; box-shadow: 0 0 0 0 rgba(58, 208, 122, 0.6); animation: ping-live 1.8s infinite; }
+@keyframes ping-live { 70% { box-shadow: 0 0 0 9px rgba(58, 208, 122, 0); } 100% { box-shadow: 0 0 0 0 rgba(58, 208, 122, 0); } }
+.bot-try-cta { display: grid; gap: 10px; }
+.btn-tg { background: #0b6fa3; color: #fff; border-color: #0b6fa3; }
+.btn-tg:hover { background: #085a85; border-color: #085a85; }
+@media (max-width: 900px) { .bot-try { grid-template-columns: auto 1fr; } .bot-try-cta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; } .bot-try img { width: 96px; height: 96px; } }
+html.a11y-nomotion .bot-live i { animation: none; }
