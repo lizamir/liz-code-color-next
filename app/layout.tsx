@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: TITLE,
     description: DESCRIPTION,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Liz Code & Color: אני הופכת רעיונות לאתרים שאי אפשר לפספס" }],
+    images: [{ url: "/og-card.png", width: 1200, height: 630, alt: "כרטיס הביקור של ליז חג׳ג׳: מפתחת Full-Stack, יישום AI ואוטומציות" }],
   },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og-card.png"] },
   robots: { index: true, follow: true },
 };
 

@@ -856,3 +856,12 @@ html.a11y-nomotion .bot-live i { animation: none; }
 }
 html.a11y-nomotion .worlds-row.phones .world { transition: none; }
 .worlds .world h3 { color: var(--ink); }
+
+/* mobile: the business card is the first thing you see */
+@media (max-width: 900px) {
+  .hero { padding-top: 92px; }
+  .hero-grid { gap: 26px; }
+  .hero .bc { order: -1; min-height: 0; margin: 0; --cw: min(420px, 88vw); }
+  .hero .bc-cord { height: 26px; }
+  .hero .bc-flip { margin-top: 14px; }
+}
