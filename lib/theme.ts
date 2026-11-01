@@ -2,38 +2,26 @@
 
 import { useSyncExternalStore } from "react";
 
-/** The visitor's color theme ("Code & Color": the whole site re-colors). Saved in localStorage and
- *  mirrored to <html data-theme>. The first paint is handled by the inline boot script in layout.tsx. */
-export type ThemeId = "violet" | "pink" | "teal" | "sun";
+/** Day or night: the same brand palette in two lights. Saved in localStorage and mirrored to
+ *  <html data-mode>. The first paint is handled by the inline boot script in layout.tsx. */
+export type Mode = "day" | "night";
 
-export const THEMES: { id: ThemeId; label: string; swatch: string; wave: [number[], number[], number[]] }[] = [
-  { id: "violet", label: "סגול", swatch: "#7f5bd6", wave: [[0.19, 0.02, 0.62], [1, 0.04, 0.55], [0.08, 0.97, 0.9]] },
-  { id: "pink", label: "ורוד", swatch: "#f0a6c3", wave: [[0.42, 0.02, 0.3], [1, 0.22, 0.45], [1, 0.78, 0.25]] },
-  { id: "teal", label: "טורקיז", swatch: "#8fcfbf", wave: [[0.0, 0.12, 0.34], [0.0, 0.82, 0.72], [0.75, 1, 0.33]] },
-  { id: "sun", label: "שמש", swatch: "#f5b48a", wave: [[0.32, 0.04, 0.24], [1, 0.45, 0.15], [1, 0.85, 0.3]] },
-];
-
-const KEY = "liz-theme";
+const KEY = "liz-mode";
 const listeners = new Set<() => void>();
-let current: ThemeId | null = null;
+let current: Mode | null = null;
 
-function read(): ThemeId {
+function read(): Mode {
   if (current) return current;
-  let saved: string | null = null;
-  try {
-    saved = localStorage.getItem(KEY);
-  } catch {
-    // Blocked storage: default.
-  }
-  current = THEMES.some((t) => t.id === saved) ? (saved as ThemeId) : "violet";
+  current = document.documentElement.dataset.mode === "night" ? "night" : "day";
   return current;
 }
 
-export function setTheme(id: ThemeId) {
-  current = id;
-  document.documentElement.dataset.theme = id;
+export function setMode(mode: Mode) {
+  current = mode;
+  if (mode === "night") document.documentElement.dataset.mode = "night";
+  else delete document.documentElement.dataset.mode;
   try {
-    localStorage.setItem(KEY, id);
+    localStorage.setItem(KEY, mode);
   } catch {
     // Still applies for this visit.
   }
@@ -45,6 +33,6 @@ const subscribe = (l: () => void) => {
   return () => listeners.delete(l);
 };
 
-export function useTheme(): ThemeId {
-  return useSyncExternalStore(subscribe, read, () => "violet");
+export function useMode(): Mode {
+  return useSyncExternalStore(subscribe, read, () => "day");
 }

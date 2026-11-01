@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { NAV, SITE } from "@/lib/content";
+import { NAV, SITE, type NavItem } from "@/lib/content";
 import ThemePicker from "./ThemePicker";
 import Logo from "./Logo";
 import WhatsAppIcon from "./WhatsAppIcon";
@@ -17,14 +17,24 @@ function goTo(hash: string) {
   }
 }
 
-/** `home`: anchors scroll the page. Otherwise (case study pages) they go back to the home page sections. */
-export default function Header({ home = true }: { home?: boolean }) {
+type Props = {
+  /** true: anchors scroll this page. false (case study pages): they go back to `base`. */
+  home?: boolean;
+  nav?: NavItem[];
+  base?: string;
+  /** the quiet link to the other half of the site (business / recruiters) */
+  other?: NavItem;
+};
+
+const TO_DEV: NavItem = { href: "/dev/", label: "למגייסים" };
+
+export default function Header({ home = true, nav = NAV, base = "/", other = TO_DEV }: Props) {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [active, setActive] = useState("");
   const burger = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
-  const href = (h: string) => (home ? h : `/${h}`);
+  const href = (h: string) => (home ? h : `${base}${h}`);
 
   useEffect(() => {
     let last = window.scrollY;
@@ -40,12 +50,12 @@ export default function Header({ home = true }: { home?: boolean }) {
   useEffect(() => {
     if (!home) return;
     const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)), { rootMargin: "-45% 0px -50% 0px" });
-    NAV.forEach((n) => {
+    nav.forEach((n) => {
       const el = document.getElementById(n.href.slice(1));
       if (el) io.observe(el);
     });
     return () => io.disconnect();
-  }, [home]);
+  }, [home, nav]);
 
   useEffect(() => {
     if (!open) return;
@@ -80,11 +90,14 @@ export default function Header({ home = true }: { home?: boolean }) {
           <Logo />
         </Link>
         <nav className="nav-desktop" aria-label="ניווט ראשי">
-          {NAV.map((n) => (
+          {nav.map((n) => (
             <a key={n.href} href={href(n.href)} aria-current={home && active === n.href.slice(1) ? "true" : undefined}>
               {n.label}
             </a>
           ))}
+          <Link className="nav-other" href={other.href}>
+            {other.label}
+          </Link>
         </nav>
         <div className="header-actions">
           <ThemePicker />
@@ -102,7 +115,7 @@ export default function Header({ home = true }: { home?: boolean }) {
       <div id="mobile-menu" ref={menu} className="mobile-menu" inert={!open} aria-hidden={!open}>
         <nav aria-label="ניווט מובייל">
           <ol>
-            {NAV.map((n, i) => (
+            {nav.map((n, i) => (
               <li key={n.href} style={{ ["--i" as string]: i }}>
                 <a href={href(n.href)} onClick={(e) => onNav(e, n.href)}>
                   <span>{String(i + 1).padStart(2, "0")}</span>
@@ -117,8 +130,8 @@ export default function Header({ home = true }: { home?: boolean }) {
           <a className="btn btn-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">
             <WhatsAppIcon /> בואו נדבר בוואטסאפ
           </a>
-          <Link className="btn btn-ghost" href="/resume/">
-            קורות חיים
+          <Link className="btn btn-ghost" href={other.href}>
+            {other.label}
           </Link>
         </div>
       </div>

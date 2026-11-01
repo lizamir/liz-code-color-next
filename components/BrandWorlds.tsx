@@ -59,9 +59,7 @@ export default function BrandWorlds() {
       <div className="container">
         <div className="section-head reveal">
           <div>
-            <p className="eyebrow">
-              <b>03</b> FIVE BRANDS. FIVE WORLDS.
-            </p>
+            <p className="eyebrow">FIVE BRANDS. FIVE WORLDS.</p>
             <h2 id="worlds-title" className="title">
               כל מותג. <em>עולם משלו.</em>
             </h2>

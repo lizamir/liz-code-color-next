@@ -1,20 +1,23 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Ribbon from "@/components/Ribbon";
+import ForWho from "@/components/ForWho";
+import Services from "@/components/Services";
 import Work from "@/components/Work";
 import BrandWorlds from "@/components/BrandWorlds";
-import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
 import Automation from "@/components/Automation";
+import Testimonials from "@/components/Testimonials";
+import Process from "@/components/Process";
 import About from "@/components/About";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ScrollProgress from "@/components/ScrollProgress";
 import Motion from "@/components/Motion";
-import { SITE } from "@/lib/content";
-import WhatsAppIcon from "@/components/WhatsAppIcon";
+import BottomNav from "@/components/BottomNav";
 
+/** The business site: what I build for business owners, in their words. The technical side lives on /dev/. */
 export default function Home() {
   return (
     <>
@@ -24,23 +27,19 @@ export default function Home() {
       <main id="main">
         <Hero />
         <Ribbon />
-        <Automation />
+        <ForWho />
+        <Services />
         <Work />
         <BrandWorlds />
+        <Automation />
         <Testimonials />
-        <Services />
+        <Process />
         <About />
+        <Faq />
         <Contact />
       </main>
       <Footer />
-      <nav className="mobile-bar" aria-label="יצירת קשר מהירה">
-        <a className="btn btn-ghost btn-sm" href={`tel:+972${SITE.phone.slice(1)}`}>
-          <span>התקשרו</span>
-        </a>
-        <a className="btn btn-wa btn-sm" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-          <WhatsAppIcon size={18} /> וואטסאפ
-        </a>
-      </nav>
+      <BottomNav />
       <Reveal />
       <Motion />
     </>

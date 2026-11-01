@@ -183,7 +183,7 @@ export default function Motion() {
 
     /* ── Count up: the years of experience tick up once, in view ── */
     document.querySelectorAll<HTMLElement>(".proof b").forEach((el) => {
-      const m = (el.firstChild?.textContent || "").match(/^(\d+)(\+?)/);
+      const m = (el.firstChild?.textContent || "").match(/^(\d+)(\+?)$/);
       if (!m || off()) return;
       const target = Number(m[1]);
       const node = el.firstChild as Text;

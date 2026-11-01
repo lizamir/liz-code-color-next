@@ -1,0 +1,317 @@
+<title>אפיון Liz Code & Color</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800;900&family=Assistant:wght@400;600;700&family=Gveret+Levin&display=swap">
+<style>
+/* Layout: a working spec on a design-tool canvas. Narrow reading column, wide blocks for the sitemap and palettes. */
+:root {
+  --paper: #fbf8f3;
+  --paper-2: #f2ecf6;
+  --card: #ffffff;
+  --ink: #1e1830;
+  --muted: #5d5670;
+  --line: rgba(30, 24, 48, 0.13);
+  --deep: #2a1f45;
+  --on-deep: #f4f0fb;
+  --violet: #5a3dc0;
+  --violet-fill: #6c4fd3;
+  --idea: #ffc83d;
+  --blush: #f4b8c8;
+  --grid: rgba(108, 79, 211, 0.07);
+  --display: "Rubik", "Arial Hebrew", sans-serif;
+  --body: "Assistant", "Arial Hebrew", sans-serif;
+  --hand: "Gveret Levin", "Rubik", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #17122a; --paper-2: #211a38; --card: #221b3a; --ink: #f1edfa; --muted: #b9b0cf;
+    --line: rgba(241, 237, 250, 0.14); --deep: #0f0b1e; --violet: #b9a6f5; --grid: rgba(185, 166, 245, 0.06); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17122a; --paper-2: #211a38; --card: #221b3a; --ink: #f1edfa; --muted: #b9b0cf;
+  --line: rgba(241, 237, 250, 0.14); --deep: #0f0b1e; --violet: #b9a6f5; --grid: rgba(185, 166, 245, 0.06); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; direction: rtl; font: 17px/1.7 var(--body); color: var(--ink); background: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 48px 96px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); font-weight: 800; margin-bottom: 14px; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+em { font-style: normal; font-family: var(--hand); font-weight: 400; color: var(--violet); font-size: 1.2em; }
+p { margin: 0 0 12px; max-width: 68ch; }
+.eyebrow { font: 600 0.78rem/1 var(--display); letter-spacing: 0.14em; color: var(--violet); text-transform: uppercase; margin-bottom: 14px; }
+section { padding-block: 56px; border-top: 1px dashed var(--line); }
+.lead { font-size: 1.2rem; color: var(--muted); max-width: 62ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.chip { font: 600 0.82rem/1 var(--display); padding: 8px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--card); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px; min-width: 0; }
+.card h3 { margin-bottom: 8px; }
+.card p, .card li { color: var(--muted); font-size: 0.98rem; }
+ul { margin: 0; padding-inline-start: 20px; }
+li { margin-bottom: 6px; }
+.deep { background: var(--deep); color: var(--on-deep); border-color: transparent; }
+.deep p, .deep li { color: #cfc6e6; }
+.deep h3 { color: #fff; }
+.tag { display: inline-block; font: 700 0.72rem/1 var(--display); padding: 6px 10px; border-radius: 8px; margin-bottom: 12px; background: var(--paper-2); color: var(--violet); }
+.deep .tag { background: rgba(255, 255, 255, 0.1); color: #d9cdfb; }
+
+/* sitemap */
+.map { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+.map .col { display: grid; gap: 10px; align-content: start; }
+.map .node { padding: 12px 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); font-size: 0.96rem; }
+.map .node b { font-family: var(--display); display: block; }
+.map .node span { color: var(--muted); font-size: 0.88rem; }
+.map .root { background: var(--violet-fill); color: #fff; border: 0; }
+.map .root span { color: #e6defd; }
+.map .root.dark { background: var(--deep); }
+@media (max-width: 640px) { .map { grid-template-columns: 1fr; } }
+
+/* tables */
+.tbl { overflow-x: auto; margin-top: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 0.95rem; }
+th, td { text-align: right; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 700 0.85rem/1.3 var(--display); color: var(--muted); background: var(--paper-2); }
+tr:last-child td { border-bottom: 0; }
+td s { color: var(--muted); }
+
+/* palettes */
+.pal { display: grid; gap: 18px; margin-top: 20px; }
+.p-card { display: grid; grid-template-columns: 1.05fr 1fr; border-radius: 26px; overflow: hidden; border: 1px solid var(--line); background: var(--card); }
+@media (max-width: 760px) { .p-card { grid-template-columns: 1fr; } }
+.p-info { padding: 24px; min-width: 0; }
+.p-info h3 { font-size: 1.3rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rec { font: 700 0.72rem/1 var(--display); padding: 6px 10px; border-radius: 99px; background: var(--idea); color: #2a1f00; }
+.sw { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.sw div { width: 74px; }
+.sw i { display: block; height: 46px; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.08); }
+.sw small { display: block; font: 600 0.72rem/1.3 var(--display); margin-top: 6px; color: var(--muted); direction: ltr; text-align: right; }
+.sw small b { display: block; direction: rtl; color: var(--ink); }
+.p-demo { padding: 28px; display: grid; gap: 14px; align-content: center; min-width: 0; }
+.p-demo .h { font: 900 clamp(1.5rem, 3vw, 2.1rem)/1.05 var(--display); }
+.p-demo .h em { font-size: 1.25em; }
+.p-demo .row { display: flex; gap: 10px; flex-wrap: wrap; }
+.p-demo .b { font: 700 0.85rem/1 var(--display); padding: 11px 16px; border-radius: 99px; }
+.p-demo .strip { border-radius: 16px; padding: 14px 16px; font-size: 0.9rem; }
+
+/* tone */
+.tone { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-top: 12px; background: var(--card); }
+.tone div { padding: 14px 18px; font-size: 0.96rem; min-width: 0; }
+.tone div:first-child { border-inline-end: 1px solid var(--line); color: var(--muted); }
+.tone b { display: block; font: 700 0.75rem/1 var(--display); letter-spacing: 0.08em; margin-bottom: 8px; color: var(--violet); }
+@media (max-width: 640px) { .tone { grid-template-columns: 1fr; } .tone div:first-child { border-inline-end: 0; border-bottom: 1px solid var(--line); } }
+
+.q { counter-reset: q; display: grid; gap: 10px; margin-top: 16px; }
+.q li { list-style: none; counter-increment: q; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 18px; }
+.q li::before { content: counter(q); font: 800 0.8rem/1 var(--display); display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--idea); color: #2a1f00; margin-inline-end: 10px; }
+.q { padding: 0; }
+a { color: var(--violet); }
+:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">אפיון · נובמבר 2026</p>
+    <h1>שני אתרים, <em>מותג</em> אחד</h1>
+    <p class="lead">האתר יתפצל לשניים: אתר מכירה לבעלי עסקים, שמדבר בשפה שלהם ובלי מילים טכניות, ועמוד נפרד למגייסים ולצוותי פיתוח, עם קוד, גיטהאב וקורות חיים. שני החלקים חולקים את אותו לוגו, אותה פלטה ואותם פרטים קטנים, כך שזה עדיין מרגיש כמו מקום אחד.</p>
+    <div class="meta">
+      <span class="chip">lizhajage.co.il</span>
+      <span class="chip">עברית, מימין לשמאל</span>
+      <span class="chip">נגישות AA</span>
+      <span class="chip">מובייל קודם</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">למה לפצל</p>
+    <h2>היום שני קהלים קוראים את אותו עמוד</h2>
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">בעלת עסק</span>
+        <h3>רוצה לדעת: "זה יביא לי לקוחות? כמה זה מסובך?"</h3>
+        <p>היום היא פוגשת כבר במסך הראשון את Workato, MuleSoft, React, Next.js ו‑Supabase. מילים כאלה גורמות לה להרגיש שהשירות לא בשבילה, והיא עוזבת לפני שראתה עבודות.</p>
+      </div>
+      <div class="card deep">
+        <span class="tag">מגייס או ראש צוות</span>
+        <h3>רוצה לדעת: "היא יודעת לכתוב קוד? באיזה סטאק? איפה הגיטהאב?"</h3>
+        <p>בשבילו בדיוק המילים האלה הן ההוכחה. היום הן מפוזרות בין חלקי שיווק, והוא צריך לחפש אותן.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">מפת אתר</p>
+    <h2>מה יושב איפה</h2>
+    <div class="map">
+      <div class="col">
+        <div class="node root"><b>/  אתר לעסקים</b><span>דף הבית. שיווקי, חם ופשוט</span></div>
+        <div class="node"><b>פתיחה</b><span>הכותרת עם הנורה, כרטיס הביקור, כפתור וואטסאפ</span></div>
+        <div class="node"><b>למי זה מתאים</b><span>שלושה מצבים שבעלי עסקים מזהים בעצמם</span></div>
+        <div class="node"><b>מה אני בונה</b><span>אתר, דף נחיתה, וואטסאפ ויומן, עוזר דיגיטלי</span></div>
+        <div class="node"><b>עבודות</b><span>גנלי, עולמות המותגים, הבוט. סיפור לפני טכנולוגיה</span></div>
+        <div class="node"><b>הבוט החי</b><span>הרובוט, בשפה עסקית: "עונה ללקוחות גם בלילה"</span></div>
+        <div class="node"><b>המלצות</b><span>הצ'אטים בוואטסאפ, כמו היום</span></div>
+        <div class="node"><b>התהליך</b><span>ארבעה שלבים על שביל מקווקו שמצטייר בגלילה</span></div>
+        <div class="node"><b>שאלות נפוצות</b><span>כבועות צ'אט</span></div>
+        <div class="node"><b>בואו נדבר</b><span>בונה הפנייה, וואטסאפ ומייל</span></div>
+        <div class="node"><b>/work/[slug]</b><span>עמוד פרויקט: הבעיה, מה בנינו, מה זה נותן</span></div>
+      </div>
+      <div class="col">
+        <div class="node root dark"><b>/dev/  למגייסים וצוותים</b><span>טכני, ישיר, עם קוד</span></div>
+        <div class="node"><b>פתיחה</b><span>מי אני כמפתחת, בשתי שורות, עם קישורים לגיטהאב, לינקדאין וקורות חיים</span></div>
+        <div class="node"><b>סטאק</b><span>מה אני עובדת איתו ביום‑יום, לפי תחומים</span></div>
+        <div class="node"><b>פרויקטים בצד הטכני</b><span>ארכיטקטורה, החלטות, סטאק, קישור לקוד</span></div>
+        <div class="node"><b>AI ואוטומציות לעומק</b><span>זרימות n8n, RAG, MCP, אינטגרציות</span></div>
+        <div class="node"><b>ניסיון והסמכות</b><span>ציר זמן, Workato ו‑MuleSoft, BotCamp, התואר</span></div>
+        <div class="node"><b>/resume/</b><span>קורות חיים להדפסה. המקום היחיד עם שמות מעסיקים</span></div>
+      </div>
+    </div>
+    <p style="margin-top:18px">הקישור לעמוד הטכני יופיע בשקט: מילה אחת בסוף התפריט ("למגייסים") ושורה בפוטר. בעלת עסק לא תיתקל בו בדרך, ומגייס ימצא אותו מיד.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">מה עובר לאן</p>
+    <h2>מה שיש היום באתר, והמקום החדש שלו</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>היום בדף הבית</th><th>באתר לעסקים</th><th>בעמוד הטכני</th></tr></thead>
+        <tbody>
+          <tr><td>הרצועה הנעה (REACT, NEXT.JS, SUPABASE)</td><td>רצועה במילים עסקיות: אתרים · דפי נחיתה · וואטסאפ · יומן · בוטים · נגישות</td><td>הרצועה הטכנית המקורית</td></tr>
+          <tr><td>המספרים בפתיחה (Workato, MuleSoft, B.Sc.)</td><td>מעל 4 שנות ניסיון בפיתוח · ליווי אישי עד העלייה לאוויר · מובייל ונגישות מההתחלה</td><td>ההסמכות והתואר, במלואם</td></tr>
+          <tr><td>שירות 04 "שותפה טכנית" (React, TypeScript, קוד ריוויו)</td><td><s>יוצא</s></td><td>עובר לכאן כמו שהוא</td></tr>
+          <tr><td>סטאק בכרטיסי הפרויקטים ובעמודי הפרויקט</td><td>מוסתר. במקומו: למי זה נבנה ומה זה נותן</td><td>מוצג, עם קישור לקוד</td></tr>
+          <tr><td>קצת עליי + ציר ההסמכות</td><td>סיפור אישי קצר ותמונה</td><td>ציר הזמן המלא</td></tr>
+          <tr><td>מעבדת הזרימה של האוטומציה</td><td>גרסה פשוטה: "לקוחה כותבת, הבוט עונה, את מקבלת סיכום"</td><td>הזרימה המלאה עם הכלים</td></tr>
+          <tr><td>שירות "AI עם מטרה ברורה"</td><td>"עוזר דיגיטלי שעונה על השאלות שחוזרות"</td><td>יישום AI: סוכנים, RAG, בקרה אנושית</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">שפה</p>
+    <h2>איך מדברים לבעלי עסקים</h2>
+    <p>כותבים מה העסק מרוויח, לא איך זה בנוי. כמה דוגמאות מהטקסט הקיים:</p>
+    <div class="tone"><div><b>היום</b>אתרי תדמית, דפי נחיתה ואתרים בקוד (Next.js): מבנה ברור, עיצוב מותאם למותג</div><div><b>באתר לעסקים</b>אתר שנראה כמו העסק שלך, נטען מהר בטלפון ומוביל את הלקוחות ישר לוואטסאפ.</div></div>
+    <div class="tone"><div><b>היום</b>חיבור בין מערכות ואוטומציה של תהליכים, כדי להעביר מידע בצורה מסודרת</div><div><b>באתר לעסקים</b>מישהי קבעה תור? היא מקבלת אישור ותזכורת לבד, ואת רואה את זה ביומן.</div></div>
+    <div class="tone"><div><b>היום</b>AI AGENT · TELEGRAM. ארבעה כלים בלבד: מאגר מידע, בדיקת זמינות, קביעת תור ומייל</div><div><b>באתר לעסקים</b>עוזר דיגיטלי שעונה ללקוחות על שאלות, בודק מתי יש מקום ביומן וקובע תור. מה שהוא לא יודע, מגיע אלייך.</div></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">השראה מ‑vikapenn.com</p>
+    <h2>מה לקחת, ואיך להפוך את זה לשלך</h2>
+    <p>מה שעובד אצלה הוא התחושה שהאתר זז איתך בלי לצעוק. לא מעתיקים את הצבעים, הפריסה או את הלוגו בחריץ. לוקחים את הרעיון, ומלבישים עליו את השפה שלך: קנבס של כלי עיצוב, חצים מצוירים ביד והנורה.</p>
+    <div class="grid3">
+      <div class="card"><span class="tag">תפריט</span><h3>תפריט צף למטה בטלפון</h3><p>אצלה התפריט יושב בתחתית המסך. אצלך: גלולה צפה בתחתית בטלפון, באזור האגודל, עם עבודות, שירותים, שאלות וכפתור וואטסאפ ירוק. היא מחליפה את פס "התקשרו / וואטסאפ" של היום. במחשב התפריט העליון נשאר כמו שהוא.</p></div>
+      <div class="card"><span class="tag">כותרות</span><h3>מילה ענקית ושקופה מאחורי הכותרת</h3><p>אצלה Projects, Process ו‑FAQ באותיות ענק עמומות. אצלך: מילה אנגלית בכתב היד של גברת לוין (ideas, work, process, hello) כקו מתאר עדין, שזזה קצת לאט יותר מהגלילה.</p></div>
+      <div class="card"><span class="tag">תהליך</span><h3>שביל מקווקו בין השלבים</h3><p>אצלה קו מקווקו מחבר בין השלבים. אצלך: אותו חץ לולאה שכבר יש ליד הכרטיס, ממשיך מהשלב הראשון לאחרון ומצטייר תוך כדי גלילה. בסוף השביל הנורה נדלקת.</p></div>
+      <div class="card"><span class="tag">שאלות</span><h3>שאלות כבועות צ'אט</h3><p>אצלה השאלות נראות כמו שיחה. אצלך זה מתחבר להמלצות בוואטסאפ: לוחצים על שאלה והתשובה "מוקלדת" כבועה. קריא במקלדת ובקורא מסך.</p></div>
+      <div class="card"><span class="tag">עבודות</span><h3>שורות מתחלפות עם מכשירים</h3><p>פרויקט אחד מימין ואחד משמאל, והמכשירים נכנסים מהצד בגלילה. כבר קרוב למה שיש לך; מוסיפים את התנועה ומורידים את הסטאק.</p></div>
+      <div class="card"><span class="tag">לא לוקחים</span><h3>מה נשאר אצלה</h3><p>הכתום‑על‑סגול הכהה, התמונה בעיגול, הלוגו בחריץ, רצועת לוגואים של לקוחות (אין לך כרגע לקוחות שאפשר להציג כך, ולא ממציאים).</p></div>
+    </div>
+  </section>
+
+  <section id="palette">
+    <p class="eyebrow">פלטת צבעים</p>
+    <h2>פלטה אחת קבועה, במקום ארבע שמתחלפות</h2>
+    <p>מה לא עובד היום: ארבע ערכות שונות לגמרי (סגול, ורוד, טורקיז, שמש). לכן לאתר אין צבע שזוכרים, ובכל ערכה חלקים כמו המכשירים, הבוט וכפתורי הטלגרם נראים פתאום לא שייכים. ההמלצה היא פלטה אחת של המותג, עם מצב יום ומצב לילה שלה במקום ארבע ערכות.</p>
+    <p>חלוקה לפי 60‑30‑10: נייר חם ל‑60% מהשטח, שזיף כהה ל‑30% (טקסט ואזורים כהים), וצבע הדגשה ל‑10% בלבד (מילה מודגשת, כפתור, נורה). ירוק הוואטסאפ נשאר כי הוא צבע של פעולה, לא של המותג.</p>
+
+    <div class="pal">
+      <div class="p-card">
+        <div class="p-info">
+          <h3>א. רגע של השראה <span class="rec">ההמלצה שלי</span></h3>
+          <div class="sw">
+            <div><i style="background:#fbf8f3"></i><small><b>נייר</b>#FBF8F3</small></div>
+            <div><i style="background:#1e1830"></i><small><b>דיו</b>#1E1830</small></div>
+            <div><i style="background:#2a1f45"></i><small><b>שזיף</b>#2A1F45</small></div>
+            <div><i style="background:#6c4fd3"></i><small><b>סגול</b>#6C4FD3</small></div>
+            <div><i style="background:#ffc83d"></i><small><b>אור</b>#FFC83D</small></div>
+            <div><i style="background:#f4b8c8"></i><small><b>סומק</b>#F4B8C8</small></div>
+          </div>
+          <p>יוצאת מהנורה עצמה: זכוכית צהובה על בסיס סגול. השזיף הכהה שאהבת נשאר, הסגול נעשה עמוק ובטוח יותר, והצהוב הוא "האור", כלומר הצבע שמסמן רעיון: הנורה, סימון מילה, נקודה בכפתור. הוורוד נשאר רק כנגיעה רכה. לטקסט סגול על נייר יש גוון כהה יותר, #5A3DC0, שעובר ניגודיות AA.</p>
+        </div>
+        <div class="p-demo" style="background:#fbf8f3;color:#1e1830">
+          <div class="h">אני הופכת <em style="color:#5a3dc0">רעיונות</em> לאתרים</div>
+          <div class="row"><span class="b" style="background:#1e1830;color:#fff;box-shadow:0 4px 0 #ffc83d">בואו נדבר</span><span class="b" style="border:1.5px solid #1e1830">לעבודות</span></div>
+          <div class="strip" style="background:#2a1f45;color:#f4f0fb">אזור כהה בשזיף, עם <b style="color:#ffc83d">הדגשה בצהוב</b> ו<b style="color:#cbb9f5">סגול בהיר</b></div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-info">
+          <h3>ב. לילך ומרווה</h3>
+          <div class="sw">
+            <div><i style="background:#f8f7fb"></i><small><b>נייר</b>#F8F7FB</small></div>
+            <div><i style="background:#1d1b2b"></i><small><b>דיו</b>#1D1B2B</small></div>
+            <div><i style="background:#23203a"></i><small><b>לילה</b>#23203A</small></div>
+            <div><i style="background:#9c86e8"></i><small><b>לילך</b>#9C86E8</small></div>
+            <div><i style="background:#9cc9b4"></i><small><b>מרווה</b>#9CC9B4</small></div>
+            <div><i style="background:#f6d77a"></i><small><b>חמאה</b>#F6D77A</small></div>
+          </div>
+          <p>רכה ופסטלית יותר, קרובה לערכת הסגול של היום. נעימה מאוד, אבל פחות ייחודית; קשה יותר לזכור אותה כצבע של מותג.</p>
+        </div>
+        <div class="p-demo" style="background:#f8f7fb;color:#1d1b2b">
+          <div class="h">אני הופכת <em style="color:#5b45b5">רעיונות</em> לאתרים</div>
+          <div class="row"><span class="b" style="background:#1d1b2b;color:#fff;box-shadow:0 4px 0 #9cc9b4">בואו נדבר</span><span class="b" style="border:1.5px solid #1d1b2b">לעבודות</span></div>
+          <div class="strip" style="background:#23203a;color:#f1effa">אזור כהה, עם <b style="color:#9cc9b4">הדגשה במרווה</b> ו<b style="color:#c9bcf5">לילך</b></div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-info">
+          <h3>ג. שזיף ואפרסק</h3>
+          <div class="sw">
+            <div><i style="background:#fcf7f4"></i><small><b>נייר</b>#FCF7F4</small></div>
+            <div><i style="background:#24172a"></i><small><b>דיו</b>#24172A</small></div>
+            <div><i style="background:#33193a"></i><small><b>שזיף</b>#33193A</small></div>
+            <div><i style="background:#c86b98"></i><small><b>פוקסיה</b>#C86B98</small></div>
+            <div><i style="background:#f5a77f"></i><small><b>אפרסק</b>#F5A77F</small></div>
+            <div><i style="background:#f6e3d6"></i><small><b>קרם</b>#F6E3D6</small></div>
+          </div>
+          <p>חמה ונשית. החיסרון: היא הכי קרובה לכתום‑על‑סגול של ויקה, ואת רוצה שהאתר ייראה שלך.</p>
+        </div>
+        <div class="p-demo" style="background:#fcf7f4;color:#24172a">
+          <div class="h">אני הופכת <em style="color:#a3457a">רעיונות</em> לאתרים</div>
+          <div class="row"><span class="b" style="background:#24172a;color:#fff;box-shadow:0 4px 0 #f5a77f">בואו נדבר</span><span class="b" style="border:1.5px solid #24172a">לעבודות</span></div>
+          <div class="strip" style="background:#33193a;color:#f8eef3">אזור כהה, עם <b style="color:#f5a77f">אפרסק</b> ו<b style="color:#eab2cf">ורוד</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:18px">
+      <div class="card"><h3>מה קורה לבורר הצבעים</h3><p>במקום ארבעה צבעים: מתג יום/לילה. ביום נייר חם ושזיף; בלילה שזיף עמוק עם סגול בהיר וצהוב. הדמויות (הרובוט, הנורה, הכרטיס) נשארות באותם צבעים בשני המצבים.</p></div>
+      <div class="card"><h3>העמוד הטכני</h3><p>אותה פלטה, אבל השזיף הכהה הוא הרקע הראשי, ויש פונט מונו לפרטים קטנים (פקודות, סטאק). כך רואים מיד שזה "הצד השני" של אותו מותג.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">כבר נעשה, מקומית</p>
+    <h2>פונט ונורה</h2>
+    <div class="grid2">
+      <div class="card"><h3>גברת לוין במקום גדי אלמוג</h3><p>לגדי אלמוג יש רק משקל אחד, דק. גברת לוין עבה יותר ומתאימה לכותרות הכבדות. היא כבר הייתה באתר דרך Google Fonts ברישיון פתוח, אז אין מגבלת צפיות ולא צריך להירשם לאאא.</p></div>
+      <div class="card"><h3>הנורה של "רעיונות"</h3><p>נורה מצוירת ביד בסוף השורה הראשונה. היא מהבהבת, נדלקת, הקרניים קופצות בצבעי הפלטה, והמילה "רעיונות" נדלקת יחד איתה. לחיצה על הנורה או על המילה מדליקה שוב. נכבית למי שביקש פחות תנועה.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">החלטות שלך</p>
+    <h2>מה אני צריכה ממך לפני שבונים</h2>
+    <ol class="q">
+      <li>איזו פלטה: א, ב או ג? ולהחליף את ארבע הערכות במתג יום/לילה?</li>
+      <li>הכתובת של העמוד הטכני: <b>/dev/</b>, <b>/tech/</b> או <b>/career/</b>?</li>
+      <li>דלויט נשאר רק בקורות החיים (/resume/), או שמותר להזכיר אותו גם בעמוד הטכני?</li>
+      <li>תשובות אמיתיות לשאלות הנפוצות: כמה זמן לוקח אתר, מי כותב את התוכן, אם אפשר לעדכן לבד, מה קורה אחרי שהאתר עולה, ואיך מתמחר (בלי מחירים, אם את לא רוצה).</li>
+      <li>אילו ריפוזיטוריז בגיטהאב ציבוריים ואפשר להציג בעמוד הטכני?</li>
+      <li>יש סוג עסקים שאת רוצה לפנות אליו במיוחד (קליניקות, נותני שירות, גנים, אוכל)? זה ישנה את הדוגמאות ב"למי זה מתאים".</li>
+    </ol>
+  </section>
+</div>

@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { NAV, SITE } from "@/lib/content";
+import { NAV, SITE, type NavItem } from "@/lib/content";
 import ThemePicker from "./ThemePicker";
 import Logo from "./Logo";
 
-export default function Footer({ home = true }: { home?: boolean }) {
-  const href = (h: string) => (home ? h : `/${h}`);
+export default function Footer({ home = true, nav = NAV, base = "/" }: { home?: boolean; nav?: NavItem[]; base?: string }) {
+  const href = (h: string) => (home ? h : `${base}${h}`);
   return (
     <footer className="footer">
       <div className="container">
@@ -14,11 +14,17 @@ export default function Footer({ home = true }: { home?: boolean }) {
           </Link>
           <nav aria-label="קישורים בתחתית העמוד">
             <ul>
-              {NAV.map((n) => (
+              {nav.map((n) => (
                 <li key={n.href}>
                   <a href={href(n.href)}>{n.label}</a>
                 </li>
               ))}
+              <li>
+                <Link href="/">לבעלי עסקים</Link>
+              </li>
+              <li>
+                <Link href="/dev/">למגייסים ולצוותי פיתוח</Link>
+              </li>
               <li>
                 <Link href="/resume/">קורות חיים</Link>
               </li>
@@ -40,7 +46,7 @@ export default function Footer({ home = true }: { home?: boolean }) {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Liz Code &amp; Color · JERUSALEM · ISRAEL</span>
-          <span>נבנה ב‑Next.js ו‑React. מיקרו‑אינטראקציות בהשראת React Bits.</span>
+          <span>עוצב ונבנה על ידי ליז, בקוד.</span>
         </div>
       </div>
     </footer>

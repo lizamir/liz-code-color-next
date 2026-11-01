@@ -2,8 +2,12 @@ import Link from "next/link";
 import Arrow from "./Arrow";
 import Devices from "./Devices";
 import { PROJECTS, type Project } from "@/lib/content";
+import GhostWord from "./GhostWord";
 
-function Showcase({ p, i }: { p: Project; i: number }) {
+function Showcase({ p, i, tech }: { p: Project; i: number; tech: boolean }) {
+  // business visitors get the story; the code link and the stack belong to the technical page
+  const code = p.links.find((l) => l.href.includes("github.com"));
+  const second = tech ? (code ?? p.links[0]) : p.links.find((l) => l !== code);
   return (
     <article className="pw" data-tone={p.tone} style={{ ["--i" as string]: i }}>
       <div className="pw-media">
@@ -22,16 +26,18 @@ function Showcase({ p, i }: { p: Project; i: number }) {
           </Link>
         </h3>
         <p className="pw-summary">{p.summary}</p>
-        <ul className="tags" aria-label="טכנולוגיות">
-          {p.stack.map((s) => (
-            <li key={s}>{s}</li>
-          ))}
-        </ul>
+        {tech && (
+          <ul className="tags" aria-label="טכנולוגיות">
+            {p.stack.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+        )}
         <div className="pw-actions">
           <Link className="btn btn-lime" href={`/work/${p.slug}/`}>
-            <span>למקרה הבוחן <Arrow /></span>
+            <span>{tech ? "למקרה הבוחן" : "לסיפור המלא"} <Arrow /></span>
           </Link>
-          {p.links.slice(0, 1).map((l) => (
+          {[second].filter((l) => l !== undefined).map((l) => (
             <a key={l.href} className="btn btn-ghost" href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
               <span>
                 {l.label} <Arrow dir={l.external ? "out" : "in"} />
@@ -45,24 +51,36 @@ function Showcase({ p, i }: { p: Project; i: number }) {
 }
 
 /** Selected work as a stack of full-width cards: each project sits on a monitor with a phone in front. */
-export default function Work() {
+export default function Work({ tech = false }: { tech?: boolean }) {
+  const id = tech ? "dev-projects" : "work";
   return (
-    <section className="section work" id="work" aria-labelledby="work-title">
+    <section className="section work" id={id} aria-labelledby={`${id}-title`}>
       <div className="container">
         <div className="section-head reveal">
+          <GhostWord word={tech ? "code" : "work"} />
           <div>
-            <p className="eyebrow">
-              <b>02</b> SELECTED WORK
-            </p>
-            <h2 id="work-title" className="title">
-              פרויקטים <em>נבחרים</em>
+            <p className="eyebrow">{tech ? "PROJECTS · STACK · CODE" : "SELECTED WORK"}</p>
+            <h2 id={`${id}-title`} className="title">
+              {tech ? (
+                <>
+                  פרויקטים <em>מבפנים</em>
+                </>
+              ) : (
+                <>
+                  פרויקטים <em>נבחרים</em>
+                </>
+              )}
             </h2>
           </div>
-          <p className="lead">כל אתר נבנה סביב המותג שלו, ונבדק על מסך גדול ועל טלפון. לכל פרויקט יש עמוד שמסביר את האתגר, את ההחלטות ומה נבנה בפועל.</p>
+          <p className="lead">
+            {tech
+              ? "כל פרויקט עם הסטאק, ההחלטות הטכניות וקישור לקוד או לדמו חי."
+              : "כל אתר נבנה סביב העסק שלו, ונבדק על מסך גדול ועל טלפון. לכל פרויקט יש עמוד שמספר מה היה צריך ומה נבנה."}
+          </p>
         </div>
         <div className="pw-stack">
           {PROJECTS.map((p, i) => (
-            <Showcase key={p.slug} p={p} i={i} />
+            <Showcase key={p.slug} p={p} i={i} tech={tech} />
           ))}
         </div>
       </div>

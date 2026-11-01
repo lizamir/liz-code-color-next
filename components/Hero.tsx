@@ -3,7 +3,7 @@ import Arrow, { LoopArrow } from "./Arrow";
 import BusinessCard from "./BusinessCard";
 import { PROOF, SITE } from "@/lib/content";
 import WhatsAppIcon from "./WhatsAppIcon";
-import TechWord from "./TechWord";
+import IdeaTitle from "./IdeaTitle";
 
 export default function Hero() {
   return (
@@ -18,26 +18,11 @@ export default function Hero() {
             </p>
           )}
           <p className="eyebrow reveal" style={{ ["--d" as string]: 1 }}>
-            WEB DESIGN · DEVELOPMENT · AI
+            WEBSITES · AUTOMATIONS · FOR BUSINESS
           </p>
-          <h1 id="hero-title" className="display">
-            <span className="mask">
-              <span style={{ ["--i" as string]: 0, ["--base" as string]: "120ms" }}>אני הופכת</span>
-            </span>
-            <span className="mask">
-              <span style={{ ["--i" as string]: 1, ["--base" as string]: "120ms" }}>
-                <em className="tw-em">
-                  <TechWord text="רעיונות" />
-                </em>{" "}
-                לאתרים
-              </span>
-            </span>
-            <span className="mask">
-              <span style={{ ["--i" as string]: 2, ["--base" as string]: "120ms" }}>שאי אפשר לפספס.</span>
-            </span>
-          </h1>
+          <IdeaTitle before="אני הופכת" word="רעיונות" rest="לאתרים שאי אפשר לפספס." />
           <p className="lead sel reveal" style={{ ["--d" as string]: 4 }}>
-            אתרים עם אופי, פיתוח מותאם אישית ויישום AI, לעסקים עצמאיים, מותגים וצוותים שרוצים לקחת את הדיגיטל שלהם קדימה.
+            אתרים ודפי נחיתה שנראים בדיוק כמו העסק שלכם, ומחוברים לוואטסאפ וליומן, כדי שלקוחות יפנו, יקבעו ויחזרו.
           </p>
           <div className="hero-actions reveal" style={{ ["--d" as string]: 5 }}>
             <a className="btn btn-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">

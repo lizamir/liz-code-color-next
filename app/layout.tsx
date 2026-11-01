@@ -13,9 +13,9 @@ const rubik = Rubik({ variable: "--font-rubik", subsets: ["hebrew", "latin"], we
 const assistant = Assistant({ variable: "--font-assistant", subsets: ["hebrew", "latin"], weight: ["400", "600", "700", "800"], display: "swap" });
 const hand = Gveret_Levin({ variable: "--font-hand", subsets: ["hebrew", "latin"], weight: "400", display: "swap" });
 
-const TITLE = "Liz Code & Color | ליז חג׳ג׳, מפתחת Full‑Stack, AI ואוטומציות";
+const TITLE = "Liz Code & Color | אתרים, דפי נחיתה ואוטומציות לעסקים";
 const DESCRIPTION =
-  "מפתחת Full‑Stack ומיישמת AI עם לב של מעצבת: אתרים, מערכות, סוכני AI ואוטומציות לעסקים ולצוותים. React, Next.js, Supabase, n8n. ירושלים.";
+  "ליז חג׳ג׳ בונה אתרים ודפי נחיתה שנראים כמו העסק שלכם, ומחברת אותם לוואטסאפ, ליומן ולעוזר דיגיטלי שעונה ללקוחות. ליווי אישי, מובייל ונגישות מההתחלה. ירושלים.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   authors: [{ name: SITE.person, url: SITE.url }],
-  keywords: ["מפתחת Full Stack", "פיתוח אתרים", "React", "Next.js", "אוטומציות", "n8n", "סוכני AI", "ירושלים", "פרילנס"],
+  keywords: ["בניית אתרים לעסקים", "דף נחיתה", "אתר תדמית", "אוטומציות לעסקים", "בוט וואטסאפ", "קביעת תורים", "ירושלים", "מפתחת Full Stack"],
   openGraph: {
     type: "website",
     locale: "he_IL",
@@ -41,14 +41,14 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf9fc" },
-    { media: "(prefers-color-scheme: dark)", color: "#251c3a" },
+    { media: "(prefers-color-scheme: light)", color: "#fbf7f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#2c1520" },
   ],
 };
 
 // Runs before first paint: marks JS as on (so reveal animations may start hidden) and restores the
-// visitor's color theme and accessibility choices, so nothing flashes.
-const BOOT = `(function(){var d=document.documentElement;try{d.classList.add('js');var t=localStorage.getItem('liz-theme');if(t)d.dataset.theme=t;var s=JSON.parse(localStorage.getItem('liz-a11y')||'{}');if(s.size)d.dataset.size=s.size;if(s.contrast)d.classList.add('a11y-contrast');if(s.motion)d.classList.add('a11y-nomotion');if(s.links)d.classList.add('a11y-links');if(s.spacing)d.classList.add('a11y-spacing')}catch(e){d.classList.add('js')}})();`;
+// visitor's day/night mode and accessibility choices, so nothing flashes.
+const BOOT = `(function(){var d=document.documentElement;try{d.classList.add('js');if(localStorage.getItem('liz-mode')==='night')d.dataset.mode='night';var s=JSON.parse(localStorage.getItem('liz-a11y')||'{}');if(s.size)d.dataset.size=s.size;if(s.contrast)d.classList.add('a11y-contrast');if(s.motion)d.classList.add('a11y-nomotion');if(s.links)d.classList.add('a11y-links');if(s.spacing)d.classList.add('a11y-spacing')}catch(e){d.classList.add('js')}})();`;
 
 const JSON_LD = {
   "@context": "https://schema.org",

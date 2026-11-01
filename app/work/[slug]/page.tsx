@@ -36,6 +36,9 @@ export default async function CaseStudy({ params }: Props) {
   if (i < 0) notFound();
   const p = PROJECTS[i];
   const next = PROJECTS[(i + 1) % PROJECTS.length];
+  // the story links up top; the code link sits with the technical details at the end
+  const code = p.links.find((l) => l.href.includes("github.com"));
+  const links = p.links.filter((l) => l !== code);
 
   return (
     <>
@@ -65,13 +68,9 @@ export default async function CaseStudy({ params }: Props) {
                 <dt>תפקיד</dt>
                 <dd>{p.role.join(" · ")}</dd>
               </div>
-              <div>
-                <dt>טכנולוגיות</dt>
-                <dd dir="ltr">{p.stack.join(" · ")}</dd>
-              </div>
             </dl>
             <div className="case-actions">
-              {p.links.map((l, k) => (
+              {links.map((l, k) => (
                 <a key={l.href} className={`btn ${k === 0 ? "btn-ink" : "btn-ghost"}`} href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
                   <span>
                     {l.label} <Arrow dir={l.external ? "out" : "in"} />
@@ -133,6 +132,34 @@ export default async function CaseStudy({ params }: Props) {
               </div>
             </section>
           )}
+
+          <details className="case-tech reveal">
+            <summary>
+              <span className="case-tech-label" dir="ltr">
+                {"</>"}
+              </span>
+              הצד הטכני, למפתחים ולמגייסים
+            </summary>
+            <div className="case-tech-body">
+              <ul className="tags" aria-label="טכנולוגיות">
+                {p.stack.map((t) => (
+                  <li key={t} dir="ltr">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <div className="case-tech-links">
+                {code && (
+                  <a className="text-link" href={code.href} target="_blank" rel="noreferrer">
+                    {code.label} <Arrow dir="out" />
+                  </a>
+                )}
+                <Link className="text-link" href="/dev/">
+                  לעמוד המקצועי <Arrow dir="in" />
+                </Link>
+              </div>
+            </div>
+          </details>
 
           <nav className="case-next reveal" aria-label="הפרויקט הבא">
             <span>הפרויקט הבא</span>

@@ -1,34 +1,39 @@
 /* ───────────── Liz Code & Color: design tokens ─────────────
-   The brand is a color system, so the accent is a variable: the visitor can switch it (data-theme).
+   One brand palette with a day and a night mode (data-mode on <html>).
    Every text pair was checked against WCAG AA. Bright colors are fills; text uses the -ink variants. */
-/* The accent is a whole palette, not one color: each theme sets its own paper tint, ink, dark section color,
-   accent shades and one secondary color that pairs with it. */
 :root {
-  --paper: #faf9fc;
-  --paper-2: #f1edf8;
-  --ink: #1f1a2e;
-  --ink-2: #36304a;
-  --muted: #5b5470;
-  --line: rgba(31, 26, 46, 0.14);
-  --deep: #251c3a;
-  --deep-2: #2f2448;
-  --on-deep: #f3effb;
-  --on-deep-2: #cdc4e2;
+  /* Rose palette: warm paper, wine-black ink, deep wine sections and one muted raspberry accent.
+     60% paper, 30% ink and deep (text and dark sections), 10% accent. Pink stays muted so it reads professional;
+     the bulb's yellow is a spark, never text on paper. */
+  --paper: #fbf7f5;
+  --paper-2: #f6ebee;
+  --card: #ffffff;
+  --ink: #24161d;
+  --ink-2: #3d2a33;
+  --on-ink: #ffffff; /* text on an ink fill */
+  --muted: #68545d;
+  --line: rgba(36, 22, 29, 0.13);
+  --deep: #2c1520;
+  --deep-2: #3d1f2d;
+  --on-deep: #fbf1f4;
+  --on-deep-2: #e8d3db;
 
-  /* active theme (default: violet + pink) */
-  --accent: #7f5bd6;
-  --accent-rgb: 127, 91, 214;
-  --accent-ink: #6a46c2; /* accent used as text on paper */
-  --accent-light: #cbb9f5; /* accent used as text on deep backgrounds */
+  --accent: #c2456f;
+  --accent-rgb: 194, 69, 111;
+  --accent-ink: #a3345a; /* accent used as text on paper */
+  --accent-light: #f3b3c7; /* accent used as text on deep backgrounds */
   --on-accent: #ffffff; /* text on an accent fill */
-  --accent-soft: #ece6fa; /* tint of the accent on paper */
-  --accent-2: #f0a6c3; /* the paired color */
-  --accent-2-rgb: 240, 166, 195;
+  --accent-soft: #f9e4eb; /* tint of the accent on paper */
+  --accent-2: #f4c3d0; /* blush, the paired color (fills only) */
+  --accent-2-rgb: 244, 195, 208;
+  --blush: #f4b8c8; /* a soft touch, used sparingly */
+  --on-idea: #24161d; /* text on a yellow fill, in both modes */
+  --idea: #ffc83d; /* the lightbulb's light: the bulb and a few small sparks only */
   --lime: var(--accent-light);
-  --violet: #7f5bd6;
-  --pink: #f0a6c3;
-  --teal: #8fcfbf;
-  --sun: #f5b48a;
+  --violet: var(--accent);
+  --pink: var(--blush);
+  --teal: var(--accent-light);
+  --sun: var(--accent-2);
 
   --font-display: var(--font-rubik), "Arial Hebrew", sans-serif;
   --font-body: var(--font-assistant), "Arial Hebrew", sans-serif;
@@ -39,9 +44,25 @@
   --container: 1280px;
   --header-h: 88px;
 }
-html[data-theme="pink"] { --paper: #fdf9fa; --paper-2: #f8ecf1; --ink: #2a1822; --ink-2: #4a3040; --muted: #6a5160; --line: rgba(42, 24, 34, 0.14); --deep: #3a1c2e; --deep-2: #4a2640; --on-deep-2: #ddc7d3; --accent: #f0a6c3; --accent-rgb: 240, 166, 195; --accent-ink: #b0366a; --accent-light: #f6c3d8; --on-accent: #2a1822; --accent-soft: #fce8ef; --accent-2: #9ad1c4; --accent-2-rgb: 154, 209, 196; }
-html[data-theme="teal"] { --paper: #f8fbfa; --paper-2: #e9f2ef; --ink: #14302c; --ink-2: #2b4a45; --muted: #4a6460; --line: rgba(20, 48, 44, 0.14); --deep: #10302d; --deep-2: #17403c; --on-deep-2: #bfd9d3; --accent: #8fcfbf; --accent-rgb: 143, 207, 191; --accent-ink: #25695c; --accent-light: #b9e6da; --on-accent: #14302c; --accent-soft: #e2f4ee; --accent-2: #f5b48a; --accent-2-rgb: 245, 180, 138; }
-html[data-theme="sun"] { --paper: #fdfaf7; --paper-2: #f6ece3; --ink: #2c1d12; --ink-2: #4a3727; --muted: #6a5646; --line: rgba(44, 29, 18, 0.14); --deep: #3a2418; --deep-2: #4a301f; --on-deep-2: #e3d0c2; --accent: #f5b48a; --accent-rgb: 245, 180, 138; --accent-ink: #9a4a22; --accent-light: #f9cfb3; --on-accent: #2c1d12; --accent-soft: #fdebdf; --accent-2: #8fcfbf; --accent-2-rgb: 143, 207, 191; }
+/* Night: the same palette after dark. Wine becomes the paper, the rose gets lighter so text stays readable. */
+html[data-mode="night"] {
+  color-scheme: dark;
+  --paper: #180d12;
+  --paper-2: #22131a;
+  --card: #2b1821;
+  --ink: #f8eef2;
+  --ink-2: #ecdbe2;
+  --on-ink: #24161d;
+  --muted: #c7b1bb;
+  --line: rgba(248, 238, 242, 0.14);
+  --deep: #100709;
+  --deep-2: #1d0f15;
+  --accent: #e0729a;
+  --accent-rgb: 224, 114, 154;
+  --accent-ink: #f5b7ca;
+  --accent-soft: #3d1f2c;
+  --on-accent: #180d12;
+}
 
 /* ───────────── Base ───────────── */
 * { box-sizing: border-box; }
@@ -69,7 +90,7 @@ ul, ol { margin: 0; }
 :focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 3px; border-radius: 8px; box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.9); }
 .on-deep :focus-visible, .hero :focus-visible, .contact :focus-visible { outline-color: var(--lime); box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.6); }
 
-.skip-link { position: fixed; inset-block-start: -80px; inset-inline-start: 16px; z-index: 400; background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 0 0 14px 14px; font-weight: 800; transition: inset-block-start 0.2s; }
+.skip-link { position: fixed; inset-block-start: -80px; inset-inline-start: 16px; z-index: 400; background: var(--ink); color: var(--on-ink); padding: 12px 20px; border-radius: 0 0 14px 14px; font-weight: 800; transition: inset-block-start 0.2s; }
 .skip-link:focus { inset-block-start: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .container { width: min(var(--container), 100% - 64px); margin-inline: auto; }
@@ -94,7 +115,7 @@ ul, ol { margin: 0; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .btn-lime { background: var(--lime); color: var(--ink); box-shadow: 0 5px 0 rgba(16, 16, 16, 0.35); }
 .btn-lime:hover { box-shadow: 0 8px 0 rgba(16, 16, 16, 0.35); background: #d4ff85; }
-.btn-ink { background: var(--ink); color: #fff; box-shadow: 0 5px 0 var(--accent); }
+.btn-ink { background: var(--ink); color: var(--on-ink); box-shadow: 0 5px 0 var(--accent); }
 .btn-ink:hover { box-shadow: 0 8px 0 var(--accent); }
 .btn-accent { background: var(--accent); color: var(--on-accent); box-shadow: 0 5px 0 rgba(16, 16, 16, 0.4); }
 .btn-ghost { background: transparent; color: inherit; box-shadow: inset 0 0 0 2px currentColor; }
@@ -115,10 +136,8 @@ html.a11y-nomotion *, html.a11y-nomotion *::before, html.a11y-nomotion *::after 
 html.a11y-nomotion .reveal, html.a11y-nomotion .mask > span { opacity: 1 !important; transform: none !important; }
 html.a11y-links a:not(.btn):not(.skip-link) { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 2px; }
 html.a11y-spacing body { line-height: 1.95; letter-spacing: 0.035em; word-spacing: 0.14em; }
-html.a11y-contrast { --paper: #ffffff; --paper-2: #f0f0f0; --ink: #000; --ink-2: #000; --muted: #1d1d1d; --accent-ink: #4a1aa8; --deep: #0a0520; --on-deep-2: #ffffff; }
-html.a11y-contrast[data-theme="pink"] { --accent-ink: #8f0c4a; }
-html.a11y-contrast[data-theme="teal"] { --accent-ink: #00514a; }
-html.a11y-contrast[data-theme="sun"] { --accent-ink: #7a3000; }
+html.a11y-contrast { --paper: #ffffff; --paper-2: #f0f0f0; --ink: #000; --ink-2: #000; --muted: #1d1d1d; --accent-ink: #8a1840; --deep: #12070c; --on-deep-2: #ffffff; }
+html.a11y-contrast[data-mode="night"] { --paper: #000; --paper-2: #111; --card: #000; --ink: #fff; --ink-2: #fff; --on-ink: #000; --muted: #f0f0f0; --accent-ink: #ffd1df; --deep: #000; }
 html.a11y-contrast .grain { display: none; }
 html.a11y-contrast :is(.card, .svc, .step, .faq, .tl-item, .stack-group, .case-block) { outline: 2px solid #000; }
 html.a11y-contrast :focus-visible { outline: 4px solid #000; box-shadow: 0 0 0 8px #ffd400; }
@@ -139,7 +158,7 @@ html.a11y-contrast :focus-visible { outline: 4px solid #000; box-shadow: 0 0 0 8
 
 /* ───────────── Accessibility menu ───────────── */
 .a11y { position: fixed; inset-block-end: 20px; inset-inline-start: 20px; z-index: 300; }
-.a11y-fab { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--lime); background: var(--ink); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px -8px rgba(0, 0, 0, 0.55); transition: transform 0.3s var(--ease-spring); }
+.a11y-fab { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--lime); background: var(--ink); color: var(--on-ink); display: grid; place-items: center; box-shadow: 0 10px 26px -8px rgba(0, 0, 0, 0.55); transition: transform 0.3s var(--ease-spring); }
 .a11y-fab:hover { transform: scale(1.08) rotate(-6deg); }
 .a11y-panel { position: absolute; inset-block-end: 68px; inset-inline-start: 0; width: min(320px, calc(100vw - 40px)); background: #fff; color: var(--ink); border-radius: 24px; padding: 18px; box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.5); display: grid; gap: 12px; border: 2px solid var(--ink); }
 .a11y-head { display: flex; justify-content: space-between; align-items: center; font: 800 1.25rem var(--font-display); }

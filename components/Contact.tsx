@@ -40,15 +40,13 @@ export default function Contact() {
     <section className="section contact" id="contact" aria-labelledby="contact-title">
       <div className="container contact-grid">
         <div className="contact-copy reveal">
-          <p className="eyebrow">
-            <b>07</b> HAVE A PROJECT IN MIND?
-          </p>
+          <p className="eyebrow">HAVE A PROJECT IN MIND?</p>
           <h2 id="contact-title" className="title">
             יש לכם רעיון?
             <br />
             <em>בואו נעשה ממנו וואו.</em>
           </h2>
-          <p className="lead">אתר לעסק, רעיון למוצר, יישום AI או חיזוק לצוות? ספרו לי בכמה שורות מה צריך, ואני חוזרת עם כיוון ראשוני.</p>
+          <p className="lead">אתר לעסק, דף נחיתה, או וואטסאפ ויומן שעובדים לבד? ספרו לי בכמה שורות מה צריך, ואני חוזרת עם כיוון ראשוני.</p>
           <ul className="channels">
             <li>
               <a href={SITE.whatsapp} target="_blank" rel="noreferrer">
@@ -64,16 +62,6 @@ export default function Contact() {
               <a href={SITE.linkedin} target="_blank" rel="noreferrer">
                 <span>LinkedIn</span> liz-hajage <Arrow dir="out" size={16} />
               </a>
-            </li>
-            <li>
-              <a href={SITE.github} target="_blank" rel="noreferrer">
-                <span>GitHub</span> lizamir <Arrow dir="out" size={16} />
-              </a>
-            </li>
-            <li>
-              <Link href="/resume/">
-                <span>קורות חיים</span> לצפייה ולהדפסה <Arrow size={16} />
-              </Link>
             </li>
           </ul>
         </div>

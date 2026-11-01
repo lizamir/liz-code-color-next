@@ -1,64 +1,40 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { setTheme, THEMES, useTheme } from "@/lib/theme";
+import { setMode, useMode } from "@/lib/theme";
 
-/** "Code & Color" in one click: the whole site re-colors. Popover on desktop, always open when `inline`. */
+/** Day / night switch. A round icon button in the header, a labeled row when `inline`. */
 export default function ThemePicker({ inline = false }: { inline?: boolean }) {
-  const theme = useTheme();
-  const [open, setOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
+  const mode = useMode();
+  const night = mode === "night";
+  const toggle = () => setMode(night ? "day" : "night");
 
-  useEffect(() => {
-    if (!open) return;
-    const onDoc = (e: MouseEvent) => !root.current?.contains(e.target as Node) && setOpen(false);
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    document.addEventListener("mousedown", onDoc);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onDoc);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-
-  const swatches = (
-    <div className="swatches" role="radiogroup" aria-label="ערכת צבעים לאתר">
-      {THEMES.map((t) => (
-        <button
-          key={t.id}
-          type="button"
-          role="radio"
-          aria-checked={theme === t.id}
-          aria-label={t.label}
-          title={t.label}
-          className="swatch"
-          style={{ ["--sw" as string]: t.swatch }}
-          onClick={() => setTheme(t.id)}
-        />
-      ))}
-    </div>
+  const icon = (
+    <svg className="mode-ic" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+      {night ? (
+        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor" />
+      ) : (
+        <g fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+          <circle cx="12" cy="12" r="4.2" fill="var(--idea)" />
+          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+        </g>
+      )}
+    </svg>
   );
 
   if (inline) {
     return (
-      <div className="theme-inline">
-        <span className="hand">בחרו צבע לאתר</span>
-        {swatches}
-      </div>
+      <button type="button" className="mode-inline" aria-pressed={night} onClick={toggle}>
+        <span className="hand">{night ? "מצב לילה" : "מצב יום"}</span>
+        <span className="mode-pill" aria-hidden="true">
+          {icon}
+        </span>
+      </button>
     );
   }
 
   return (
-    <div className="theme-picker" ref={root}>
-      <button type="button" className="theme-btn" aria-expanded={open} aria-haspopup="true" aria-label="החלפת צבע האתר" onClick={() => setOpen((o) => !o)}>
-        <span className="theme-dot" aria-hidden="true" />
-      </button>
-      {open && (
-        <div className="theme-pop">
-          <p className="hand">האתר שלי, בצבע שלכם</p>
-          {swatches}
-        </div>
-      )}
-    </div>
+    <button type="button" className="theme-btn" aria-pressed={night} aria-label="מצב לילה" title={night ? "מעבר למצב יום" : "מעבר למצב לילה"} onClick={toggle}>
+      {icon}
+    </button>
   );
 }

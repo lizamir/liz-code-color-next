@@ -34,7 +34,7 @@ export default function Robot() {
         if (cancelled) return;
         handle.current = mountRobot(el, { still: motionOff });
         mo = new MutationObserver(() => handle.current?.recolor());
-        mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class"] });
+        mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-mode", "class"] });
       } catch {
         setFailed(true);
       }

@@ -19,22 +19,49 @@ export const SITE = {
   availableText: "פנויה לפרויקטים חדשים",
 };
 
-export const NAV = [
-  { href: "#automation", label: "AI ואוטומציות" },
+export type NavItem = { href: string; label: string };
+
+/** The business site (home page). */
+export const NAV: NavItem[] = [
   { href: "#work", label: "עבודות" },
   { href: "#services", label: "שירותים" },
-  { href: "#about", label: "קצת עליי" },
+  { href: "#process", label: "תהליך" },
+  { href: "#faq", label: "שאלות" },
   { href: "#contact", label: "בואו נדבר" },
+];
+
+/** The technical page for recruiters and dev teams (/dev/). */
+export const DEV_NAV: NavItem[] = [
+  { href: "#dev-projects", label: "פרויקטים" },
+  { href: "#stack", label: "סטאק" },
+  { href: "#dev-ai", label: "AI ואוטומציה" },
+  { href: "#experience", label: "ניסיון" },
+  { href: "#dev-contact", label: "קשר" },
 ];
 
 /** What a visitor should know in the first five seconds. */
 export const PROOF = [
   { value: "4+", unit: "שנים", label: "ניסיון בפיתוח" },
+  { value: "1:1", unit: "", label: "ליווי אישי עד העלייה לאוויר" },
+  { value: "AA", unit: "", label: "מובייל ונגישות מההתחלה" },
+];
+
+/** The same chips for the technical page. */
+export const DEV_PROOF = [
+  { value: "4+", unit: "שנים", label: "ניסיון בפיתוח" },
   { value: "2", unit: "הסמכות", label: "Workato ו‑MuleSoft" },
   { value: "B.Sc.", unit: "", label: "הנדסת חשמל ואלקטרוניקה" },
 ];
 
-export const MARQUEE = ["AI AGENTS", "n8n", "AUTOMATIONS", "REACT", "NEXT.JS", "SUPABASE", "CREATIVE DEVELOPMENT", "ACCESSIBILITY"];
+export const MARQUEE = ["אתרי תדמית", "דפי נחיתה", "וואטסאפ", "יומן ותורים", "עוזר דיגיטלי", "תזכורות", "מובייל", "נגישות"];
+export const DEV_MARQUEE = ["AI AGENTS", "n8n", "AUTOMATIONS", "REACT", "NEXT.JS", "SUPABASE", "TYPESCRIPT", "ACCESSIBILITY"];
+
+/** Situations a business owner recognizes. Written in their words, not ours. */
+export const FOR_WHO = [
+  { title: "אין לכם אתר, או שיש דף שלא מרגיש כמוכם", text: "נבנה אתר שנראה כמו העסק שלכם ומסביר במסך הראשון מה אתם עושים ולמי." },
+  { title: "יש אתר, אבל הפניות לא מגיעות", text: "מבנה ותוכן שמובילים לפעולה, וכפתור וואטסאפ בכל מקום שבו לקוח מוכן לפנות." },
+  { title: "אתם עונים על אותן שאלות כל יום", text: "עוזר דיגיטלי, קביעת תורים ותזכורות שעושים את העבודה החוזרת בשבילכם." },
+];
 
 export type Category = "web" | "ai" | "brand";
 export const CATEGORIES: { id: "all" | Category; label: string }[] = [
@@ -262,7 +289,7 @@ export const TESTIMONIALS = [
     name: "רעיה",
     role: "DJ",
     initial: "ר",
-    color: "#f0a6c3",
+    color: "#f4b8c8",
     project: "דף נחיתה",
     text: "ואי, עפתי על הדף נחיתה! זה הביא לי ימבה של לקוחות, ואיזה כיף שליז ליוותה אותי בכל התהליך. היה מושלם!!",
   },
@@ -270,7 +297,7 @@ export const TESTIMONIALS = [
     name: "נתן",
     role: "DJ",
     initial: "נ",
-    color: "#8fcfbf",
+    color: "#cbb9f5",
     project: "אתר",
     text: "ואי ליז, איזה אליפות זה יצא! אני עכשיו כבר שולח את זה לכל הלקוחות שלי.",
   },
@@ -278,7 +305,7 @@ export const TESTIMONIALS = [
     name: "חוט השני",
     role: "עיצוב בלונים",
     initial: "ח",
-    color: "#f5b48a",
+    color: "#ffc83d",
     project: "אתר",
     text: "ואי ליז, איזה מהמם! אהבתי מאוד, ובכלל כל התהליך איתך היה כל כך כיף. רואים שיש לך את זה. תודה רבה!!",
   },
@@ -292,12 +319,41 @@ export const BRAND_WORLDS = [
   { id: "school", title: "PLAYDAY / SCHOOL FEST", desc: "יום כיף · בונים לוח זמנים להדפסה" },
 ];
 
+/** The business site's services: outcomes first, no technology names. */
 export const SERVICES = [
   {
-    tag: "01 / WEB",
-    title: "אתר שעובד בשביל העסק",
-    text: "אתרי תדמית, דפי נחיתה ואתרים בקוד (Next.js): מבנה ברור, עיצוב מותאם למותג וחוויית שימוש נעימה גם בנייד.",
+    tag: "01 / WEBSITE",
+    title: "אתר שנראה כמו העסק שלכם",
+    text: "אתר תדמית עם מבנה ברור ועיצוב לפי המותג, שנטען מהר בטלפון ומוביל את הלקוחות ישר אליכם.",
     gets: ["מבנה ותוכן שמובילים לפעולה", "מובייל ונגישות מההתחלה", "אפשרות לעדכן לבד"],
+  },
+  {
+    tag: "02 / LANDING PAGE",
+    title: "דף נחיתה לקמפיין או להשקה",
+    text: "דף אחד עם מטרה אחת: מסר שמבינים בשנייה, הוכחות, וכפתור שמביא פנייה.",
+    gets: ["כותרת ומסר ברורים", "כפתור וואטסאפ ישיר", "מוכן לשיתוף ברשתות"],
+  },
+  {
+    tag: "03 / AUTOMATION",
+    title: "וואטסאפ, יומן ותזכורות",
+    text: "פנייה מהאתר מגיעה אליכם לוואטסאפ, לקוחות קובעים תור לבד ומקבלים תזכורת, ואתם רואים הכול ביומן.",
+    gets: ["מיפוי של מה שחוזר על עצמו", "עובד עם הכלים שכבר יש לכם", "אדם נכנס לתמונה כשצריך"],
+  },
+  {
+    tag: "04 / ASSISTANT",
+    title: "עוזר דיגיטלי ללקוחות",
+    text: "עונה על השאלות שחוזרות מתוך המידע של העסק, בודק מה פנוי ביומן, ומעביר אליכם את מה שהוא לא יודע.",
+    gets: ["עונה רק ממה שהגדרתם", "לא ממציא מחירים", "שקיפות לגבי פרטיות"],
+  },
+];
+
+/** The technical page's version: how I work with teams and on AI projects. */
+export const DEV_SERVICES = [
+  {
+    tag: "01 / FRONTEND",
+    title: "ממשקים ואתרים בקוד",
+    text: "Next.js ו‑React עם TypeScript: אתרים סטטיים מהירים, אזורים אישיים ומערכות קטנות, עם SEO ונגישות כחלק מהבנייה.",
+    gets: ["App Router, static export ו‑SSG", "WCAG 2.1 AA ובדיקות axe", "Supabase עם RLS כשצריך נתונים"],
   },
   {
     tag: "02 / AI",
@@ -325,6 +381,16 @@ export const PROCESS = [
   { no: "02", title: "אפיון והצעה", text: "מגדירים מה נבנה ומה לא, מחלקים לשלבים ומסכמים לו״ז ומחיר לפני שמתחילים." },
   { no: "03", title: "עיצוב ובנייה", text: "עובדים בקצרים, עם קישור חי לבדיקה בכל שלב, כדי שאין הפתעות בסוף." },
   { no: "04", title: "מסירה וליווי", text: "מעבירים עם הדרכה ותיעוד, ונשארים זמינים לשינויים ולשאלות אחרי העלייה לאוויר." },
+];
+
+/** Every answer is taken from how Liz already describes her process on this site. edit me: adjust freely. */
+export const FAQ = [
+  { q: "איך מתחילים?", a: "בשיחת היכרות קצרה. מבינים מה המטרה, מי הקהל ומה המגבלות: תקציב, זמן ומערכות שכבר יש לכם." },
+  { q: "כמה זה עולה?", a: "זה תלוי במה שבונים. אחרי שיחת ההיכרות אני שולחת הצעה שמגדירה מה נבנה ומה לא, מחולקת לשלבים, עם לו״ז ומחיר שסוגרים לפני שמתחילים." },
+  { q: "אפשר לראות את האתר לפני שהוא עולה?", a: "כן. עובדים בשלבים קצרים, ובכל שלב יש קישור חי לבדיקה, כדי שלא יהיו הפתעות בסוף." },
+  { q: "אוכל לעדכן את האתר לבד?", a: "אפשר לבנות אותו כך שתוכלו לעדכן לבד. במסירה מקבלים הדרכה ותיעוד." },
+  { q: "האתר יעבוד טוב בטלפון?", a: "כן. כל אתר נבנה למובייל ולנגישות מההתחלה, ונבדק גם על מסך גדול וגם על טלפון." },
+  { q: "מה קורה אחרי שהאתר עולה?", a: "אני נשארת זמינה לשינויים ולשאלות גם אחרי העלייה לאוויר." },
 ];
 
 /** In the order a story is told: study, work, certification, training, today. */

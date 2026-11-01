@@ -8,9 +8,7 @@ export default function Testimonials() {
       <div className="container">
         <div className="section-head reveal">
           <div>
-            <p className="eyebrow">
-              <b>04</b> KIND WORDS
-            </p>
+            <p className="eyebrow">KIND WORDS</p>
             <h2 id="voices-title" className="title">
               מה לקוחות <em>כתבו לי</em>
             </h2>

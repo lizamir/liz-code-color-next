@@ -1,8 +1,8 @@
 import { MARQUEE } from "@/lib/content";
 
-/** A slanted marquee of the tools. Decorative (the same list appears as text in the Stack section). */
-export default function Ribbon() {
-  const items = [...MARQUEE, ...MARQUEE];
+/** A slanted marquee. Decorative: what I build on the home page, the tools on the technical page. */
+export default function Ribbon({ words = MARQUEE }: { words?: string[] }) {
+  const items = [...words, ...words];
   return (
     <div className="ribbon" aria-hidden="true">
       <div className="ribbon-track">
