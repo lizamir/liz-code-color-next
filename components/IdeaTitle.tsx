@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import TechText from "./TechText";
+import { useMotionOff } from "@/lib/a11y";
 
 // rays around the bulb: [x1, y1, x2, y2], drawn outward from the glass
 const RAYS = [
@@ -38,15 +40,69 @@ function Bulb() {
 }
 
 /**
- * The hero headline as "a lightbulb moment": the accent word sits on its own line with a hand-drawn bulb
- * right next to it. The bulb drops in, flickers and switches on, its rays pop out, and a beam of light
- * sweeps across the word as it lights up. Every few seconds the bulb hums (a tiny flicker). Clicking the
- * bulb or the word flips the switch again. The words are real text; the bulb is decorative.
+ * The accent word, written letter by letter with React Bits' TechText (type intro: each letter appears as a
+ * dashed outline under a selection frame, then fills). The real word stays in the DOM, transparent, so it
+ * sets the size and is what search engines and screen readers read; the canvas sits over it with room to
+ * spare, so the handwritten letters are never cut.
+ */
+function TypedWord({ word }: { word: string }) {
+  const sizer = useRef<HTMLSpanElement>(null);
+  const [px, setPx] = useState(0);
+  const [ready, setReady] = useState(false);
+  const still = useMotionOff();
+
+  useEffect(() => {
+    const el = sizer.current;
+    if (!el) return;
+    const measure = () => setPx(parseFloat(getComputedStyle(el).fontSize) || 0);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    // start writing once the headline line has slid in
+    const t = window.setTimeout(() => setReady(true), still ? 0 : 1100);
+    return () => {
+      ro.disconnect();
+      window.clearTimeout(t);
+    };
+  }, [still]);
+
+  return (
+    <span className="tt-word">
+      <span ref={sizer} className="tt-sizer">
+        {word}
+      </span>
+      {ready && px > 0 && (
+        <TechText
+          className="tt-canvas"
+          ariaHidden
+          rtl
+          text={[...word].reverse().join("")}
+          fontWeight={400}
+          fontSize={px}
+          letterSpacing={0}
+          reveal="letter"
+          dashLength={4}
+          dashGap={2}
+          specks={15}
+          labels={false}
+          intro={still ? "none" : "type"}
+          introDuration={1.8}
+          sweep={!still}
+          speed={0.6}
+          clickKick
+        />
+      )}
+    </span>
+  );
+}
+
+/**
+ * The hero headline: the accent word on its own line, written letter by letter, with a hand-drawn bulb right
+ * beside it that switches on when the word is done. Clicking the bulb flips the switch again.
  */
 export default function IdeaTitle({ before, word, rest }: { before: string; word: string; rest: string }) {
   const [run, setRun] = useState(0);
-  const t0 = { ["--t0" as string]: run ? "0.05s" : "1.45s" };
-  const again = () => setRun((r) => r + 1);
+  const t0 = { ["--t0" as string]: run ? "0.05s" : "3.1s" };
   return (
     <h1 id="hero-title" className="display idea-title">
       <span className="mask">
@@ -55,11 +111,9 @@ export default function IdeaTitle({ before, word, rest }: { before: string; word
       <span className="mask mask-open">
         <span className="iw-line" style={{ ["--i" as string]: 1, ["--base" as string]: "120ms" }}>
           <em className="iw-em">
-            <span key={run} className="idea-word" style={t0} onClick={again}>
-              {word}
-            </span>
+            <TypedWord word={word} />
           </em>
-          <span key={`b${run}`} className="iw-switch" style={t0} onClick={again}>
+          <span key={run} className="iw-switch" style={t0} onClick={() => setRun((r) => r + 1)}>
             <Bulb />
           </span>
         </span>

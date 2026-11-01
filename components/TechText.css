@@ -1,0 +1,15 @@
+.tech-text {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.tech-text-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* glyphs are placed left to right; Hebrew is passed in visual order (see HeroWord) */
+  direction: ltr;
+}
