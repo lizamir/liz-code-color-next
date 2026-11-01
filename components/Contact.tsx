@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Arrow from "./Arrow";
 import { useMemo, useState } from "react";
 import { BRIEF, SITE } from "@/lib/content";
 import WhatsAppIcon from "./WhatsAppIcon";
@@ -61,17 +62,17 @@ export default function Contact() {
             </li>
             <li>
               <a href={SITE.linkedin} target="_blank" rel="noreferrer">
-                <span>LinkedIn</span> liz-hajage ↗
+                <span>LinkedIn</span> liz-hajage <Arrow dir="out" size={16} />
               </a>
             </li>
             <li>
               <a href={SITE.github} target="_blank" rel="noreferrer">
-                <span>GitHub</span> lizamir ↗
+                <span>GitHub</span> lizamir <Arrow dir="out" size={16} />
               </a>
             </li>
             <li>
               <Link href="/resume/">
-                <span>קורות חיים</span> לצפייה ולהדפסה ←
+                <span>קורות חיים</span> לצפייה ולהדפסה <Arrow size={16} />
               </Link>
             </li>
           </ul>

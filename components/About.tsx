@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "./Arrow";
 import { CREDENTIALS, STACK } from "@/lib/content";
 
 export default function About() {
@@ -29,7 +30,7 @@ export default function About() {
                 קורות חיים
               </Link>
               <a className="text-link" href="#contact">
-                בואו ניצור משהו יחד ←
+                בואו ניצור משהו יחד <Arrow />
               </a>
             </div>
           </div>

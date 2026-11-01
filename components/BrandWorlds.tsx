@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Arrow from "./Arrow";
 import { useEffect, useRef, useState } from "react";
 import { BRAND_WORLDS } from "@/lib/content";
 
@@ -95,14 +96,14 @@ export default function BrandWorlds() {
             <h3 dir="ltr">{w.title}</h3>
             <p>{w.desc}</p>
             <div className="world-links">
-              <a href={`/demos/${w.id}.html`}>לאתר ↙</a>
+              <a href={`/demos/${w.id}.html`}>לאתר <Arrow dir="in" size={16} /></a>
             </div>
           </article>
         ))}
       </div>
       <div className="worlds-nav" aria-label="ניווט בין האתרים">
         <button type="button" className="wn-arrow" onClick={() => go(active - 1)} disabled={active === 0} aria-label="לאתר הקודם">
-          →
+          <Arrow dir="right" />
         </button>
         <div className="wn-dots">
           {BRAND_WORLDS.map((w, i) => (
@@ -110,7 +111,7 @@ export default function BrandWorlds() {
           ))}
         </div>
         <button type="button" className="wn-arrow" onClick={() => go(active + 1)} disabled={active === BRAND_WORLDS.length - 1} aria-label="לאתר הבא">
-          ←
+          <Arrow />
         </button>
       </div>
     </section>

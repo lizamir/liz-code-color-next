@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Arrow from "@/components/Arrow";
 import Image from "next/image";
 import Devices from "@/components/Devices";
 import Link from "next/link";
@@ -44,7 +45,7 @@ export default async function CaseStudy({ params }: Props) {
         <section className="case-hero" data-tone={p.tone}>
           <div className="container">
             <Link className="case-back" href="/#work">
-              ← כל העבודות
+              <Arrow dir="right" size={16} /> כל העבודות
             </Link>
             <p className="eyebrow">
               CASE STUDY · {p.no} / {String(PROJECTS.length).padStart(2, "0")}
@@ -73,7 +74,7 @@ export default async function CaseStudy({ params }: Props) {
               {p.links.map((l, k) => (
                 <a key={l.href} className={`btn ${k === 0 ? "btn-ink" : "btn-ghost"}`} href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
                   <span>
-                    {l.label} {l.external ? "↗" : "↙"}
+                    {l.label} <Arrow dir={l.external ? "out" : "in"} />
                   </span>
                 </a>
               ))}
@@ -137,7 +138,7 @@ export default async function CaseStudy({ params }: Props) {
             <span>הפרויקט הבא</span>
             <Link href={`/work/${next.slug}/`} data-cursor="לפרויקט">
               <b dir="ltr">{next.title}</b>
-              <small>{next.kicker} ←</small>
+              <small>{next.kicker} <Arrow size={16} /></small>
             </Link>
           </nav>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Arrow from "./Arrow";
 import Robot from "./Robot";
 import WhatsAppIcon from "./WhatsAppIcon";
 import { AUTOMATION_FLOWS, AUTOMATION_STEPS, AUTOMATION_USES, INTEGRATIONS, SITE } from "@/lib/content";
@@ -47,7 +48,7 @@ export default function Automation() {
                 <WhatsAppIcon /> לפגישת אפיון
               </a>
               <a className="btn btn-ghost" href="#auto-uses">
-                <span>מה אפשר לבנות ↓</span>
+                <span>מה אפשר לבנות <Arrow dir="down" /></span>
               </a>
             </div>
             <ul className="integrations" aria-label="מערכות שאפשר לחבר">

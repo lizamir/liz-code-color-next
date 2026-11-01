@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "./Arrow";
 import Devices from "./Devices";
 import { PROJECTS, type Project } from "@/lib/content";
 
@@ -28,12 +29,12 @@ function Showcase({ p, i }: { p: Project; i: number }) {
         </ul>
         <div className="pw-actions">
           <Link className="btn btn-lime" href={`/work/${p.slug}/`}>
-            <span>למקרה הבוחן ←</span>
+            <span>למקרה הבוחן <Arrow /></span>
           </Link>
           {p.links.slice(0, 1).map((l) => (
             <a key={l.href} className="btn btn-ghost" href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
               <span>
-                {l.label} {l.external ? "↗" : "↙"}
+                {l.label} <Arrow dir={l.external ? "out" : "in"} />
               </span>
             </a>
           ))}

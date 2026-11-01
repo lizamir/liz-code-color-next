@@ -174,7 +174,7 @@ export default function BusinessCard() {
                 </li>
               </ul>
               <a className="bc-wa" href={SITE.whatsapp} target="_blank" rel="noreferrer">
-                שלחו הודעה בוואטסאפ ↗
+                שלחו הודעה בוואטסאפ
               </a>
             </div>
           </div>

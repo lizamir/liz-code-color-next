@@ -865,3 +865,47 @@ html.a11y-nomotion .worlds-row.phones .world { transition: none; }
   .hero .bc-cord { height: 26px; }
   .hero .bc-flip { margin-top: 14px; }
 }
+
+/* ───────────── Handwritten accent font (Gadi Almog, AAA free license: one domain) ───────────── */
+@font-face { font-family: "GadiAlmog"; src: url(/fonts/gadi-almog-regular-aaa.woff2) format("woff2"), url(/fonts/gadi-almog-regular-aaa.woff) format("woff"); font-weight: 400; font-display: swap; }
+.title em, .display em, .hero .display em { font-family: "GadiAlmog", var(--font-display); font-weight: 400; letter-spacing: 0; font-size: 1.12em; line-height: 0.9; }
+
+/* hero accent word: dashed tech reveal */
+.hero .display em.tw-em { background: none; padding: 0; transform: none; animation: none; color: var(--accent-ink); font-size: 1.22em; }
+.tech-word { position: relative; display: inline-block; cursor: pointer; line-height: 1.05; -webkit-tap-highlight-color: transparent; }
+.tw-text { visibility: hidden; padding-inline: 0.04em; }
+.tw-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.tw-svg text { font-family: "GadiAlmog", var(--font-display); font-size: 1em; direction: rtl; }
+.tw-dash { fill: none; stroke: var(--accent-light); stroke-width: 0.02em; stroke-dasharray: 4 2; stroke-linecap: round; animation: tw-march 6s linear infinite; }
+.tw-fill { fill: var(--accent-ink); opacity: 0; animation: tw-fill 0.7s ease 1.5s forwards; }
+.tw-mask { transform-box: fill-box; transform-origin: right center; transform: scaleX(0); animation: tw-reveal 1.25s steps(var(--letters), end) 0.25s forwards; }
+.tw-specks { position: absolute; inset: -18% -8%; pointer-events: none; }
+.tw-specks i { position: absolute; border-radius: 50%; background: var(--accent); opacity: 0; animation: tw-speck 3.2s ease-in-out infinite; }
+.tw-specks i:nth-child(3n) { background: var(--accent-2); }
+.tech-word[data-kick] .tw-svg { animation: tw-kick-a 0.55s cubic-bezier(0.3, 1.6, 0.5, 1); }
+.tech-word[data-kick="b"] .tw-svg { animation-name: tw-kick-b; }
+.tech-word[data-kick] .tw-specks i { animation: tw-burst 0.7s ease-out, tw-speck 3.2s ease-in-out 0.7s infinite; }
+@keyframes tw-reveal { to { transform: scaleX(1); } }
+@keyframes tw-fill { to { opacity: 1; } }
+@keyframes tw-march { to { stroke-dashoffset: -60; } }
+@keyframes tw-speck { 0%, 100% { opacity: 0; transform: scale(0.4); } 40%, 60% { opacity: 0.85; transform: scale(1); } }
+@keyframes tw-kick-a { 30% { transform: translateY(-0.08em) rotate(-3deg) scale(1.06); } 60% { transform: translateY(0.02em) rotate(1.5deg); } }
+@keyframes tw-kick-b { 30% { transform: translateY(-0.08em) rotate(3deg) scale(1.06); } 60% { transform: translateY(0.02em) rotate(-1.5deg); } }
+@keyframes tw-burst { 0% { opacity: 1; transform: scale(1.6) translate(0, 0); } 100% { opacity: 0; transform: scale(0.3) translate(0, -10px); } }
+html.a11y-nomotion .tw-mask, html.a11y-nomotion .tw-fill { animation: none; transform: none; opacity: 1; }
+html.a11y-nomotion .tw-dash, html.a11y-nomotion .tw-specks i { animation: none; }
+@media (prefers-reduced-motion: reduce) { .tw-mask { transform: none; } .tw-fill { opacity: 1; } .tw-dash, .tw-specks i { animation: none !important; } }
+
+/* rounded arrows */
+.arrow-ic { display: inline-block; vertical-align: -0.2em; flex: none; transition: translate 0.25s var(--ease-out); }
+a:hover .arrow-ic, .btn:hover .arrow-ic { translate: -3px 0; }
+
+/* decorative loop arrow pointing to the business card */
+.hero-card { position: relative; }
+.loop-arrow { position: absolute; width: 150px; height: auto; inset-block-end: 40px; inset-inline-end: -60px; transform: rotate(18deg); color: var(--ink); opacity: 0.85; pointer-events: none; z-index: 5; }
+.la-line { stroke: currentColor; stroke-width: 4; stroke-dasharray: 9 9; stroke-linecap: butt; animation: la-draw 1.6s ease 1.2s backwards; }
+.la-head { fill: currentColor; animation: la-pop 0.3s ease 2.6s backwards; }
+@keyframes la-draw { from { stroke-dashoffset: 400; opacity: 0; } 10% { opacity: 1; } }
+@keyframes la-pop { from { opacity: 0; transform: scale(0.4); transform-origin: 164px 20px; } }
+@media (max-width: 900px) { .loop-arrow { display: none; } .hero-card { order: -1; } }
+html.a11y-nomotion .la-line, html.a11y-nomotion .la-head { animation: none; }

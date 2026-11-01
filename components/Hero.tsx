@@ -1,7 +1,9 @@
 import GridGlow from "./GridGlow";
+import Arrow, { LoopArrow } from "./Arrow";
 import BusinessCard from "./BusinessCard";
 import { PROOF, SITE } from "@/lib/content";
 import WhatsAppIcon from "./WhatsAppIcon";
+import TechWord from "./TechWord";
 
 export default function Hero() {
   return (
@@ -24,7 +26,10 @@ export default function Hero() {
             </span>
             <span className="mask">
               <span style={{ ["--i" as string]: 1, ["--base" as string]: "120ms" }}>
-                <em>רעיונות</em> לאתרים
+                <em className="tw-em">
+                  <TechWord text="רעיונות" />
+                </em>{" "}
+                לאתרים
               </span>
             </span>
             <span className="mask">
@@ -39,7 +44,7 @@ export default function Hero() {
               <WhatsAppIcon /> בואו נדבר בוואטסאפ
             </a>
             <a className="btn btn-ghost" href="#work">
-              <span>לצפייה בעבודות ↓</span>
+              <span>לצפייה בעבודות <Arrow dir="down" /></span>
             </a>
           </div>
           <ul className="proof reveal" style={{ ["--d" as string]: 6 }} aria-label="בקצרה עליי">
@@ -54,7 +59,10 @@ export default function Hero() {
             ))}
           </ul>
         </div>
-        <BusinessCard />
+        <div className="hero-card">
+          <LoopArrow className="hero-loop" />
+          <BusinessCard />
+        </div>
       </div>
 
       <a className="scroll-cue" href="#work" aria-label="לגלול לעבודות">

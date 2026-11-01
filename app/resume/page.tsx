@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Arrow from "@/components/Arrow";
 import Link from "next/link";
 import PrintButton from "@/components/PrintButton";
 import { CV_EDU, CV_JOBS, PROJECTS, SITE, STACK } from "@/lib/content";
@@ -15,7 +16,7 @@ export default function CV() {
     <div className="cv-wrap">
       <nav className="cv-bar" aria-label="פעולות">
         <Link className="btn btn-ghost btn-sm" href="/">
-          <span>← חזרה לאתר</span>
+          <span><Arrow dir="right" /> חזרה לאתר</span>
         </Link>
         <PrintButton />
       </nav>
