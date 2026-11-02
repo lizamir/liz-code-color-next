@@ -407,20 +407,33 @@ export const CV_JOBS = [
   {
     title: "פרילנס ושילוב בצוותי פיתוח",
     where: "עצמאית",
-    when: "היום",
+    when: "2025–היום",
     text: "אתרים וממשקים ב‑React ו‑Next.js, פיתוח בעזרת Claude Code, מערכות עם Supabase, אוטומציות וסוכני AI ב‑n8n. עבודה ישירה עם בעלי עסקים ויזמים, וגם השתלבות בצוותים.",
   },
   {
-    title: "פיתוח מערכות ואינטגרציות",
-    where: "Deloitte",
-    when: "כשלוש שנים",
-    text: "פיתוח מערכות ואינטגרציות בסביבה ארגונית, בעבודת צוות. הסמכות Workato ו‑MuleSoft.",
+    title: "מפתחת Frontend",
+    where: "Max Impact",
+    when: "2025",
+    text: "פיתוח פלטפורמה ב‑React ו‑Next.js שעוזרת לעמותות לנהל ולנתח נתוני נוער. שילוב Google Looker Studio להצגת נתונים בזמן אמת, בעבודה משותפת עם צוותי עיצוב, מוצר ודאטה.",
+  },
+  {
+    title: "מפתחת Full‑Stack",
+    where: "Deloitte, תל אביב",
+    when: "2021-2024",
+    text: "פיתוח מערכות ואינטגרציות בסביבה ארגונית, בעבודת צוות. פתרון מותאם ב‑NetSuite עם ממשק לניהול מלאי בזמן אמת, אוטומציה של תהליכים ב‑JavaScript ו‑MySQL וקוד ריוויו. הסמכות Workato ו‑MuleSoft.",
+  },
+  {
+    title: "מתמחה בפיתוח Frontend",
+    where: "Reworld (סטארטאפ)",
+    when: "2021",
+    text: "פלטפורמת ווב לעידוד הרגלים ירוקים במקום העבודה, עם משימות, תגמולים ומשוב. React, Material‑UI ו‑Sass, עם צד שרת ב‑Node.js ו‑MongoDB.",
   },
 ];
 export const CV_EDU = [
-  { title: "תואר ראשון בהנדסת חשמל ואלקטרוניקה", where: "B.Sc.", text: "חשיבה מערכתית: איך חלקים קטנים מתחברים למערכת שעובדת." },
+  { title: "תואר ראשון בהנדסת חשמל ואלקטרוניקה", where: "B.Sc. · אוניברסיטת אריאל · 2014-2019", text: "התמחות בהנדסת מחשבים. חשיבה מערכתית: איך חלקים קטנים מתחברים למערכת שעובדת." },
   { title: "BotCamp של Focus AI", where: "בוגרת", text: "סוכנים ב‑n8n, מערכות RAG, חיבורי MCP ואפיון פתרונות AI עסקיים." },
   { title: "הסמכות Workato ו‑MuleSoft", where: "פלטפורמות אינטגרציה", text: "חיבור בין מערכות, ממשקי API ותהליכים אוטומטיים בקנה מידה ארגוני." },
+  { title: "קורס פיתוח Full‑Stack", where: "Coding Academy · 2020", text: "הכשרה אינטנסיבית של 640 שעות: JavaScript, Node.js, React, Vue, Angular, MongoDB ו‑MySQL." },
 ];
 
 export const STACK = [

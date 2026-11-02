@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resume/" },
 };
 
-/** A one-page résumé that prints well (the Print button, or Cmd/Ctrl+P, saves it as a PDF). */
+/** A résumé that prints well (the Print button, or Cmd/Ctrl+P, saves it as a PDF). */
 export default function CV() {
   return (
     <div className="cv-wrap">
@@ -91,7 +91,7 @@ export default function CV() {
                 <div>
                   <b dir="ltr">{p.title}</b>
                   <span>
-                    {p.kicker} · {p.year}
+                    <bdi>{p.kicker}</bdi> · {p.year}
                   </span>
                 </div>
                 <p>{p.summary}</p>

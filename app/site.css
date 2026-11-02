@@ -424,7 +424,10 @@
 @media print {
   @page { size: A4; margin: 14mm; }
   .cv-bar, .a11y, .cursor, .skip-link, .grain, .progress { display: none !important; }
+  html, body { background: #fff !important; }
   .cv-wrap { background: #fff; padding: 0; }
+  .cv-list li { break-inside: avoid; }
+  .cv h2 { break-after: avoid; }
   .cv { box-shadow: none; border-radius: 0; padding: 0; max-width: none; font-size: 10.5pt; gap: 16px; }
   .cv h1 { font-size: 26pt; }
   a { color: inherit; }
