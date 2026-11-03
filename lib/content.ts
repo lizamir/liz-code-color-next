@@ -13,7 +13,7 @@ export const SITE = {
   whatsapp: "https://wa.me/972546887442",
   linkedin: "https://www.linkedin.com/in/liz-hajage/",
   github: "https://github.com/lizamir",
-  city: "ירושלים, ישראל",
+  city: "ישראל",
   // edit me: turn the availability badge on or off and change its wording.
   available: true,
   availableText: "פנויה לפרויקטים חדשים",
@@ -433,7 +433,7 @@ export const CV_EDU = [
   { title: "תואר ראשון בהנדסת חשמל ואלקטרוניקה", where: "B.Sc. · אוניברסיטת אריאל · 2014-2019", text: "התמחות בהנדסת מחשבים. חשיבה מערכתית: איך חלקים קטנים מתחברים למערכת שעובדת." },
   { title: "BotCamp של Focus AI", where: "בוגרת", text: "סוכנים ב‑n8n, מערכות RAG, חיבורי MCP ואפיון פתרונות AI עסקיים." },
   { title: "הסמכות Workato ו‑MuleSoft", where: "פלטפורמות אינטגרציה", text: "חיבור בין מערכות, ממשקי API ותהליכים אוטומטיים בקנה מידה ארגוני." },
-  { title: "קורס פיתוח Full‑Stack", where: "Coding Academy · 2020", text: "הכשרה אינטנסיבית של 640 שעות: JavaScript, Node.js, React, Vue, Angular, MongoDB ו‑MySQL." },
+  { title: "קורס פיתוח Full‑Stack", where: "Coding Academy · 2021", text: "הכשרה אינטנסיבית של 640 שעות: JavaScript, Node.js, React, Vue, Angular, MongoDB ו‑MySQL." },
 ];
 
 export const STACK = [

@@ -15,7 +15,7 @@ const hand = Gveret_Levin({ variable: "--font-hand", subsets: ["hebrew", "latin"
 
 const TITLE = "Liz Code & Color | אתרים, דפי נחיתה ואוטומציות לעסקים";
 const DESCRIPTION =
-  "ליז חג׳ג׳ בונה אתרים ודפי נחיתה שנראים כמו העסק שלכם, ומחברת אותם לוואטסאפ, ליומן ולעוזר דיגיטלי שעונה ללקוחות. ליווי אישי, מובייל ונגישות מההתחלה. ירושלים.";
+  "ליז חג׳ג׳ בונה אתרים ודפי נחיתה שנראים כמו העסק שלכם, ומחברת אותם לוואטסאפ, ליומן ולעוזר דיגיטלי שעונה ללקוחות. ליווי אישי, מובייל ונגישות מההתחלה.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   authors: [{ name: SITE.person, url: SITE.url }],
-  keywords: ["בניית אתרים לעסקים", "דף נחיתה", "אתר תדמית", "אוטומציות לעסקים", "בוט וואטסאפ", "קביעת תורים", "ירושלים", "מפתחת Full Stack"],
+  keywords: ["בניית אתרים לעסקים", "דף נחיתה", "אתר תדמית", "אוטומציות לעסקים", "בוט וואטסאפ", "קביעת תורים", "מפתחת Full Stack"],
   openGraph: {
     type: "website",
     locale: "he_IL",
@@ -62,7 +62,7 @@ const JSON_LD = {
       url: SITE.url,
       email: `mailto:${SITE.email}`,
       telephone: `+972${SITE.phone.slice(1)}`,
-      address: { "@type": "PostalAddress", addressLocality: "Jerusalem", addressCountry: "IL" },
+      address: { "@type": "PostalAddress", addressCountry: "IL" },
       sameAs: [SITE.linkedin, SITE.github],
       knowsAbout: ["React", "Next.js", "TypeScript", "Supabase", "n8n", "AI agents", "Workato", "MuleSoft", "Web accessibility"],
       alumniOf: { "@type": "EducationalOrganization", name: "B.Sc. Electrical and Electronics Engineering" },

@@ -45,7 +45,7 @@ export default function Footer({ home = true, nav = NAV, base = "/" }: { home?: 
           <ThemePicker inline />
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Liz Code &amp; Color · JERUSALEM · ISRAEL</span>
+          <span>© {new Date().getFullYear()} Liz Code &amp; Color · ISRAEL</span>
           <span>עוצב ונבנה על ידי ליז, בקוד.</span>
         </div>
       </div>
