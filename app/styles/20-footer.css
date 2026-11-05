@@ -1,0 +1,14 @@
+/* ───────────── Footer ───────────── */
+.footer { background: var(--ink); color: #efe4e8; padding: 70px 0 40px; }
+.footer-top { display: grid; grid-template-columns: auto 1fr auto auto; gap: 40px; align-items: center; padding-bottom: 36px; border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+.footer .brand { color: #fff; }
+.footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.footer a:not(.brand) { font-weight: 700; }
+.footer a:not(.brand):hover { color: var(--lime); }
+.footer-social { display: flex; gap: 22px; font: 800 0.8rem var(--font-display); letter-spacing: 0.14em; }
+.footer .mode-inline { padding: 0; }
+.footer .swatch { box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4); }
+.footer .swatch[aria-checked="true"] { border-color: var(--ink); box-shadow: 0 0 0 3px #fff; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 26px; font-size: 0.9rem; color: #cdb8c1; }
+
+.mobile-bar { display: none; }

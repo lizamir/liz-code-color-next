@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+/** The 404 page. */
 export default function NotFound() {
   return (
     <main id="main" className="nf">

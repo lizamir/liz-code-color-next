@@ -1,0 +1,12 @@
+/* ───────────── Type ───────────── */
+.hand { font-family: var(--font-hand-face); font-weight: 400; letter-spacing: 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; font: 700 0.8125rem/1 var(--font-display); letter-spacing: 0.18em; direction: ltr; text-transform: uppercase; color: var(--accent-ink); }
+.eyebrow::before { content: ""; width: 34px; height: 2px; background: currentColor; }
+.eyebrow b { font: 800 1rem/1 var(--font-display); letter-spacing: 0; }
+.on-deep .eyebrow, .hero .eyebrow, .contact .eyebrow { color: var(--lime); }
+.display { font-size: clamp(2.8rem, 6.6vw, 6rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.96; }
+.title { font-size: clamp(2.3rem, 5vw, 4.4rem); font-weight: 900; letter-spacing: -0.045em; line-height: 0.98; margin-top: 16px; }
+.title em, .display em { font-style: normal; color: var(--accent-ink); }
+.on-deep .title em, .hero .display em, .contact .title em { color: var(--accent-light); }
+.lead { font-size: 1.3rem; line-height: 1.6; color: var(--muted); max-width: 38rem; }
+.on-deep .lead, .hero .lead, .contact .lead { color: var(--on-deep-2); }

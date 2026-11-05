@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE } from "@/lib/content";
+import { SITE } from "@/content";
 
 export const metadata: Metadata = {
   title: "הצהרת נגישות",
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/accessibility/" },
 };
 
+/** The accessibility statement page. */
 export default function AccessibilityStatement() {
   return (
     <div className="legal">

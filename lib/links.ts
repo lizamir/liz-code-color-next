@@ -1,4 +1,7 @@
-export const WHATSAPP_URL = "https://wa.me/972546887442";
-export const EMAIL = "lizhajage@gmail.com";
-export const LINKEDIN_URL = "https://www.linkedin.com/in/liz-hajage/";
-export const GITHUB_URL = "https://github.com/lizamir";
+import { SITE } from "@/content";
+
+/** A WhatsApp link that opens a chat with Liz with the message already written. */
+export const whatsappLink = (message: string) => `${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+
+/** A mail link to Liz with the subject and body already written. */
+export const mailLink = (subject: string, body: string) => `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

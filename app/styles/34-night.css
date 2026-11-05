@@ -1,0 +1,9 @@
+/* ───────────── Night mode: surfaces that must stay dark or light whatever the tokens say ───────────── */
+html[data-mode="night"] .header-inner, html[data-mode="night"] .header-bar { background: rgba(24, 13, 18, 0.88); border-color: var(--line); }
+html[data-mode="night"] .burger span { background: var(--on-ink); }
+html[data-mode="night"] .footer { background: #0d0609; }
+html[data-mode="night"] .bc-front { background: #2c1520; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 40px 60px -28px rgba(0, 0, 0, 0.8); }
+html[data-mode="night"] :is(.card-badge, .bc-wa) { background: #2c1520; }
+html[data-mode="night"] .grain { mix-blend-mode: screen; opacity: 0.04; }
+/* the CV is a printable sheet: it keeps the day colors */
+html[data-mode="night"] .cv { color-scheme: light; --paper: #fbf7f5; --paper-2: #f6ebee; --card: #fff; --ink: #24161d; --ink-2: #3d2a33; --on-ink: #fff; --muted: #68545d; --line: rgba(36, 22, 29, 0.13); --accent: #c2456f; --accent-ink: #a3345a; --accent-soft: #f9e4eb; --on-accent: #fff; color: var(--ink); }

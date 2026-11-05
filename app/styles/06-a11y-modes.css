@@ -1,0 +1,15 @@
+/* ───────────── Accessibility modes ───────────── */
+html.a11y-nomotion *, html.a11y-nomotion *::before, html.a11y-nomotion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+html.a11y-nomotion .reveal, html.a11y-nomotion .mask > span { opacity: 1 !important; transform: none !important; }
+html.a11y-links a:not(.btn):not(.skip-link) { text-decoration: underline; text-underline-offset: 0.22em; text-decoration-thickness: 2px; }
+html.a11y-spacing body { line-height: 1.95; letter-spacing: 0.035em; word-spacing: 0.14em; }
+html.a11y-contrast { --paper: #ffffff; --paper-2: #f0f0f0; --ink: #000; --ink-2: #000; --muted: #1d1d1d; --accent-ink: #8a1840; --deep: #12070c; --on-deep-2: #ffffff; }
+html.a11y-contrast[data-mode="night"] { --paper: #000; --paper-2: #111; --card: #000; --ink: #fff; --ink-2: #fff; --on-ink: #000; --muted: #f0f0f0; --accent-ink: #ffd1df; --deep: #000; }
+html.a11y-contrast .grain { display: none; }
+html.a11y-contrast :is(.card, .svc, .step, .faq, .tl-item, .stack-group, .case-block) { outline: 2px solid #000; }
+html.a11y-contrast :focus-visible { outline: 4px solid #000; box-shadow: 0 0 0 8px #ffd400; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal, .mask > span { opacity: 1 !important; transform: none !important; }
+}

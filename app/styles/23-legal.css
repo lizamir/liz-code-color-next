@@ -1,0 +1,16 @@
+/* ───────────── Legal + 404 ───────────── */
+.legal { min-height: 100vh; background: var(--paper); }
+.legal-head { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.legal-head .container { display: flex; justify-content: space-between; align-items: center; }
+.legal-body { max-width: 780px; padding: 70px 0 110px; display: grid; gap: 34px; }
+.legal-body h1 { margin: 0; }
+.legal-body h2 { font-size: 1.7rem; margin-bottom: 12px; }
+.legal-body ul { padding-inline-start: 22px; display: grid; gap: 10px; }
+.legal-body a { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 0.2em; }
+.nf { min-height: 100vh; display: grid; gap: 22px; place-content: center; justify-items: center; text-align: center; padding: 40px 20px; background: var(--deep); color: #fff; }
+.nf .lead { color: var(--on-deep-2); }
+.nf .display em { font-style: normal; color: var(--accent-light); }
+.nf-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.nf .btn-ghost { color: #fff; }
+.nf .btn-ghost:hover { background: #fff; }
+.nf .btn-ghost:hover > span { color: var(--deep); }

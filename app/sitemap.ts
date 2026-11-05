@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
-import { PROJECTS, SITE } from "@/lib/content";
+import { PROJECTS, SITE } from "@/content";
 
 export const dynamic = "force-static";
 
+/** The list of pages for search engines. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [

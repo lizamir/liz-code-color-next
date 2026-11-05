@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
+/** App name and colors, for adding the site to a home screen. */
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Liz Code & Color",

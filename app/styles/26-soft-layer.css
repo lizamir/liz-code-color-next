@@ -1,0 +1,81 @@
+/* ───────────── v4: soft, clean and technical ─────────────
+   A near-white page with a fine drafting grid (like a design tool's canvas), pale lilac and blush accents,
+   solid plum for the dark sections, and no gradients or neon. */
+:root { --grid-line: rgba(var(--accent-rgb), 0.09); --grid: 80px; }
+html { background-color: var(--paper); }
+body { background-color: var(--paper); background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: var(--grid) var(--grid); background-position: center top; }
+.services, .about, .work-light { background: transparent; }
+
+/* hero: light canvas */
+.hero { background: transparent; color: var(--ink); }
+.grid-glow { position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(var(--accent-rgb), 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--accent-rgb), 0.5) 1px, transparent 1px); background-size: var(--grid) var(--grid); background-position: center top; opacity: 0; transition: opacity 0.5s; -webkit-mask-image: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), #000, transparent 70%); mask-image: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), #000, transparent 70%); }
+.grid-glow[data-live] { opacity: 0.9; }
+.hero .eyebrow { color: var(--accent-ink); }
+.hero .lead { color: var(--muted); }
+.hero .display { color: var(--ink); }
+.hero .display em { background: var(--accent-soft); color: var(--accent-ink); border-radius: 0.1em; transform: rotate(-1.2deg); }
+.avail { background: var(--card); border: 1px solid var(--line); color: var(--ink); }
+.live-dot { background: #4fc08d; }
+.hero .btn-lime { background: var(--ink); color: var(--on-ink); box-shadow: 0 5px 0 var(--accent); }
+.hero .btn-lime:hover { background: var(--ink-2); box-shadow: 0 8px 0 var(--accent); }
+.hero .btn-ghost { color: var(--ink); }
+.hero .btn-ghost:hover { background: var(--ink); }
+.hero .btn-ghost:hover > span { color: #fff; }
+.proof li { background: var(--card); border: 1px solid var(--line); backdrop-filter: none; }
+.proof b { color: var(--accent-ink); }
+.proof small { color: var(--ink); }
+.proof span { color: var(--muted); }
+.scroll-cue { color: var(--muted); }
+.scroll-cue i { background: var(--accent); }
+#motion-toggle { border-color: var(--line); background: var(--card); color: var(--ink); }
+
+/* design-tool selection box: a thin frame with square handles */
+.sel { position: relative; padding: 16px 20px; border: 1px solid var(--accent); }
+.sel::before { content: ""; position: absolute; inset: -4px; pointer-events: none; --h: linear-gradient(#fff, #fff); background: linear-gradient(var(--accent), var(--accent)) top left / 8px 8px no-repeat, linear-gradient(var(--accent), var(--accent)) top right / 8px 8px no-repeat, linear-gradient(var(--accent), var(--accent)) bottom left / 8px 8px no-repeat, linear-gradient(var(--accent), var(--accent)) bottom right / 8px 8px no-repeat; }
+.sel::after { content: ""; position: absolute; inset: -3px; pointer-events: none; background: linear-gradient(#fff, #fff) top left / 6px 6px no-repeat, linear-gradient(#fff, #fff) top right / 6px 6px no-repeat, linear-gradient(#fff, #fff) bottom left / 6px 6px no-repeat, linear-gradient(#fff, #fff) bottom right / 6px 6px no-repeat; }
+.sel > * { position: relative; z-index: 1; }
+
+/* floating "collaborator cursors" around the card */
+.fc { position: absolute; z-index: 4; display: inline-flex; align-items: flex-start; gap: 2px; color: var(--accent); pointer-events: none; animation: drift 9s ease-in-out infinite; direction: ltr; }
+.fc b { margin-top: 14px; background: var(--accent); color: var(--on-accent); font: 800 0.72rem/1 var(--font-display); letter-spacing: 0.04em; padding: 5px 9px; border-radius: 99px; }
+.fc-a { inset-block-start: 36%; inset-inline-start: 2%; }
+.fc-b { inset-block-end: 24%; inset-inline-end: 0; color: var(--accent-2); animation-delay: -4s; }
+.fc-b b { background: var(--accent-2); color: var(--on-idea); }
+@keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(18px, -14px); } }
+.a11y-nomotion .fc, .motion-paused .fc { animation: none; }
+
+/* business card on a light page */
+.bc-front { background: var(--deep); }
+.bc-flip { border-color: var(--ink); background: var(--card); color: var(--ink); backdrop-filter: none; }
+.bc-flip:hover { background: var(--ink); color: var(--on-ink); }
+.bc-cord { background: linear-gradient(var(--line), var(--accent)); }
+.bc-ring { border-color: #d8c9cf; box-shadow: inset 0 0 0 2px #9a8790, 0 3px 6px rgba(36, 22, 29, 0.25); }
+.bc-wa { color: var(--accent-light); }
+
+/* dark sections: one solid plum, a faint grid, no glow */
+.on-deep, .work, .automation, .contact { background-color: var(--deep); background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px); background-size: var(--grid) var(--grid); }
+.contact { color: #fff; }
+.pw { background: var(--deep-2); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.6); }
+.ribbon { background: var(--accent-2); color: var(--on-idea); box-shadow: none; }
+.card-badge { color: var(--accent-light); }
+
+/* case pages: pastel tones */
+
+/* work + brand worlds: light cards on the grid (dark stays for automation and contact) */
+.work, .worlds { background-color: transparent; background-image: none; }
+.pw { background: var(--card); border: 1px solid var(--line); box-shadow: 0 30px 60px -40px rgba(36, 22, 29, 0.35); }
+.pw-no { -webkit-text-stroke: 1.5px rgba(var(--accent-rgb), 0.3); }
+.pw-kicker { color: var(--accent-ink); }
+.pw-summary { color: var(--muted); }
+.pw .tags li { background: var(--paper-2); color: var(--ink); }
+.pw-actions .btn-lime { background: var(--ink); color: var(--on-ink); box-shadow: 0 5px 0 var(--accent); }
+.pw-actions .btn-ghost { color: var(--ink); border-color: var(--ink); }
+.pw-actions .btn-ghost:hover { background: var(--ink); }
+.pw-actions .btn-ghost:hover > span { color: #fff; }
+.work .eyebrow, .worlds .eyebrow { color: var(--accent-ink); }
+.work .title em, .worlds .title em { color: var(--accent-ink); }
+.work .lead, .worlds .lead { color: var(--muted); }
+.world-links a { color: var(--accent-ink); }
+.worlds .world p { color: var(--muted); }
+.header-bar { background: rgba(255, 255, 255, 0.86); }
+.header-inner { background: rgba(255, 255, 255, 0.88); }
