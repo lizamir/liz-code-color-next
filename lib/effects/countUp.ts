@@ -22,7 +22,7 @@ export function countUp(): Cleanup {
         };
         requestAnimationFrame(step);
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
     io.observe(el);
     cleanups.push(() => io.disconnect());

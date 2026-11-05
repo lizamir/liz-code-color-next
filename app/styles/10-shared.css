@@ -2,15 +2,82 @@
    Idea: a color lab. Heavy Rubik headlines, one electric accent the visitor can switch, handwritten margin
    notes, and motion that is always optional (reduce motion, or the switch in the accessibility menu). */
 
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes bob { 50% { transform: translateY(-12px); } }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(192, 255, 85, 0.6); } 100% { box-shadow: 0 0 0 12px rgba(192, 255, 85, 0); } }
-@keyframes marq { to { transform: translateX(-50%); } }
-@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
-@keyframes card-in { from { opacity: 0; transform: translateY(24px); } }
-@keyframes wire { from { inset-inline-start: -12px; } to { inset-inline-start: 100%; } }
-.motion-paused .orbit, .motion-paused .chip, .motion-paused .ribbon-track, .motion-paused .live-dot { animation-play-state: paused; }
-.section { padding: 130px 0; position: relative; }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 48px; margin-bottom: 56px; }
-.section-head .lead { flex: none; max-width: 30rem; }
-.on-deep { background: var(--deep); color: var(--on-deep); }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(192, 255, 85, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(192, 255, 85, 0);
+  }
+}
+@keyframes marq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes wire {
+  from {
+    inset-inline-start: -12px;
+  }
+  to {
+    inset-inline-start: 100%;
+  }
+}
+.motion-paused .orbit,
+.motion-paused .chip,
+.motion-paused .ribbon-track,
+.motion-paused .live-dot {
+  animation-play-state: paused;
+}
+.section {
+  padding: 130px 0;
+  position: relative;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.section-head .lead {
+  flex: none;
+  max-width: 30rem;
+}
+.on-deep {
+  background: var(--deep);
+  color: var(--on-deep);
+}

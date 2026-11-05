@@ -1,8 +1,50 @@
 /* ───────────── Cursor ring ───────────── */
-.cursor { position: fixed; inset: 0 auto auto 0; z-index: 350; pointer-events: none; opacity: 0; transition: opacity 0.25s; mix-blend-mode: difference; }
-.cursor.show { opacity: 1; }
-.cursor span { position: absolute; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 2px solid #fff; display: grid; place-items: center; font-size: 0.72rem; font-weight: 800; color: #000; transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), margin 0.3s var(--ease-spring), background 0.2s; }
-.cursor[data-mode="link"] span { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
-.cursor[data-mode="label"] span { width: 86px; height: 86px; margin: -43px 0 0 -43px; background: #fff; }
-.cursor[data-mode="label"] span::after { content: attr(data-label); }
-@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+.cursor {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 350;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  mix-blend-mode: difference;
+}
+.cursor.show {
+  opacity: 1;
+}
+.cursor span {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #000;
+  transition:
+    width 0.3s var(--ease-spring),
+    height 0.3s var(--ease-spring),
+    margin 0.3s var(--ease-spring),
+    background 0.2s;
+}
+.cursor[data-mode="link"] span {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+}
+.cursor[data-mode="label"] span {
+  width: 86px;
+  height: 86px;
+  margin: -43px 0 0 -43px;
+  background: #fff;
+}
+.cursor[data-mode="label"] span::after {
+  content: attr(data-label);
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

@@ -17,7 +17,7 @@ export default function Reveal() {
           if (el.classList.contains("reveal")) el.setAttribute("data-visible", "");
           io.unobserve(el);
         }),
-      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" },
     );
     document.querySelectorAll(".reveal, [data-in]").forEach((el) => io.observe(el));
     return () => io.disconnect();

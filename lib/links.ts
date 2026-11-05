@@ -4,4 +4,5 @@ import { SITE } from "@/content";
 export const whatsappLink = (message: string) => `${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
 
 /** A mail link to Liz with the subject and body already written. */
-export const mailLink = (subject: string, body: string) => `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+export const mailLink = (subject: string, body: string) =>
+  `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

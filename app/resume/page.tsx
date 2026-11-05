@@ -18,7 +18,9 @@ export default function CV() {
     <div className="cv-wrap">
       <nav className="cv-bar" aria-label="פעולות">
         <Link className="btn btn-ghost btn-sm" href="/dev/">
-          <span><Arrow dir="right" /> חזרה לעמוד המקצועי</span>
+          <span>
+            <Arrow dir="right" /> חזרה לעמוד המקצועי
+          </span>
         </Link>
         <PrintButton />
       </nav>

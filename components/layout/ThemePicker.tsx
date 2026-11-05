@@ -33,7 +33,14 @@ export default function ThemePicker({ inline = false }: { inline?: boolean }) {
   }
 
   return (
-    <button type="button" className="theme-btn" aria-pressed={night} aria-label="מצב לילה" title={night ? "מעבר למצב יום" : "מעבר למצב לילה"} onClick={toggle}>
+    <button
+      type="button"
+      className="theme-btn"
+      aria-pressed={night}
+      aria-label="מצב לילה"
+      title={night ? "מעבר למצב יום" : "מעבר למצב לילה"}
+      onClick={toggle}
+    >
       {icon}
     </button>
   );

@@ -1,0 +1,10 @@
+.next
+out
+public
+coverage
+playwright-report
+test-results
+package-lock.json
+next-env.d.ts
+components/vendor
+docs

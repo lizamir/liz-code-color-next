@@ -9,8 +9,18 @@ import Cursor from "@/components/motion/Cursor";
 
 // Rubik carries the brand (headlines, labels), Assistant is the reading face, Gveret Levin is the
 // handwritten margin note. next/font self-hosts them, so there is no render-blocking Google CSS.
-const rubik = Rubik({ variable: "--font-rubik", subsets: ["hebrew", "latin"], weight: ["400", "500", "700", "800", "900"], display: "swap" });
-const assistant = Assistant({ variable: "--font-assistant", subsets: ["hebrew", "latin"], weight: ["400", "600", "700", "800"], display: "swap" });
+const rubik = Rubik({
+  variable: "--font-rubik",
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "700", "800", "900"],
+  display: "swap",
+});
+const assistant = Assistant({
+  variable: "--font-assistant",
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
+});
 const hand = Gveret_Levin({ variable: "--font-hand", subsets: ["hebrew", "latin"], weight: "400", display: "swap" });
 
 const TITLE = "Liz Code & Color | אתרים, דפי נחיתה ואוטומציות לעסקים";
@@ -23,7 +33,15 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: { canonical: "/" },
   authors: [{ name: SITE.person, url: SITE.url }],
-  keywords: ["בניית אתרים לעסקים", "דף נחיתה", "אתר תדמית", "אוטומציות לעסקים", "בוט וואטסאפ", "קביעת תורים", "מפתחת Full Stack"],
+  keywords: [
+    "בניית אתרים לעסקים",
+    "דף נחיתה",
+    "אתר תדמית",
+    "אוטומציות לעסקים",
+    "בוט וואטסאפ",
+    "קביעת תורים",
+    "מפתחת Full Stack",
+  ],
   openGraph: {
     type: "website",
     locale: "he_IL",
@@ -31,7 +49,14 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: TITLE,
     description: DESCRIPTION,
-    images: [{ url: "/og-card.png", width: 1200, height: 630, alt: "כרטיס הביקור של ליז חג׳ג׳: מפתחת Full-Stack, יישום AI ואוטומציות" }],
+    images: [
+      {
+        url: "/og-card.png",
+        width: 1200,
+        height: 630,
+        alt: "כרטיס הביקור של ליז חג׳ג׳: מפתחת Full-Stack, יישום AI ואוטומציות",
+      },
+    ],
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og-card.png"] },
   robots: { index: true, follow: true },
@@ -49,7 +74,12 @@ export const viewport: Viewport = {
 /** The page shell of every route: fonts, boot script, skip link and the site-wide tools. */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${rubik.variable} ${assistant.variable} ${hand.variable}`} suppressHydrationWarning>
+    <html
+      lang="he"
+      dir="rtl"
+      className={`${rubik.variable} ${assistant.variable} ${hand.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: BOOT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />

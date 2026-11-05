@@ -3,7 +3,9 @@ import { clamp, motionIsOff, type Cleanup } from "./shared";
 /** The ribbon leans into the scroll, according to how fast the page moves. */
 export function ribbonLean(): Cleanup {
   const ribbon = document.querySelector<HTMLElement>(".ribbon");
-  let lastY = scrollY, skew = 0, raf = 0;
+  let lastY = scrollY,
+    skew = 0,
+    raf = 0;
   const tick = () => {
     const dy = scrollY - lastY;
     lastY = scrollY;

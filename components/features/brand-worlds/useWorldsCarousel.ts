@@ -13,7 +13,8 @@ export function useWorldsCarousel(count: number) {
       raf = 0;
       const r = el.getBoundingClientRect();
       const mid = r.left + r.width / 2;
-      let best = 0, bestD = Infinity;
+      let best = 0,
+        bestD = Infinity;
       [...el.children].forEach((c, i) => {
         const cr = (c as HTMLElement).getBoundingClientRect();
         const d = Math.abs(cr.left + cr.width / 2 - mid);
@@ -42,7 +43,11 @@ export function useWorldsCarousel(count: number) {
   const go = (i: number) => {
     const el = row.current;
     const c = el?.children[Math.max(0, Math.min(count - 1, i))] as HTMLElement | undefined;
-    c?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", inline: "center", block: "nearest" });
+    c?.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      inline: "center",
+      block: "nearest",
+    });
   };
 
   return { row, active, go };

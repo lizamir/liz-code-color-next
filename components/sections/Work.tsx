@@ -36,15 +36,24 @@ function Showcase({ p, i, tech }: { p: Project; i: number; tech: boolean }) {
         )}
         <div className="pw-actions">
           <Link className="btn btn-lime" href={`/work/${p.slug}/`}>
-            <span>{tech ? "למקרה הבוחן" : "לסיפור המלא"} <Arrow /></span>
+            <span>
+              {tech ? "למקרה הבוחן" : "לסיפור המלא"} <Arrow />
+            </span>
           </Link>
-          {[second].filter((l) => l !== undefined).map((l) => (
-            <a key={l.href} className="btn btn-ghost" href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
-              <span>
-                {l.label} <Arrow dir={l.external ? "out" : "in"} />
-              </span>
-            </a>
-          ))}
+          {[second]
+            .filter((l) => l !== undefined)
+            .map((l) => (
+              <a
+                key={l.href}
+                className="btn btn-ghost"
+                href={l.href}
+                {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+              >
+                <span>
+                  {l.label} <Arrow dir={l.external ? "out" : "in"} />
+                </span>
+              </a>
+            ))}
         </div>
       </div>
     </article>

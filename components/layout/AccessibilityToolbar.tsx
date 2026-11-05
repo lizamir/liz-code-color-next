@@ -35,7 +35,17 @@ export default function AccessibilityToolbar() {
         aria-label="תפריט נגישות"
         onClick={() => setOpen((o) => !o)}
       >
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          width="26"
+          height="26"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
           <circle cx="12" cy="4.5" r="1.8" />
           <path d="M5 8.5l7 1.5 7-1.5M12 10v4.5M12 14.5l-3.5 6M12 14.5l3.5 6" />
         </svg>
@@ -51,11 +61,21 @@ export default function AccessibilityToolbar() {
           </div>
 
           <div className="a11y-size" role="group" aria-label="גודל טקסט">
-            <button type="button" onClick={() => setA11y({ size: Math.max(0, s.size - 1) as 0 | 1 | 2 | 3 })} disabled={s.size === 0} aria-label="הקטנת טקסט">
+            <button
+              type="button"
+              onClick={() => setA11y({ size: Math.max(0, s.size - 1) as 0 | 1 | 2 | 3 })}
+              disabled={s.size === 0}
+              aria-label="הקטנת טקסט"
+            >
               א−
             </button>
             <span aria-live="polite">{["רגיל", "גדול", "גדול מאוד", "ענק"][s.size]}</span>
-            <button type="button" onClick={() => setA11y({ size: Math.min(3, s.size + 1) as 0 | 1 | 2 | 3 })} disabled={s.size === 3} aria-label="הגדלת טקסט">
+            <button
+              type="button"
+              onClick={() => setA11y({ size: Math.min(3, s.size + 1) as 0 | 1 | 2 | 3 })}
+              disabled={s.size === 3}
+              aria-label="הגדלת טקסט"
+            >
               א+
             </button>
           </div>

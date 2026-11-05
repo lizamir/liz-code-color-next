@@ -6,7 +6,10 @@ export function useActiveSection(nav: NavItem[], enabled: boolean): string {
   const [active, setActive] = useState("");
   useEffect(() => {
     if (!enabled) return;
-    const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)), { rootMargin: "-45% 0px -50% 0px" });
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
     nav.forEach((n) => {
       const el = document.getElementById(n.href.slice(1));
       if (el) io.observe(el);

@@ -4,7 +4,15 @@ import ThemePicker from "@/components/layout/ThemePicker";
 import Logo from "@/components/layout/Logo";
 
 /** The footer: logo, links to both halves of the site, social links and the day/night switch. */
-export default function Footer({ home = true, nav = NAV, base = "/" }: { home?: boolean; nav?: NavItem[]; base?: string }) {
+export default function Footer({
+  home = true,
+  nav = NAV,
+  base = "/",
+}: {
+  home?: boolean;
+  nav?: NavItem[];
+  base?: string;
+}) {
   const href = (h: string) => (home ? h : `${base}${h}`);
   return (
     <footer className="footer">

@@ -1,7 +1,12 @@
 import { useEffect, type RefObject } from "react";
 
 /** While the mobile menu is open: locks page scrolling, moves focus into the menu, and Escape closes it. */
-export function useMenuLock(open: boolean, setOpen: (open: boolean) => void, menu: RefObject<HTMLElement | null>, trigger: RefObject<HTMLElement | null>) {
+export function useMenuLock(
+  open: boolean,
+  setOpen: (open: boolean) => void,
+  menu: RefObject<HTMLElement | null>,
+  trigger: RefObject<HTMLElement | null>,
+) {
   useEffect(() => {
     if (!open) return;
     window.__lenis?.stop();

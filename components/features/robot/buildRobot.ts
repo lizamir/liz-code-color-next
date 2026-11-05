@@ -10,7 +10,10 @@ function buildHead(m: RobotMaterials) {
   const face = new THREE.Mesh(new RoundedBoxGeometry(1.86, 1.16, 0.4, 6, 0.18), m.visor);
   face.position.set(0, -0.02, 0.72);
   head.add(face);
-  const shine = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.12), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.18 }));
+  const shine = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.9, 0.12),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.18 }),
+  );
   shine.position.set(-0.32, 0.38, 0.93);
   shine.rotation.z = 0.08;
   head.add(shine);
@@ -98,7 +101,10 @@ function buildShadow() {
   grd.addColorStop(1, "rgba(0,0,0,0)");
   g.fillStyle = grd;
   g.fillRect(0, 0, 128, 128);
-  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(3, 0.9), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc), transparent: true, depthWrite: false }));
+  const shadow = new THREE.Mesh(
+    new THREE.PlaneGeometry(3, 0.9),
+    new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc), transparent: true, depthWrite: false }),
+  );
   shadow.rotation.x = -Math.PI / 2;
   shadow.position.y = -2.15;
   return shadow;

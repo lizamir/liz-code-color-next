@@ -4,7 +4,13 @@ import GhostWord from "@/components/ui/GhostWord";
 type Props = { items?: typeof SERVICES; id?: string; eyebrow?: string; lead?: string; ghost?: string };
 
 /** The list of services. The props let the technical page show its own version. */
-export default function Services({ items = SERVICES, id = "services", eyebrow = "WHAT I BUILD", lead = "ארבעה דברים שאני בונה לעסקים, ומה תקבלו מכל אחד.", ghost = "ideas" }: Props) {
+export default function Services({
+  items = SERVICES,
+  id = "services",
+  eyebrow = "WHAT I BUILD",
+  lead = "ארבעה דברים שאני בונה לעסקים, ומה תקבלו מכל אחד.",
+  ghost = "ideas",
+}: Props) {
   return (
     <section className="section services" id={id} aria-labelledby={`${id}-title`}>
       <div className="container">
@@ -33,7 +39,6 @@ export default function Services({ items = SERVICES, id = "services", eyebrow = 
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );

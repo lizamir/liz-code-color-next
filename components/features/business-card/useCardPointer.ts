@@ -54,5 +54,11 @@ export function useCardPointer({ rig, card, sim, kick, motionOff, onTap }: Args)
     c.style.setProperty("--ty", "0deg");
   };
 
-  return { onPointerDown: onDown, onPointerMove: onMove, onPointerUp: onUp, onPointerCancel: onUp, onPointerLeave: onLeave };
+  return {
+    onPointerDown: onDown,
+    onPointerMove: onMove,
+    onPointerUp: onUp,
+    onPointerCancel: onUp,
+    onPointerLeave: onLeave,
+  };
 }

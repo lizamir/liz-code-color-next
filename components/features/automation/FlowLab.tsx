@@ -25,7 +25,13 @@ export default function FlowLab() {
       </div>
       <div className="flow-options" role="group" aria-label="בחירת תהליך">
         {(Object.keys(AUTOMATION_FLOWS) as FlowKey[]).map((k) => (
-          <button key={k} type="button" aria-pressed={k === key} className={k === key ? "selected" : undefined} onClick={() => setKey(k)}>
+          <button
+            key={k}
+            type="button"
+            aria-pressed={k === key}
+            className={k === key ? "selected" : undefined}
+            onClick={() => setKey(k)}
+          >
             {AUTOMATION_FLOWS[k].label}
           </button>
         ))}

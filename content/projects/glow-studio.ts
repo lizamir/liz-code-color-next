@@ -14,9 +14,7 @@ export const glowStudio: Project = {
   cover: "/work/glow.webp",
   coverAlt: "GLOW: דף נחיתה לסטודיו ביוטי עם דיוקן ופלטה ורודה",
   tone: "pink",
-  links: [
-    { href: "/demos/glow.html", label: "לאתר" },
-  ],
+  links: [{ href: "/demos/glow.html", label: "לאתר" }],
   challenge: "סטודיו ביוטי צריך אתר שמרגיש כמו הטיפול עצמו: שקט, מדויק ואישי. ובכל זאת ברור מה מציעים ואיך קובעים.",
   approach: [
     "מעט רעש ויותר תשומת לב: היררכיה ברורה, הרבה אוויר וקצב תנועה איטי.",

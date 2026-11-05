@@ -26,7 +26,12 @@ export default function BriefForm() {
   };
 
   return (
-    <form className="brief reveal" aria-labelledby="brief-title" style={{ ["--d" as string]: 2 }} onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="brief reveal"
+      aria-labelledby="brief-title"
+      style={{ ["--d" as string]: 2 }}
+      onSubmit={(e) => e.preventDefault()}
+    >
       <h3 id="brief-title">ספרו לי בקצרה</h3>
 
       <ChoiceGroup legend="מה מתכננים?" name="type" options={BRIEF.types} value={type} onChange={setType} />
@@ -40,7 +45,12 @@ export default function BriefForm() {
       </div>
       <label>
         בכמה שורות, מה הרעיון?
-        <textarea value={idea} onChange={(e) => setIdea(e.target.value)} rows={3} placeholder="למשל: אתר לקליניקה, עם קביעת תורים" />
+        <textarea
+          value={idea}
+          onChange={(e) => setIdea(e.target.value)}
+          rows={3}
+          placeholder="למשל: אתר לקליניקה, עם קביעת תורים"
+        />
       </label>
 
       <div className="preview" aria-live="polite">

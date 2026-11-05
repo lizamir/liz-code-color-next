@@ -9,7 +9,9 @@ export default function CaseNext({ next }: { next: Project }) {
       <span>הפרויקט הבא</span>
       <Link href={`/work/${next.slug}/`} data-cursor="לפרויקט">
         <b dir="ltr">{next.title}</b>
-        <small>{next.kicker} <Arrow size={16} /></small>
+        <small>
+          {next.kicker} <Arrow size={16} />
+        </small>
       </Link>
     </nav>
   );

@@ -30,7 +30,9 @@ export default function Hero() {
               <WhatsAppIcon /> בואו נדבר בוואטסאפ
             </a>
             <a className="btn btn-ghost" href="#work">
-              <span>לצפייה בעבודות <Arrow dir="down" /></span>
+              <span>
+                לצפייה בעבודות <Arrow dir="down" />
+              </span>
             </a>
           </div>
           <ul className="proof reveal" style={{ ["--d" as string]: 6 }} aria-label="בקצרה עליי">

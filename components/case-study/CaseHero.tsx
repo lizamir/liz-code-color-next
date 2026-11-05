@@ -31,7 +31,12 @@ export default function CaseHero({ p, links }: { p: Project; links: Project["lin
         </dl>
         <div className="case-actions">
           {links.map((l, k) => (
-            <a key={l.href} className={`btn ${k === 0 ? "btn-ink" : "btn-ghost"}`} href={l.href} {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+            <a
+              key={l.href}
+              className={`btn ${k === 0 ? "btn-ink" : "btn-ghost"}`}
+              href={l.href}
+              {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+            >
               <span>
                 {l.label} <Arrow dir={l.external ? "out" : "in"} />
               </span>

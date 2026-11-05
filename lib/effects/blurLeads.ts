@@ -11,7 +11,7 @@ export function blurLeads(): Cleanup {
         e.target.classList.add("words-in");
         io.unobserve(e.target);
       }),
-    { threshold: 0.4 }
+    { threshold: 0.4 },
   );
   leads.forEach((el) => {
     if (el.dataset.split) return;

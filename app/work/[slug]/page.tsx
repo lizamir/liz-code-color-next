@@ -29,7 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description: p.summary,
     alternates: { canonical: `/work/${p.slug}/` },
-    openGraph: { title, description: p.summary, url: `/work/${p.slug}/`, images: [{ url: p.cover, width: 1600, height: 1000, alt: p.coverAlt }] },
+    openGraph: {
+      title,
+      description: p.summary,
+      url: `/work/${p.slug}/`,
+      images: [{ url: p.cover, width: 1600, height: 1000, alt: p.coverAlt }],
+    },
   };
 }
 

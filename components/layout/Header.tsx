@@ -63,7 +63,15 @@ export default function Header({ home = true, nav = NAV, base = "/", other = TO_
             <WhatsAppIcon size={18} /> דברו איתי בוואטסאפ
           </a>
         </div>
-        <button ref={burger} type="button" className="burger" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? "סגירת התפריט" : "פתיחת התפריט"} onClick={() => setOpen((o) => !o)}>
+        <button
+          ref={burger}
+          type="button"
+          className="burger"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "סגירת התפריט" : "פתיחת התפריט"}
+          onClick={() => setOpen((o) => !o)}
+        >
           <span aria-hidden="true" />
           <span aria-hidden="true" />
           <span aria-hidden="true" />

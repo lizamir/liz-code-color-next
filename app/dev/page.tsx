@@ -15,7 +15,8 @@ import DevHero from "@/components/sections/dev/DevHero";
 import { DEV_MARQUEE, DEV_NAV, DEV_SERVICES, SITE } from "@/content";
 
 const TITLE = "למגייסים ולצוותי פיתוח";
-const DESCRIPTION = "ליז חג׳ג׳, מפתחת Full‑Stack, יישום AI ואוטומציות: React, Next.js, TypeScript, Supabase, n8n, סוכני AI ואינטגרציות. פרויקטים, קוד וקורות חיים.";
+const DESCRIPTION =
+  "ליז חג׳ג׳, מפתחת Full‑Stack, יישום AI ואוטומציות: React, Next.js, TypeScript, Supabase, n8n, סוכני AI ואינטגרציות. פרויקטים, קוד וקורות חיים.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -40,7 +41,13 @@ export default function DevPage() {
         <DevHero />
         <Ribbon words={DEV_MARQUEE} />
         <Work tech />
-        <Services items={DEV_SERVICES} id="dev-services" eyebrow="HOW I WORK" ghost="dev" lead="איך אני עובדת בפרויקטים ובצוותים, ומה מקבלים מזה." />
+        <Services
+          items={DEV_SERVICES}
+          id="dev-services"
+          eyebrow="HOW I WORK"
+          ghost="dev"
+          lead="איך אני עובדת בפרויקטים ובצוותים, ומה מקבלים מזה."
+        />
         <Automation dev />
         <AboutDev />
         <DevContact />

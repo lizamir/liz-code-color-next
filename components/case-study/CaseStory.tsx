@@ -45,7 +45,14 @@ export default function CaseStory({ p }: { p: Project }) {
           <div className="gallery">
             {p.gallery.map((g) => (
               <figure key={g.src} className={g.w < g.h ? "tall" : undefined}>
-                <Image src={g.src} alt={g.alt} width={g.w} height={g.h} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+                <Image
+                  src={g.src}
+                  alt={g.alt}
+                  width={g.w}
+                  height={g.h}
+                  sizes="(max-width: 900px) 100vw, 50vw"
+                  loading="lazy"
+                />
               </figure>
             ))}
           </div>

@@ -4,7 +4,13 @@ import type { RobotParts } from "./buildRobot";
 /** The robot's life: it floats, follows the pointer, sways one arm, waves the other now and then, and blinks. */
 export function createRobotMotion(parts: RobotParts) {
   const { robot, head, eyes, bulb, armL, armR, shadow } = parts;
-  let tx = 0, ty = 0, lx = 0, ly = 0, waveUntil = 0, nextWave = 2.5, blinkAt = 3;
+  let tx = 0,
+    ty = 0,
+    lx = 0,
+    ly = 0,
+    waveUntil = 0,
+    nextWave = 2.5,
+    blinkAt = 3;
 
   const pose = (t: number) => {
     lx += (tx - lx) * 0.08;

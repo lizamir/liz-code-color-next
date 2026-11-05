@@ -7,7 +7,12 @@ export function clickSparks(): Cleanup {
     const t = (e.target as HTMLElement).closest(".btn, .chip-link, .filters button");
     if (!t) return;
     const cs = getComputedStyle(document.documentElement);
-    const cols = [cs.getPropertyValue("--accent"), cs.getPropertyValue("--accent-2"), cs.getPropertyValue("--accent-light"), cs.getPropertyValue("--accent-ink")];
+    const cols = [
+      cs.getPropertyValue("--accent"),
+      cs.getPropertyValue("--accent-2"),
+      cs.getPropertyValue("--accent-light"),
+      cs.getPropertyValue("--accent-ink"),
+    ];
     for (let i = 0; i < 10; i++) {
       const s = document.createElement("i");
       const a = (Math.PI * 2 * i) / 10 + Math.random() * 0.4;

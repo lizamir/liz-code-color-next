@@ -72,7 +72,7 @@ export function useMotionOff(): boolean {
       return () => m.removeEventListener("change", l);
     },
     () => matchMedia("(prefers-reduced-motion: reduce)").matches,
-    () => false
+    () => false,
   );
   return s.motion || os;
 }

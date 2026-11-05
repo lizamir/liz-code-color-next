@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { useMotionOff } from "@/lib/stores/a11y";
 import type { RobotHandle } from "./mountRobot";
 
-const LINES = ["פנייה חדשה נכנסה ✓", "נשלחה הודעה בוואטסאפ", "נקבעה פגישה ביומן", "תזכורת יצאה ללקוח", "הסיכום השבועי מוכן"];
+const LINES = [
+  "פנייה חדשה נכנסה ✓",
+  "נשלחה הודעה בוואטסאפ",
+  "נקבעה פגישה ביומן",
+  "תזכורת יצאה ללקוח",
+  "הסיכום השבועי מוכן",
+];
 
 /**
  * The 3D robot of the AI section (Three.js, loaded only when the section is close to the screen).
@@ -45,7 +51,7 @@ export default function Robot() {
         near.disconnect();
         start();
       },
-      { rootMargin: "300px" }
+      { rootMargin: "300px" },
     );
     near.observe(el);
     const move = (e: PointerEvent) => {

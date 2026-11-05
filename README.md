@@ -3,26 +3,46 @@
 Portfolio of **Liz Hajage**: full-stack, AI and automation. Next.js (App Router, static export), React, TypeScript.
 Live: https://lizhajage.co.il
 
-## Run
+## Getting started
 
 ```bash
+nvm use
 npm install
-npm run dev      # http://localhost:3000
-npm run build    # static export to out/
+npm run dev
 ```
+
+## Scripts
+
+| Command                | What it does                                                    |
+| ---------------------- | --------------------------------------------------------------- |
+| `npm run dev`          | Development server                                              |
+| `npm run build`        | Static export to `out/`                                         |
+| `npm run check`        | Lint, types, formatting and unit tests                          |
+| `npm test`             | Unit tests (Vitest)                                             |
+| `npm run test:e2e`     | Browser tests of the built site (Playwright); run `build` first |
+| `npm run publish:site` | Builds and publishes to GitHub Pages                            |
+
+## Conventions
+
+- **Commits** follow [Conventional Commits](https://www.conventionalcommits.org); a hook checks each message.
+- **Versions** follow [SemVer](https://semver.org). Changes are listed in `CHANGELOG.md`.
+- **CI** runs every check and the browser tests on each pull request (`.github/workflows/ci.yml`).
+- **Formatting** is Prettier and ESLint, run on staged files before each commit.
 
 ## What is in it
 
-- **Home** (`/`): hero with a WebGL wave background, selected work with filters, five brand worlds, services and how I work, an automation studio demo, about with a credentials timeline and tool stack, and a contact section.
-- **Case studies** (`/work/<slug>/`): challenge, approach, what was built, screens and next project, for each of the five projects.
-- **CV** (`/resume/`): one printable page (Print or Cmd/Ctrl+P saves a PDF).
-- **Accessibility statement** (`/accessibility/`), **404**, sitemap, robots, manifest, favicon, social image (`public/og.png`), JSON-LD (Person, WebSite).
+- **Business site** (`/`): for business owners, in plain words. Who it is for, services, work, brand demos, the digital assistant, testimonials, process, FAQ and contact.
+- **Technical page** (`/dev/`): for recruiters and dev teams. Projects with stack and code, how I work, AI and automation in depth, experience and tools.
+- **Project pages** (`/work/<slug>/`): the story first, technical details folded at the end.
+- **CV** (`/resume/`): printable (Print or Cmd/Ctrl+P saves a PDF).
+- **Accessibility statement** (`/accessibility/`), **404**, sitemap, robots, manifest, favicon, social image, JSON-LD (Person, WebSite).
 
 Details that matter to visitors:
+
 - **One rose palette with a day/night switch.** Saved in localStorage; first paint is handled by the boot script in `lib/siteHead.ts`.
 - **Project brief** in the contact section builds a ready message for WhatsApp, email or copy. Nothing is sent to a server.
-- **Accessibility**: menu with text size, high contrast, stop animations, underline links and spacing; skip link; landmarks; keyboard use; `prefers-reduced-motion`. Contrast was checked for every theme with axe-core (WCAG 2.1 A/AA).
-- **Motion is optional**: smooth scroll (Lenis), cursor ring and reveal animations all switch off with reduced motion or the in-page switch.
+- **Accessibility**: menu with text size, high contrast, stop animations, underline links and spacing; skip link; landmarks; keyboard use; `prefers-reduced-motion`. Contrast was checked in day and night modes with axe-core (WCAG 2.1 A/AA).
+- **Motion is optional**: smooth scroll (Lenis), cursor ring, the headline animation and reveal animations all switch off with reduced motion or the in-page switch.
 
 ## Editing content
 
@@ -55,7 +75,7 @@ lib/                 logic with no UI
 
 The site is fully static and makes no server calls, so there is no API layer. WhatsApp and mail links are built in `lib/links.ts`.
 
-The WaveBackground shader and the curved CTA are adapted from React Bits (see `public/licenses/react-bits.txt`).
+TechText comes from React Bits (see `public/licenses/react-bits.txt`).
 
 ## Publish
 

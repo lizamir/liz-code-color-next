@@ -1,36 +1,140 @@
 /* ───────────── Mobile fixes ───────────── */
 /* business card: only one face is ever visible (Safari can bleed the hidden face through mid-flip) */
-.bc-front { transform: translateZ(1px); visibility: visible; transition: visibility 0s linear 0.36s; }
-.bc-back { transform: rotateY(180deg) translateZ(1px); visibility: hidden; transition: visibility 0s linear 0.36s; }
-.bc-card[data-flipped="true"] .bc-front { visibility: hidden; }
-.bc-card[data-flipped="true"] .bc-back { visibility: visible; }
-@media (max-width: 900px) { .hero .fc { display: none; } }
+.bc-front {
+  transform: translateZ(1px);
+  visibility: visible;
+  transition: visibility 0s linear 0.36s;
+}
+.bc-back {
+  transform: rotateY(180deg) translateZ(1px);
+  visibility: hidden;
+  transition: visibility 0s linear 0.36s;
+}
+.bc-card[data-flipped="true"] .bc-front {
+  visibility: hidden;
+}
+.bc-card[data-flipped="true"] .bc-back {
+  visibility: visible;
+}
+@media (max-width: 900px) {
+  .hero .fc {
+    display: none;
+  }
+}
 
 /* brand worlds: centered swipe carousel below 1200px */
-.worlds-nav { display: none; }
-@media (max-width: 1199px) {
-  .worlds-row.phones { scroll-snap-type: x mandatory; gap: 14px; padding: 24px calc(50% - min(124px, 33vw)) 18px; scrollbar-width: none; overflow-y: hidden; }
-  .worlds-row.phones::-webkit-scrollbar { display: none; }
-  .worlds-row.phones .world, .worlds-row.phones .world:nth-child(even) { flex: 0 0 min(248px, 66vw); margin-top: 0; scroll-snap-align: center; scroll-snap-stop: always; transform: scale(calc(1 - var(--k, 0) * 0.14)); opacity: calc(1 - var(--k, 0) * 0.5); transition: transform 0.2s ease-out, opacity 0.2s ease-out; }
-  .worlds-row.phones .world h3, .worlds-row.phones .world p, .worlds-row.phones .world .world-links { text-align: center; justify-content: center; opacity: calc(1 - var(--k, 0) * 1.6); }
-  .worlds-row.phones .ph { margin-bottom: 16px; }
-  .worlds-row.phones .ph:hover, .worlds-row.phones .ph:focus-visible { transform: none; }
-  .worlds-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 6px; }
-  .wn-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--card); color: var(--ink); font: 800 1.1rem var(--font-display); cursor: pointer; }
-  .wn-arrow:disabled { opacity: 0.3; cursor: default; }
-  .wn-dots { display: flex; gap: 6px; }
-  .wn-dots button { width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; position: relative; }
-  .wn-dots button::before { content: ""; position: absolute; inset: 8px; border-radius: 99px; background: var(--line); transition: all 0.25s; }
-  .wn-dots button[aria-current="true"]::before { inset: 8px 2px; background: var(--accent-ink); }
+.worlds-nav {
+  display: none;
 }
-html.a11y-nomotion .worlds-row.phones .world { transition: none; }
-.worlds .world h3 { color: var(--ink); }
+@media (max-width: 1199px) {
+  .worlds-row.phones {
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding: 24px calc(50% - min(124px, 33vw)) 18px;
+    scrollbar-width: none;
+    overflow-y: hidden;
+  }
+  .worlds-row.phones::-webkit-scrollbar {
+    display: none;
+  }
+  .worlds-row.phones .world,
+  .worlds-row.phones .world:nth-child(even) {
+    flex: 0 0 min(248px, 66vw);
+    margin-top: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform: scale(calc(1 - var(--k, 0) * 0.14));
+    opacity: calc(1 - var(--k, 0) * 0.5);
+    transition:
+      transform 0.2s ease-out,
+      opacity 0.2s ease-out;
+  }
+  .worlds-row.phones .world h3,
+  .worlds-row.phones .world p,
+  .worlds-row.phones .world .world-links {
+    text-align: center;
+    justify-content: center;
+    opacity: calc(1 - var(--k, 0) * 1.6);
+  }
+  .worlds-row.phones .ph {
+    margin-bottom: 16px;
+  }
+  .worlds-row.phones .ph:hover,
+  .worlds-row.phones .ph:focus-visible {
+    transform: none;
+  }
+  .worlds-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 6px;
+  }
+  .wn-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    background: var(--card);
+    color: var(--ink);
+    font: 800 1.1rem var(--font-display);
+    cursor: pointer;
+  }
+  .wn-arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  .wn-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .wn-dots button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: relative;
+  }
+  .wn-dots button::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 99px;
+    background: var(--line);
+    transition: all 0.25s;
+  }
+  .wn-dots button[aria-current="true"]::before {
+    inset: 8px 2px;
+    background: var(--accent-ink);
+  }
+}
+html.a11y-nomotion .worlds-row.phones .world {
+  transition: none;
+}
+.worlds .world h3 {
+  color: var(--ink);
+}
 
 /* mobile: the business card is the first thing you see */
 @media (max-width: 900px) {
-  .hero { padding-top: 92px; }
-  .hero-grid { gap: 26px; }
-  .hero .bc { order: -1; min-height: 0; margin: 0; --cw: min(420px, 88vw); }
-  .hero .bc-cord { height: 26px; }
-  .hero .bc-flip { margin-top: 14px; }
+  .hero {
+    padding-top: 92px;
+  }
+  .hero-grid {
+    gap: 26px;
+  }
+  .hero .bc {
+    order: -1;
+    min-height: 0;
+    margin: 0;
+    --cw: min(420px, 88vw);
+  }
+  .hero .bc-cord {
+    height: 26px;
+  }
+  .hero .bc-flip {
+    margin-top: 14px;
+  }
 }

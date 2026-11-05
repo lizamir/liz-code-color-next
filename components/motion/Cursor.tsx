@@ -15,7 +15,11 @@ export default function Cursor() {
   useEffect(() => {
     const el = ref.current;
     if (!on || !el || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    let x = -100, y = -100, tx = -100, ty = -100, frame = 0;
+    let x = -100,
+      y = -100,
+      tx = -100,
+      ty = -100,
+      frame = 0;
     const move = (e: PointerEvent) => {
       tx = e.clientX;
       ty = e.clientY;

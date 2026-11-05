@@ -5,9 +5,21 @@ export type RobotMaterials = ReturnType<typeof createMaterials>;
 /** The robot's surfaces. Shell and accent take their color from the page (see applyPageColors). */
 export function createMaterials() {
   return {
-    shell: new THREE.MeshPhysicalMaterial({ color: 0xf6f3ff, roughness: 0.32, clearcoat: 1, clearcoatRoughness: 0.12, sheen: 0.4 }),
+    shell: new THREE.MeshPhysicalMaterial({
+      color: 0xf6f3ff,
+      roughness: 0.32,
+      clearcoat: 1,
+      clearcoatRoughness: 0.12,
+      sheen: 0.4,
+    }),
     accent: new THREE.MeshPhysicalMaterial({ roughness: 0.38, clearcoat: 0.7, clearcoatRoughness: 0.2 }),
-    visor: new THREE.MeshPhysicalMaterial({ color: 0x1a0d13, roughness: 0.06, metalness: 0.3, clearcoat: 1, clearcoatRoughness: 0.03 }),
+    visor: new THREE.MeshPhysicalMaterial({
+      color: 0x1a0d13,
+      roughness: 0.06,
+      metalness: 0.3,
+      clearcoat: 1,
+      clearcoatRoughness: 0.03,
+    }),
     glow: new THREE.MeshBasicMaterial({ color: 0xffd0de }),
   };
 }

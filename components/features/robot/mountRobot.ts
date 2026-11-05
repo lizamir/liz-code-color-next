@@ -3,7 +3,12 @@ import { buildRobot } from "./buildRobot";
 import { createRobotMotion } from "./robotMotion";
 import { addLights, applyPageColors, createMaterials } from "./studio";
 
-export type RobotHandle = { wave: () => void; look: (x: number, y: number) => void; recolor: () => void; dispose: () => void };
+export type RobotHandle = {
+  wave: () => void;
+  look: (x: number, y: number) => void;
+  recolor: () => void;
+  dispose: () => void;
+};
 
 /**
  * Puts a small friendly robot on a canvas inside `host` and runs it: rendering, sizing, and pausing offscreen.
@@ -28,7 +33,8 @@ export function mountRobot(host: HTMLElement, opts: { still: boolean }): RobotHa
   applyPageColors(materials, lights);
 
   const resize = () => {
-    const w = host.clientWidth, h = host.clientHeight;
+    const w = host.clientWidth,
+      h = host.clientHeight;
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
@@ -40,7 +46,8 @@ export function mountRobot(host: HTMLElement, opts: { still: boolean }): RobotHa
 
   const motion = createRobotMotion(parts);
   const clock = new THREE.Clock();
-  let raf = 0, visible = true;
+  let raf = 0,
+    visible = true;
   const frame = () => {
     raf = 0;
     if (!visible) return;

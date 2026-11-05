@@ -16,11 +16,16 @@ export default function Contact() {
             <br />
             <em>בואו נעשה ממנו וואו.</em>
           </h2>
-          <p className="lead">אתר לעסק, דף נחיתה, או וואטסאפ ויומן שעובדים לבד? ספרו לי בכמה שורות מה צריך, ואני חוזרת עם כיוון ראשוני.</p>
+          <p className="lead">
+            אתר לעסק, דף נחיתה, או וואטסאפ ויומן שעובדים לבד? ספרו לי בכמה שורות מה צריך, ואני חוזרת עם כיוון ראשוני.
+          </p>
           <ul className="channels">
             <li>
               <a href={SITE.whatsapp} target="_blank" rel="noreferrer">
-                <span className="wa-chip"><WhatsAppIcon size={14} /> וואטסאפ</span> <bdi>{formatPhone(SITE.phone)}</bdi>
+                <span className="wa-chip">
+                  <WhatsAppIcon size={14} /> וואטסאפ
+                </span>{" "}
+                <bdi>{formatPhone(SITE.phone)}</bdi>
               </a>
             </li>
             <li>

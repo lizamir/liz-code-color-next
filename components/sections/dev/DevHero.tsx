@@ -9,13 +9,15 @@ export default function DevHero() {
       <div className="container dev-hero-grid">
         <div className="dev-hero-copy reveal">
           <p className="dev-prompt" dir="ltr">
-            <span>liz@code-and-color</span> ~ $ whoami<i aria-hidden="true" />
+            <span>liz@code-and-color</span> ~ $ whoami
+            <i aria-hidden="true" />
           </p>
           <h1 id="dev-title" className="display">
             {SITE.person}, <em>מפתחת</em> Full‑Stack
           </h1>
           <p className="lead">
-            מעל 4 שנות ניסיון בפיתוח מערכות, אינטגרציות ואתרים. היום אני בונה ב‑React, Next.js ו‑TypeScript, עם Supabase בצד הנתונים, ומיישמת סוכני AI ואוטומציות ב‑n8n. פתוחה למשרה ולשילוב בצוותים.
+            מעל 4 שנות ניסיון בפיתוח מערכות, אינטגרציות ואתרים. היום אני בונה ב‑React, Next.js ו‑TypeScript, עם Supabase
+            בצד הנתונים, ומיישמת סוכני AI ואוטומציות ב‑n8n. פתוחה למשרה ולשילוב בצוותים.
           </p>
           <div className="dev-actions">
             <a className="btn btn-accent" href={SITE.github} target="_blank" rel="noreferrer">
