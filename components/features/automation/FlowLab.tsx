@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/ui/cn";
 import { useState } from "react";
 import { AUTOMATION_FLOWS } from "@/content";
 import { useMotionOff } from "@/lib/stores/a11y";
@@ -16,7 +17,7 @@ export default function FlowLab() {
   const flow = AUTOMATION_FLOWS[key];
 
   return (
-    <div className={`flow-lab reveal${paused ? " paused" : ""}`}>
+    <div className={cn("flow-lab reveal", paused && "paused")}>
       <div className="flow-toolbar">
         <span>THE AUTOMATION STUDIO · איך זה עובד מאחורי הקלעים</span>
         <button type="button" aria-pressed={!paused} onClick={() => setUserPaused(!paused)}>
@@ -39,7 +40,7 @@ export default function FlowLab() {
       <div className="flow-diagram" role="group" aria-label="שלבי התהליך">
         {flow.steps.map((s, i) => (
           <div className="flow-step" key={i}>
-            <div className={`flow-node${i === 1 ? " central" : ""}`}>
+            <div className={cn("flow-node", i === 1 && "central")}>
               <small>{STAGES[i]}</small>
               <b>{s.title}</b>
               <span>{s.detail}</span>

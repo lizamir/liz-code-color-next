@@ -1,3 +1,5 @@
+import { cn } from "@/lib/ui/cn";
+
 /**
  * Hand-drawn, rounded arrows (instead of text glyphs like ← ↗).
  * `dir` is the direction the arrow points. In RTL, "forward" is to the left.
@@ -37,9 +39,9 @@ export default function Arrow({ dir = "left", size = 18 }: { dir?: Dir; size?: n
 }
 
 /** The decorative dashed loop arrow (hero), drawn on load. */
-export function LoopArrow({ className = "" }: { className?: string }) {
+export function LoopArrow({ className }: { className?: string }) {
   return (
-    <svg className={`loop-arrow ${className}`} viewBox="0 0 200 220" aria-hidden="true" focusable="false">
+    <svg className={cn("loop-arrow", className)} viewBox="0 0 200 220" aria-hidden="true" focusable="false">
       <path
         className="la-line"
         d="M52 208C92 178 116 140 110 100c-5-34-34-52-58-40-26 13-20 56 16 62 38 6 76-24 96-66 10-21 14-38 13-50"

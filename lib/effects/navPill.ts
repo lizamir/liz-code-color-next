@@ -5,7 +5,9 @@ export function navPill(): Cleanup {
   const nav = document.querySelector<HTMLElement>(".nav-desktop");
   if (!nav) return () => {};
   const pill = document.createElement("span");
-  pill.className = "nav-pill";
+  // `nav-pill` is only a name for tests; the look is the utilities.
+  pill.className =
+    "nav-pill pointer-events-none absolute top-0 left-0 z-0 rounded-[999px] bg-accent-soft opacity-0 [transition:transform_0.35s_var(--ease-out),width_0.35s_var(--ease-out),height_0.35s_var(--ease-out),opacity_0.2s] [.a11y-nomotion_&]:[transition:none]";
   pill.setAttribute("aria-hidden", "true");
   nav.appendChild(pill);
   const links = [...nav.querySelectorAll<HTMLElement>("a")];

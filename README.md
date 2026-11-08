@@ -27,7 +27,8 @@ npm run dev
 - **Commits** follow [Conventional Commits](https://www.conventionalcommits.org); a hook checks each message.
 - **Versions** follow [SemVer](https://semver.org). Changes are listed in `CHANGELOG.md`.
 - **CI** runs every check and the browser tests on each pull request (`.github/workflows/ci.yml`).
-- **Formatting** is Prettier and ESLint, run on staged files before each commit.
+- **Formatting** is Prettier and ESLint, run on staged files before each commit. Prettier also sorts Tailwind classes.
+- **Styling** is [Tailwind CSS](https://tailwindcss.com) v4. Components carry utility classes; class lists used by several parts live in small modules next to them (e.g. `components/sections/aboutClasses.ts`, `components/resume/cvClasses.ts`), joined with `cn()` (`lib/ui/cn.ts`). Brand colors, fonts and breakpoints (`tablet`, `carousel`, `mobile`, `small`, `xs`, `night`, `touch`…) are Tailwind tokens in `app/styles/theme.css`. Plain CSS is kept for what reads better as CSS: tokens and element defaults, the type system, buttons, keyframes and the animated pieces (business card, hero title, chat bubbles, automation studio).
 
 ## What is in it
 
@@ -54,7 +55,11 @@ Project covers are screenshots in `public/work/` (webp). The demos live in `publ
 
 ```
 app/                 routes only: metadata and composing a page
-  styles/            the stylesheet, numbered in cascade order (index.css imports them; the order matters)
+  styles/            index.css (cascade layers and imports), theme.css (Tailwind tokens and breakpoints)
+    base/            brand tokens, element defaults, type system, print
+    components/      buttons, sections, cursor, accessibility menu
+    motion/          keyframes, reveals, background, hero title, business card, chat and steps, automation
+    accessibility-modes.css   contrast, no motion, underlined links, spacing (a layer above components)
 content/             all copy and data, by topic (projects/ has one file per project)
 components/
   layout/            header, mobile menu, footer, bottom nav, logo, day/night, accessibility menu

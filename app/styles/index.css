@@ -1,37 +1,40 @@
-/* The whole stylesheet, in cascade order. Later files override earlier ones, so the order matters.
-   The numbered prefixes keep that order visible in the folder. */
-@import "./01-tokens.css";
-@import "./02-base.css";
-@import "./03-type.css";
-@import "./04-buttons.css";
-@import "./05-reveal.css";
-@import "./06-a11y-modes.css";
-@import "./07-cursor.css";
-@import "./08-a11y-menu.css";
-@import "./09-grain-progress.css";
-@import "./10-shared.css";
-@import "./11-header.css";
-@import "./12-hero.css";
-@import "./13-ribbon.css";
-@import "./14-work.css";
-@import "./15-brand-worlds.css";
-@import "./16-services.css";
-@import "./17-automation.css";
-@import "./18-about.css";
-@import "./19-contact.css";
-@import "./20-footer.css";
-@import "./21-responsive.css";
-@import "./22-case-study.css";
-@import "./23-legal.css";
-@import "./24-cv.css";
-@import "./25-card-devices.css";
-@import "./26-soft-layer.css";
-@import "./27-micro-interactions.css";
-@import "./28-logo-buttons.css";
-@import "./29-qa-pass.css";
-@import "./30-testimonials.css";
-@import "./31-automation-v2.css";
-@import "./32-mobile-fixes.css";
-@import "./33-hero-word-arrows.css";
-@import "./34-night.css";
-@import "./35-split.css";
+/* The whole stylesheet.
+   Tailwind utilities are the main way to style components. The CSS files below hold what reads better as CSS:
+   tokens and element defaults, a few shared components, and the motion (keyframes, reveals, the business card,
+   the hero title, the automation studio).
+
+   Cascade layers, lowest to highest:
+     theme       Tailwind's design tokens
+     base        brand tokens, global element rules, type system, print
+     components  buttons, sections, the accessibility menu, the cursor, motion
+     a11y        the accessibility modes (contrast, no motion, underlined links, spacing) – above components
+     utilities   Tailwind utilities – they always win */
+@layer theme, base, components, a11y, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "./theme.css";
+
+/* These words are class names of the hand-written CSS, not Tailwind utilities. */
+@source not inline("container outline static table sr-only");
+
+@import "./base/tokens.css" layer(base);
+@import "./base/global.css" layer(base);
+@import "./base/typography.css" layer(base);
+@import "./base/print.css" layer(base);
+
+@import "./components/buttons.css" layer(components);
+@import "./components/section.css" layer(components);
+@import "./components/cursor.css" layer(components);
+@import "./components/accessibility-menu.css" layer(components);
+
+@import "./motion/keyframes.css" layer(components);
+@import "./motion/reveal.css" layer(components);
+@import "./motion/background.css" layer(components);
+@import "./motion/hero-title.css" layer(components);
+@import "./motion/business-card.css" layer(components);
+@import "./motion/chat-and-steps.css" layer(components);
+@import "./motion/micro-interactions.css" layer(components);
+@import "./motion/automation.css" layer(components);
+
+@import "./accessibility-modes.css" layer(a11y);

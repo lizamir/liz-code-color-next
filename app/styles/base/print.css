@@ -1,0 +1,37 @@
+/* ───────────── Print: the CV prints as a clean A4 sheet; the CV keeps its day colors at night ───────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+  .a11y,
+  .cursor,
+  .skip-link,
+  .grain,
+  .progress {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #fff !important;
+  }
+  a {
+    color: inherit;
+  }
+}
+html[data-mode="night"] .cv {
+  color-scheme: light;
+  --paper: #fbf7f5;
+  --paper-2: #f6ebee;
+  --card: #fff;
+  --ink: #24161d;
+  --ink-2: #3d2a33;
+  --on-ink: #fff;
+  --muted: #68545d;
+  --line: rgba(36, 22, 29, 0.13);
+  --accent: #c2456f;
+  --accent-ink: #a3345a;
+  --accent-soft: #f9e4eb;
+  --on-accent: #fff;
+  color: var(--ink);
+}

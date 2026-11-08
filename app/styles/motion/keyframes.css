@@ -1,0 +1,316 @@
+/* ───────────── Keyframes used by the animate-[…] utilities and the motion styles ───────────── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(192, 255, 85, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(192, 255, 85, 0);
+  }
+}
+@keyframes marq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes wire {
+  from {
+    inset-inline-start: -12px;
+  }
+  to {
+    inset-inline-start: 100%;
+  }
+}
+@keyframes hop {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.7) rotate(25deg);
+    opacity: 0.7;
+  }
+}
+@keyframes bubble {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, -14px);
+  }
+}
+@keyframes spark {
+  to {
+    transform: translate(var(--dx), var(--dy)) scale(0.2);
+    opacity: 0;
+  }
+}
+@keyframes shine {
+  0%,
+  55% {
+    background-position: 120% 0;
+  }
+  85%,
+  100% {
+    background-position: -40% 0;
+  }
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: none;
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+@keyframes typing-out {
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+@keyframes bubble-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rb-float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes rb-shadow {
+  50% {
+    transform: scaleX(0.82);
+    opacity: 0.7;
+  }
+}
+@keyframes rb-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+@keyframes rb-ping {
+  50% {
+    filter: drop-shadow(0 0 8px var(--robot-eye));
+  }
+}
+@keyframes rb-wave {
+  0%,
+  70%,
+  100% {
+    transform: rotate(0);
+  }
+  76% {
+    transform: rotate(-38deg);
+  }
+  82% {
+    transform: rotate(-18deg);
+  }
+  88% {
+    transform: rotate(-38deg);
+  }
+}
+@keyframes rb-core {
+  50% {
+    transform: scale(1.08);
+  }
+}
+@keyframes rb-say {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+}
+@keyframes ping-live {
+  70% {
+    box-shadow: 0 0 0 9px rgba(58, 208, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(58, 208, 122, 0);
+  }
+}
+@keyframes mask-open {
+  to {
+    overflow: visible;
+  }
+}
+@keyframes iw-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.9em) rotate(-24deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(0.05em) rotate(10deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes iw-glass {
+  0%,
+  30%,
+  50%,
+  60% {
+    fill: var(--paper-2);
+  }
+  18%,
+  40%,
+  70% {
+    fill: var(--idea);
+  }
+}
+@keyframes iw-glow {
+  0%,
+  30%,
+  50%,
+  60% {
+    opacity: 0;
+  }
+  18%,
+  40%,
+  70% {
+    opacity: 0.4;
+  }
+}
+@keyframes iw-glass-hum {
+  0%,
+  93%,
+  95.5%,
+  100% {
+    fill: var(--idea);
+  }
+  94%,
+  96.5% {
+    fill: var(--paper-2);
+  }
+}
+@keyframes iw-breathe {
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+@keyframes iw-ray {
+  from {
+    stroke-dashoffset: 20;
+  }
+}
+@keyframes iw-ray-pulse {
+  50% {
+    stroke-dashoffset: 6;
+  }
+}
+@keyframes iw-swing {
+  25% {
+    transform: rotate(12deg);
+  }
+  60% {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes la-draw {
+  from {
+    stroke-dashoffset: 400;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+}
+@keyframes la-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+    transform-origin: 164px 20px;
+  }
+}
+@supports (animation-timeline: view()) {
+  @keyframes ghost-drift {
+    from {
+      translate: 0 30%;
+    }
+    to {
+      translate: -6% -30%;
+    }
+  }
+}
+@keyframes qa-pop {
+  from {
+    opacity: 0;
+    scale: 0.85;
+  }
+}

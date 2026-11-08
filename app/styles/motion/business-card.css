@@ -1,0 +1,389 @@
+/* ───────────── The business card: it hangs from a cord, swings (JS), flips in 3D ───────────── */
+.bc {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  min-height: min(560px, 70svh);
+  padding-top: 0;
+  --cw: min(470px, 84vw);
+}
+.bc-rig {
+  transform-origin: 50% 0;
+  display: grid;
+  justify-items: center;
+  will-change: transform;
+  touch-action: pan-y;
+}
+.bc-cord {
+  width: 2px;
+  height: clamp(80px, 14svh, 150px);
+  background: linear-gradient(var(--on-deep-2), var(--accent-light));
+  border-radius: 2px;
+}
+.bc-ring {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 4px solid #cfd2dc;
+  box-shadow:
+    inset 0 0 0 2px #7d8190,
+    0 3px 6px rgba(0, 0, 0, 0.4);
+  margin-top: -4px;
+  position: relative;
+  z-index: 2;
+}
+.bc-card {
+  width: var(--cw);
+  aspect-ratio: 1.72 / 1;
+  margin-top: -14px;
+  perspective: 1200px;
+  cursor: grab;
+  --tx: 0deg;
+  --ty: 0deg;
+  --gx: 50%;
+  --gy: 30%;
+  touch-action: pan-y;
+  user-select: none;
+}
+.bc-card:active {
+  cursor: grabbing;
+}
+.bc-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.9s var(--ease-spring);
+  transform: rotateX(var(--tx)) rotateY(calc(var(--ty) + 0deg));
+}
+.bc-card[data-flipped="true"] .bc-inner {
+  transform: rotateX(var(--tx)) rotateY(calc(var(--ty) + 180deg));
+}
+.bc-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  padding: 6% 6.5%;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 40px 60px -28px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.bc-front {
+  background:
+    radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--accent) 80%, #fff) 0, transparent 55%),
+    linear-gradient(150deg, #3a1b2a 0%, #1f0e16 70%);
+  color: #fff;
+  justify-content: flex-end;
+}
+.bc-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.4px) 0 0/14px 14px;
+  mask-image: linear-gradient(135deg, #000, transparent 60%);
+}
+.bc-hole {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-start: 50%;
+  width: 38px;
+  height: 7px;
+  border-radius: 99px;
+  background: #14080d;
+  box-shadow:
+    inset 0 1px 2px #000,
+    0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateX(50%);
+}
+.bc-spark {
+  position: absolute;
+  inset-block-start: 14%;
+  inset-inline-start: 8%;
+  width: 11%;
+  color: var(--lime);
+  animation: twinkle 3.6s ease-in-out infinite;
+}
+.bc-tag {
+  font: 800 0.7rem/1 var(--font-display);
+  letter-spacing: 0.22em;
+  color: var(--lime);
+}
+.bc-front .bc-tag {
+  position: absolute;
+  inset-block-start: 15%;
+  inset-inline-start: 7%;
+}
+.bc-id {
+  position: relative;
+  z-index: 1;
+}
+.bc-id h2 {
+  font-size: clamp(1.4rem, 3.4vw, 2rem);
+  letter-spacing: -0.04em;
+}
+.bc-id p {
+  color: var(--on-deep-2);
+  font-size: clamp(0.8rem, 1.7vw, 0.98rem);
+  margin-top: 2px;
+}
+.bc-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.28);
+  font: 700 0.64rem/1 var(--font-display);
+  letter-spacing: 0.12em;
+  color: var(--on-deep-2);
+}
+.bc-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(260px circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.26), transparent 60%);
+  mix-blend-mode: soft-light;
+}
+.bc-back {
+  transform: rotateY(180deg);
+  background: var(--paper);
+  color: var(--ink);
+  gap: 8px;
+  justify-content: space-between;
+}
+.bc-back .bc-tag {
+  color: var(--accent-ink);
+}
+.bc-back ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 5px;
+}
+.bc-back li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 5px;
+  font: 700 clamp(0.78rem, 1.9vw, 0.95rem)/1.2 var(--font-display);
+}
+.bc-back li a:hover {
+  color: var(--accent-ink);
+  text-decoration: underline;
+}
+.bc-back button {
+  font: 800 0.7rem/1 var(--font-display);
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 99px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.bc-back button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.bc-wa {
+  align-self: flex-start;
+  background: var(--ink);
+  color: var(--lime);
+  border-radius: 99px;
+  padding: 8px 16px;
+  font: 800 0.82rem/1 var(--font-display);
+}
+.bc-flip {
+  margin-top: 22px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 99px;
+  padding: 9px 18px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font: 800 0.85rem/1 var(--font-display);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.bc-flip:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.a11y-nomotion .bc-inner {
+  transition: none;
+}
+.bc-photo {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: 41%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 14%;
+  -webkit-mask-image: linear-gradient(to left, #000 72%, transparent);
+  mask-image: linear-gradient(to left, #000 72%, transparent);
+  pointer-events: none;
+}
+.bc-front .bc-tag {
+  inset-inline-start: auto;
+  inset-inline-end: auto;
+  right: 7%;
+  left: auto;
+}
+.bc-front .bc-id,
+.bc-front .bc-foot {
+  width: 54%;
+  margin-inline-end: auto;
+}
+.bc-spark {
+  inset-inline-start: auto;
+  inset-inline-end: 44%;
+}
+.bc-front .bc-foot {
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+.bc-front .bc-foot {
+  margin-left: auto;
+  margin-right: 0;
+  align-items: flex-end;
+}
+.bc-id {
+  text-align: right;
+}
+.fc {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 2px;
+  color: var(--accent);
+  pointer-events: none;
+  animation: drift 9s ease-in-out infinite;
+  direction: ltr;
+}
+.fc b {
+  margin-top: 14px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: 800 0.72rem/1 var(--font-display);
+  letter-spacing: 0.04em;
+  padding: 5px 9px;
+  border-radius: 99px;
+}
+.fc-a {
+  inset-block-start: 36%;
+  inset-inline-start: 2%;
+}
+.fc-b {
+  inset-block-end: 24%;
+  inset-inline-end: 0;
+  color: var(--accent-2);
+  animation-delay: -4s;
+}
+.fc-b b {
+  background: var(--accent-2);
+  color: var(--on-idea);
+}
+.a11y-nomotion .fc {
+  animation: none;
+}
+.bc-front {
+  background: var(--deep);
+}
+.bc-flip {
+  border-color: var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  backdrop-filter: none;
+}
+.bc-flip:hover {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.bc-cord {
+  background: linear-gradient(var(--line), var(--accent));
+}
+.bc-ring {
+  border-color: #d8c9cf;
+  box-shadow:
+    inset 0 0 0 2px #9a8790,
+    0 3px 6px rgba(36, 22, 29, 0.25);
+}
+.bc-wa {
+  color: var(--accent-light);
+}
+.bc-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0e7a3f;
+  color: #fff;
+}
+.hero .bc {
+  margin-top: -110px;
+  min-height: min(500px, 62svh);
+}
+.bc-cord {
+  height: clamp(36px, 7svh, 84px);
+}
+@media (max-width: 900px) {
+  .hero .bc {
+    margin-top: 0;
+  }
+}
+.bc-front {
+  transform: translateZ(1px);
+  visibility: visible;
+  transition: visibility 0s linear 0.36s;
+}
+.bc-back {
+  transform: rotateY(180deg) translateZ(1px);
+  visibility: hidden;
+  transition: visibility 0s linear 0.36s;
+}
+.bc-card[data-flipped="true"] .bc-front {
+  visibility: hidden;
+}
+.bc-card[data-flipped="true"] .bc-back {
+  visibility: visible;
+}
+@media (max-width: 900px) {
+  .hero .fc {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .hero .bc {
+    order: -1;
+    min-height: 0;
+    margin: 0;
+    --cw: min(420px, 88vw);
+  }
+  .hero .bc-cord {
+    height: 26px;
+  }
+  .hero .bc-flip {
+    margin-top: 14px;
+  }
+}
+html[data-mode="night"] .bc-front {
+  background: #2c1520;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 40px 60px -28px rgba(0, 0, 0, 0.8);
+}
+html[data-mode="night"] .bc-wa {
+  background: #2c1520;
+}

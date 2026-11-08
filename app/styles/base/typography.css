@@ -1,0 +1,64 @@
+/* ───────────── Type system: eyebrow, display and section titles, lead, handwriting accent, text links ───────────── */
+.hand {
+  font-family: var(--font-hand-face);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 700 0.8125rem/1 var(--font-display);
+  letter-spacing: 0.18em;
+  direction: ltr;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 2px;
+  background: currentColor;
+}
+.eyebrow b {
+  font: 800 1rem/1 var(--font-display);
+  letter-spacing: 0;
+}
+.display {
+  font-size: clamp(2.8rem, 6.6vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+}
+.title {
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  margin-top: 16px;
+}
+.title em,
+.display em {
+  font-style: normal;
+  color: var(--accent-ink);
+}
+.lead {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 38rem;
+}
+.big-text {
+  font: 700 clamp(1.3rem, 2vw, 1.7rem)/1.45 var(--font-display);
+  letter-spacing: -0.025em;
+}
+.text-link {
+  font: 800 1.05rem var(--font-display);
+  border-bottom: 2px solid var(--accent);
+  padding-block: 6px 4px;
+}
+@media (max-width: 480px) {
+  .display {
+    font-size: clamp(2.5rem, 12.5vw, 3.4rem);
+  }
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/content";
+import { brandLink } from "@/components/layout/Logo";
 
 export const metadata: Metadata = {
   title: "הצהרת נגישות",
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
 /** The accessibility statement page. */
 export default function AccessibilityStatement() {
   return (
-    <div className="legal">
-      <header className="legal-head">
-        <div className="container">
-          <Link href="/" className="brand" aria-label="Liz Code and Color, לדף הבית">
+    <div className="min-h-[100vh] bg-paper">
+      <header className="border-b border-b-line py-[18px]">
+        <div className="container flex items-center justify-between">
+          <Link href="/" className={brandLink} aria-label="Liz Code and Color, לדף הבית">
             <span>LIZ</span>
             <i />
             CODE&amp;COLOR
@@ -24,9 +25,12 @@ export default function AccessibilityStatement() {
           </Link>
         </div>
       </header>
-      <main id="main" className="container legal-body">
+      <main
+        id="main"
+        className="container grid max-w-[780px] gap-[34px] [padding:70px_0_110px] [&_a]:text-accent-ink [&_a]:underline [&_a]:underline-offset-[0.2em] [&_h2]:mb-3 [&_h2]:text-[1.7rem] [&_ul]:grid [&_ul]:gap-2.5 [&_ul]:ps-[22px]"
+      >
         <p className="eyebrow">ACCESSIBILITY</p>
-        <h1 className="title">הצהרת נגישות</h1>
+        <h1 className="title m-0">הצהרת נגישות</h1>
         <p className="lead">
           אני רוצה שכל אחד ואחת יוכלו להכיר את העבודות שלי ולפנות אליי, בלי קשר ליכולות או למכשיר. כך האתר בנוי:
         </p>

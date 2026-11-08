@@ -3,12 +3,12 @@ import { SITE } from "@/content";
 /** Name, role and contact details at the top of the CV. */
 export default function ResumeHead() {
   return (
-    <header className="cv-head">
+    <header className="flex flex-wrap [align-items:end] justify-between gap-6 border-b-4 border-b-ink pb-[22px]">
       <div>
-        <h1>{SITE.person}</h1>
-        <p className="cv-role">{SITE.role}</p>
+        <h1 className="text-[3rem] tracking-[-0.05em] print:text-[26pt]">{SITE.person}</h1>
+        <p className="mt-1 text-accent-ink [font:700_1.2rem_var(--font-display)]">{SITE.role}</p>
       </div>
-      <ul className="cv-contact">
+      <ul className="grid list-none gap-[2px] p-0 text-[0.95rem]">
         <li>
           <bdi>{SITE.phone}</bdi>
         </li>

@@ -1,0 +1,56 @@
+/* Tailwind's view of the brand tokens. The values point at the CSS variables in the tokens file,
+   so night mode, which redefines those variables on <html>, applies to utilities too. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-on-ink: var(--on-ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-deep: var(--deep);
+  --color-deep-2: var(--deep-2);
+  --color-on-deep: var(--on-deep);
+  --color-on-deep-2: var(--on-deep-2);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-light: var(--accent-light);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-on-accent: var(--on-accent);
+  --color-blush: var(--blush);
+  --color-idea: var(--idea);
+  --color-on-idea: var(--on-idea);
+
+  --font-heading: var(--font-display);
+  --font-text: var(--font-body);
+  --font-handwriting: var(--font-hand-face);
+
+  --ease-out-soft: var(--ease-out);
+  --ease-spring: var(--ease-spring);
+}
+
+/* Breakpoints, written as the site's own max-width rules (inclusive), widest first. */
+/* The brand-worlds row turns into a swipe carousel below this width. */
+@custom-variant carousel (@media (max-width: 1199px));
+@custom-variant tablet (@media (max-width: 1100px));
+@custom-variant upto-1000 (@media (max-width: 1000px));
+@custom-variant mobile (@media (max-width: 900px));
+@custom-variant upto-820 (@media (max-width: 820px));
+@custom-variant upto-640 (@media (max-width: 640px));
+@custom-variant small (@media (max-width: 560px));
+@custom-variant xs (@media (max-width: 480px));
+@custom-variant wide (@media (min-width: 901px));
+@custom-variant night (&:where(html[data-mode="night"] *));
+/* Phones and touch screens. Block form: a comma inside the short form would split the selector. */
+@custom-variant touch {
+  @media (max-width: 900px), (pointer: coarse) {
+    @slot;
+  }
+}
+@custom-variant no-hover {
+  @media (hover: none), (pointer: coarse) {
+    @slot;
+  }
+}

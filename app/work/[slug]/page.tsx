@@ -53,12 +53,12 @@ export default async function CaseStudy({ params }: Props) {
     <>
       <ScrollProgress />
       <Header home={false} />
-      <main id="main" className="case">
+      <main id="main">
         <CaseHero p={p} links={links} />
 
-        <div className="container case-body">
-          <figure className="case-cover case-devices reveal">
-            <Devices mock={p.mock} alt={p.coverAlt} priority className="dv-large" />
+        <div className="container pb-10">
+          <figure className="reveal relative z-2 [margin:-90px_0_40px] overflow-visible rounded-[32px] px-[4%] [box-shadow:none] [background:none] [border:0]">
+            <Devices mock={p.mock} alt={p.coverAlt} priority className="mx-auto max-w-[1000px]" />
           </figure>
 
           <CaseStory p={p} />

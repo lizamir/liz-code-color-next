@@ -1,0 +1,88 @@
+/* ───────────── Sections: spacing, the section head with its ghost word, the dark (on-deep) theme ───────────── */
+.container {
+  width: min(var(--container), 100% - 64px);
+  margin-inline: auto;
+}
+.on-deep .eyebrow {
+  color: var(--lime);
+}
+.on-deep .lead {
+  color: var(--on-deep-2);
+}
+.section {
+  padding: 130px 0;
+  position: relative;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.section-head .lead {
+  flex: none;
+  max-width: 30rem;
+}
+.on-deep {
+  background: var(--deep);
+  color: var(--on-deep);
+}
+@media (max-width: 900px) {
+  .container {
+    width: min(1280px, 100% - 36px);
+  }
+  .section {
+    padding: 84px 0;
+  }
+  .section-head {
+    flex-direction: column;
+    align-items: start;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+}
+.on-deep {
+  background-color: var(--deep);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: var(--grid) var(--grid);
+}
+.section-head {
+  position: relative;
+  isolation: isolate;
+}
+.ghost-word {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: -0.62em;
+  inset-inline-end: 0;
+  font: 400 clamp(5.5rem, 13vw, 11rem)/1 var(--font-hand-face);
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(var(--accent-rgb), 0.28);
+  direction: ltr;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.section-head > div,
+.section-head > .lead {
+  position: relative;
+}
+.on-deep .ghost-word {
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.13);
+}
+@supports (animation-timeline: view()) {
+  .ghost-word {
+    animation: ghost-drift linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+}
+@media (max-width: 700px) {
+  .ghost-word {
+    font-size: 5rem;
+    inset-block-start: -0.5em;
+  }
+}
