@@ -3,7 +3,7 @@ import type { Project } from "./types";
 export const signatureEngine: Project = {
   slug: "signature-engine",
   mock: "signature",
-  no: "05",
+  no: "06",
   title: "SIGNATURE ENGINE",
   kicker: "מערכת לחתימות מייל",
   summary: "מערכת חכמה ליצירה וניהול של חתימות מייל אחידות, עם תצוגה חיה וחוויית עריכה פשוטה.",

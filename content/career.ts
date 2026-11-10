@@ -81,7 +81,17 @@ export const STACK = [
   { group: "שרת ונתונים", items: ["Node.js", "Supabase", "Postgres & RLS", "REST & Webhooks"] },
   {
     group: "AI ואוטומציה",
-    items: ["Claude Code", "n8n", "AI Agents", "RAG", "MCP", "Claude · OpenAI", "Pinecone · LlamaParse"],
+    items: [
+      "Claude API · Tool use",
+      "Claude Code",
+      "AI Agents",
+      "RAG",
+      "Evals",
+      "MCP",
+      "n8n",
+      "OpenAI",
+      "Pinecone · LlamaParse",
+    ],
   },
   { group: "אינטגרציה", items: ["Workato", "MuleSoft", "APIs", "חיבור בין מערכות"] },
   { group: "עיצוב ותוכן", items: ["Figma", "UX/UI", "Design systems"] },

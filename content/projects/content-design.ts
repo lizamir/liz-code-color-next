@@ -3,7 +3,7 @@ import type { Project } from "./types";
 export const contentDesign: Project = {
   slug: "content-design",
   mock: "creative",
-  no: "06",
+  no: "07",
   title: "CONTENT & DESIGN",
   kicker: "קריאייטיב, רשתות ושפה גרפית",
   summary:

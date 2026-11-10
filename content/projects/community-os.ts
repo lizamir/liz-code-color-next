@@ -3,7 +3,7 @@ import type { Project } from "./types";
 export const communityOs: Project = {
   slug: "community-os",
   mock: "community",
-  no: "03",
+  no: "04",
   title: "COMMUNITY OS",
   kicker: "לוח בקרה לפעילות קהילתית",
   summary: "תקציב, השתתפות ושעות התנדבות בתמונה אחת: פילוחים אינטראקטיביים, גרפים ותובנות שמחושבים יחד.",

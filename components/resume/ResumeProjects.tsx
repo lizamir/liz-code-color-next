@@ -9,7 +9,7 @@ export default function ResumeProjects() {
       <section>
         <h2>פרויקטים נבחרים</h2>
         <ul className={cvList}>
-          {PROJECTS.map((p) => (
+          {PROJECTS.filter((p) => !p.cv).map((p) => (
             <li key={p.slug} className={cvItem}>
               <div className={cvItemHead}>
                 <b className={cvItemTitle} dir="ltr">

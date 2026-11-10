@@ -1,6 +1,7 @@
 // All projects, in the order they appear on the site. Each one lives in its own file.
 
 import type { Category, Project } from "./types";
+import { moked } from "./moked";
 import { ganli } from "./ganli";
 import { telegramBot } from "./telegram-bot";
 import { communityOs } from "./community-os";
@@ -17,4 +18,4 @@ export const CATEGORIES: { id: "all" | Category; label: string }[] = [
   { id: "ai", label: "AI ואוטומציה" },
 ];
 
-export const PROJECTS: Project[] = [ganli, telegramBot, communityOs, glowStudio, signatureEngine, contentDesign];
+export const PROJECTS: Project[] = [moked, ganli, telegramBot, communityOs, glowStudio, signatureEngine, contentDesign];

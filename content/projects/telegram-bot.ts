@@ -3,7 +3,7 @@ import type { Project } from "./types";
 export const telegramBot: Project = {
   slug: "telegram-bot",
   mock: "bot",
-  no: "02",
+  no: "03",
   title: "AI AGENT · TELEGRAM",
   kicker: "סוכן שירות לקוחות ב‑n8n",
   summary:

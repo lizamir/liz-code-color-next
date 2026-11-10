@@ -3,7 +3,7 @@ import type { Project } from "./types";
 export const ganli: Project = {
   slug: "ganli",
   mock: "ganli",
-  no: "01",
+  no: "02",
   title: "גנלי",
   kicker: "מיתוג, אתר ומערכת ניהול לגן",
   summary:

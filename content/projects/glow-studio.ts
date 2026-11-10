@@ -3,7 +3,7 @@ import type { Project } from "./types";
 export const glowStudio: Project = {
   slug: "glow-studio",
   mock: "glow",
-  no: "04",
+  no: "05",
   title: "GLOW STUDIO",
   kicker: "אתר לסטודיו ביוטי",
   summary: "אתר לסטודיו לטיפוח: אור יום, נייר בהיר ובחירת תחום טיפול שמחליפה את ההסבר במקום.",

@@ -3,6 +3,7 @@ import Arrow from "@/components/ui/Arrow";
 import Link from "next/link";
 import PrintButton from "@/components/ui/PrintButton";
 import ResumeExperience from "@/components/resume/ResumeExperience";
+import ResumeFeatured from "@/components/resume/ResumeFeatured";
 import ResumeHead from "@/components/resume/ResumeHead";
 import ResumeProjects from "@/components/resume/ResumeProjects";
 
@@ -34,6 +35,7 @@ export default function CV() {
         className="cv mx-auto grid max-w-[860px] gap-7 rounded-[22px] bg-white [padding:54px_58px] text-[1.02rem] leading-[1.6] shadow-[0_30px_70px_-40px_rgba(16,16,16,0.6)] print:max-w-none print:gap-4 print:rounded-none print:p-0 print:text-[10.5pt] print:[box-shadow:none] mobile:[padding:28px_20px] [&_h2]:mb-3 [&_h2]:tracking-[0.2em] [&_h2]:text-accent-ink [&_h2]:uppercase [&_h2]:[font:900_0.85rem_var(--font-display)] print:[&_h2]:[break-after:avoid]"
       >
         <ResumeHead />
+        <ResumeFeatured />
         <ResumeExperience />
         <ResumeProjects />
       </main>
