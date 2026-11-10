@@ -7,6 +7,7 @@ import Reveal from "@/components/motion/Reveal";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import { PROJECTS } from "@/content";
 import CaseCta from "@/components/case-study/CaseCta";
+import CaseDemo from "@/components/case-study/CaseDemo";
 import CaseHero from "@/components/case-study/CaseHero";
 import CaseNext from "@/components/case-study/CaseNext";
 import CaseStory from "@/components/case-study/CaseStory";
@@ -57,9 +58,13 @@ export default async function CaseStudy({ params }: Props) {
         <CaseHero p={p} links={links} />
 
         <div className="container pb-10">
-          <figure className="reveal relative z-2 [margin:-90px_0_40px] overflow-visible rounded-[32px] px-[4%] [box-shadow:none] [background:none] [border:0]">
-            <Devices mock={p.mock} alt={p.coverAlt} priority className="mx-auto max-w-[1000px]" />
-          </figure>
+          {p.demo ? (
+            <CaseDemo demo={p.demo} />
+          ) : (
+            <figure className="reveal relative z-2 [margin:-90px_0_40px] overflow-visible rounded-[32px] px-[4%] [box-shadow:none] [background:none] [border:0]">
+              <Devices mock={p.mock} alt={p.coverAlt} priority className="mx-auto max-w-[1000px]" />
+            </figure>
+          )}
 
           <CaseStory p={p} />
 

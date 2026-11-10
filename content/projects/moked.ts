@@ -20,6 +20,16 @@ export const moked: Project = {
     { href: "https://lizhajage.co.il/moked/", label: "איך זה עובד", external: true },
     { href: "https://github.com/lizamir/moked", label: "לצפייה בקוד", external: true },
   ],
+  demo: {
+    src: "/work/moked-demo.webp",
+    still: "/work/moked-demo-still.webp",
+    alt: "שיחה עם הסוכן בצ'אט בסגנון וואטסאפ: הלקוחה שואלת מחיר, מאשרת קביעת תור, ומקבלת מייל עם זימון ליומן. לצדה רשימת הכלים שהסוכן הפעיל.",
+    w: 1280,
+    h: 720,
+    href: "https://lizhajage.co.il/moked/demo.html",
+    caption:
+      "שיחה אמיתית עם הסוכן, שהוקלטה פעם אחת ומנוגנת מחדש. מימין מה שהלקוחה רואה, ומשמאל מה הסוכן עשה מאחורי הקלעים.",
+  },
   challenge:
     "עסק קטן רוצה עוזר שעונה ללקוחות וגם פועל: קובע תור, שולח אישור. אבל מודל שפה יכול לטעות, לנחש מחיר או להשתכנע מטקסט זדוני. צריך סוכן שהחלטות קריטיות לא תלויות אצלו בבקשה יפה.",
   approach: [

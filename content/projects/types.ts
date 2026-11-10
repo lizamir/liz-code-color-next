@@ -22,6 +22,8 @@ export type Project = {
   approach: string[];
   highlights: { title: string; text: string }[];
   gallery?: { src: string; alt: string; w: number; h: number }[];
+  /** A recorded demo shown at the top of the project page instead of the device mockup. */
+  demo?: { src: string; still: string; alt: string; w: number; h: number; href: string; caption: string };
   /** When set, the project opens the CV as a highlighted lead project. */
   cv?: { headline: string; bullets: string[] };
 };
